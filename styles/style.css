@@ -73,13 +73,13 @@ h1, h2, h3, h4, h5, h6,
 
 .logos {
   display: flex;
-  gap: 2.5rem;
+  gap: clamp(1rem, 2.5vw, 2.5rem);
   align-items: center;
-  margin-left: -250px;
+  margin-left: clamp(-50px, -15vw, -250px);
 }
 
 .voices-logo {
-  height: 61.6px;
+  height: clamp(40px, 6vw, 61.6px);
   width: auto;
 }
 
@@ -88,12 +88,12 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .logo {
-  height: 110px;
+  height: clamp(50px, 8vw, 90px);
   width: auto;
 }
 
 .course-title {
-  font-size: 2.75rem;
+  font-size: clamp(1.2rem, 4vw, 2rem);
   font-weight: 400;
   color: #374151;
 }
@@ -116,7 +116,7 @@ h1, h2, h3, h4, h5, h6,
   font-size: 0.875rem;
   transition: opacity 0.2s;
   letter-spacing: 0.05em;
-  margin-right: -200px;
+  margin-right: clamp(-50px, -12vw, -200px);
 }
 
 .btn-contact:hover {
@@ -152,16 +152,17 @@ h1, h2, h3, h4, h5, h6,
 
 /* Section Styles */
 section {
-  padding: 4rem 2rem;
+  padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 2vw, 2rem);
 }
 
 .section-content {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 clamp(1rem, 2vw, 2rem);
 }
 
 .section-title {
-  font-size: 40px;
+  font-size: clamp(24px, 3vw, 40px);
   font-weight: 400;
   text-transform: uppercase;
   color: #374151;
@@ -216,7 +217,7 @@ section {
 .bear-main {
   position: relative;
   z-index: 2;
-  width: 80%;
+  width: clamp(60%, 80%, 80%);
   height: auto;
   display: block;
   margin: 0 auto;
@@ -313,7 +314,7 @@ section {
   background: #345AA6;
   color: var(--color-white);
   position: relative;
-  padding: 6rem 2rem;
+  padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 2vw, 2rem);
   overflow: visible;
 }
 
@@ -321,7 +322,7 @@ section {
   position: absolute;
   top: calc(2rem - 220px);
   right: 2rem;
-  width: 375px;
+  width: clamp(150px, 20vw, 375px);
   height: auto;
   animation: breathingFloat 4s ease-in-out infinite;
 }
@@ -351,13 +352,13 @@ section {
 .video-player-main {
   background: var(--color-white);
   border-radius: 10px;
-  padding: 4rem 6rem;
+  padding: clamp(2rem, 4vw, 4rem) clamp(2rem, 6vw, 6rem);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 360px;
-  width: 1200px;
-  max-width: 90%;
+  min-height: 250px;
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -366,8 +367,8 @@ section {
   bottom: 3rem;
   left: 0;
   display: inline-block;
-  width: 216px;
-  height: 216px;
+  width: clamp(120px, 15vw, 216px);
+  height: clamp(120px, 15vw, 216px);
   overflow: visible;
 }
 
@@ -377,7 +378,7 @@ section {
   left: 0;
   transform: translate(0, -50%);
   z-index: 1;
-  width: 225px;
+  width: clamp(120px, 15vw, 225px);
   height: auto;
   animation: starGlow 3s ease-in-out infinite;
   filter: brightness(1);
@@ -400,7 +401,7 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  width: 216px;
+  width: clamp(60px, 12vw, 216px);
   height: auto;
   animation: bulbGlow 3s ease-in-out infinite;
   filter: brightness(1);
@@ -441,7 +442,7 @@ section {
   position: absolute;
   top: 0;
   right: 0;
-  width: 200px;
+  width: clamp(100px, 15vw, 200px);
   height: auto;
   z-index: 10;
   animation: breathingFloat 4s ease-in-out infinite;
@@ -584,7 +585,7 @@ section {
 /* Footer */
 .footer {
   background: #5EC0C1;
-  padding: 4rem 2rem;
+  padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 2vw, 2rem);
   color: var(--color-white);
   position: relative;
   overflow: visible;
@@ -608,7 +609,7 @@ section {
 }
 
 .footer-bear-left img {
-  width: 500px;
+  width: clamp(200px, 30vw, 400px);
   height: auto;
 }
 
@@ -688,13 +689,14 @@ section {
 
 
 .every-breath-counts {
-  width: 600px;
+  width: 100%;
+  max-width: 400px;
   height: auto;
 }
 
 .footer-tagline {
   font-family: Geneva, sans-serif;
-  font-size: 36px;
+  font-size: clamp(16px, 2.5vw, 24px);
   font-weight: 400;
   line-height: 1.6;
 }
@@ -802,16 +804,87 @@ section {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .boots-top-right,
+  .boots-top-right {
+    width: clamp(100px, 15vw, 200px);
+  }
+
   .pouring-icon-top {
-    width: 100px;
+    width: clamp(80px, 12vw, 150px);
+  }
+
+  .video-player-main {
+    padding: 2rem;
+    min-height: 200px;
+  }
+
+  .lightbulb-wrapper-bottom {
+    width: clamp(100px, 12vw, 180px);
+    height: clamp(100px, 12vw, 180px);
+  }
+
+  .yellow-star {
+    width: clamp(100px, 12vw, 180px);
+  }
+
+  .lightbulb-icon {
+    width: clamp(50px, 10vw, 150px);
+  }
+
+  .footer-bear-left img {
+    width: clamp(150px, 25vw, 350px);
+  }
+
+  .footer-bull-right img {
+    width: clamp(150px, 15vw, 200px);
+  }
+
+  .every-breath-counts {
+    max-width: 300px;
   }
 }
 
 @media (max-width: 768px) {
+  body {
+    padding-top: 80px;
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
   .header-content {
     flex-direction: column;
     text-align: center;
+    gap: 0.5rem;
+  }
+
+  .logos {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .course-title {
+    font-size: 1.2rem;
+  }
+
+  .btn-contact {
+    margin-right: 0;
+    margin-top: 0.5rem;
+  }
+
+  .hero-spacer {
+    height: 80px;
+  }
+
+  .section-title {
+    font-size: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .butterfly-icon {
+    width: 30px;
+    height: 30px;
   }
 
   .benefits-grid,
@@ -823,17 +896,35 @@ section {
     grid-template-columns: 1fr;
   }
 
+  .footer-left {
+    margin-left: 0;
+  }
+
   .footer-bear-left,
   .footer-bull-right {
     position: relative;
     top: 0;
     margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .footer-bear-left img {
+    width: 200px;
+  }
+
+  .footer-bull-right img {
+    width: 150px;
   }
 
   .bull-rope-attached {
     position: relative;
     top: 0;
+    right: auto;
     margin-top: 1rem;
+    width: 100%;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .boots-top-right {
@@ -845,17 +936,54 @@ section {
   .lightbulb-wrapper-bottom {
     bottom: 1rem;
     left: 1rem;
+    width: 100px;
+    height: 100px;
   }
 
   .yellow-star {
-    width: 100px;
+    width: 80px;
   }
 
   .lightbulb-icon {
-    width: 60px;
+    width: 50px;
   }
 
   .pouring-icon-top {
-    width: 120px;
+    width: 100px;
+  }
+
+  .video-player-main {
+    padding: 2rem 1rem;
+    min-height: 150px;
+  }
+
+  .intro-description {
+    font-size: 16px;
+    padding: 0 1rem;
+  }
+
+  .course-description {
+    font-size: 16px;
+  }
+
+  .session-description {
+    font-size: 16px;
+  }
+
+  .footer-tagline {
+    font-size: 18px;
+  }
+
+  .every-breath-counts {
+    max-width: 250px;
+  }
+
+  .bear-main {
+    width: 90%;
+  }
+
+  .layer-58,
+  .layer-59 {
+    display: none;
   }
 }
