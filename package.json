@@ -1,0 +1,12 @@
+{
+  "name": "abc-active-breathing-course",
+  "private": true,
+  "description": "ABC Active Breathing Course - Big Breathing Adventure Landing Page",
+  "scripts": {
+    "dev": "npx serve -l 5173 . || npx http-server -p 5173 . || python3 -m http.server 5173"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "serve": "^14.2.5"
+  }
+}

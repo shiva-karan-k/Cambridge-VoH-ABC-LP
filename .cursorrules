@@ -1,0 +1,318 @@
+# Cursor Rules: ABC Active Breathing Course Landing Page
+
+## CRITICAL: CORE BEHAVIORAL RULES
+
+### MANDATORY: Verification Before Claiming Completion
+**NEVER claim something is "fixed" or "done" without:**
+1. ✅ Actually reading the current file state
+2. ✅ Verifying the exact code changes were applied
+3. ✅ Checking that asset paths exist and are correct
+4. ✅ Confirming CSS selectors match HTML structure
+5. ✅ Testing that changes logically solve the problem
+
+**If user says "it's not working" or "changes didn't happen":**
+- STOP claiming it's fixed
+- Read the actual files to see current state
+- Check browser console for errors
+- Verify asset paths exist
+- Test the CSS logic step by step
+- Only then make corrections
+
+### Recurring Mistakes Log (DO NOT REPEAT)
+
+#### Mistake #1: Claiming Fixes Without Verification
+- **What happened**: User reported layers not visible, I claimed fixed multiple times without verifying
+- **Root cause**: Not checking actual file state, assuming changes worked
+- **Prevention**: ALWAYS read files after making changes, verify CSS selectors match HTML
+
+#### Mistake #2: Layer Overlays Not Visible
+- **What happened**: Layer 58 & 59 not showing behind bear
+- **Root cause**: 
+  - Using `width: auto` on absolutely positioned elements without container reference
+  - Not setting proper container width
+  - Z-index order wrong
+- **Correct approach**:
+  - Container must have defined width
+  - Layers need `width: 100%` relative to container OR explicit pixel sizes
+  - Bear must be `position: relative` with higher z-index
+  - Layers must be `position: absolute` with lower z-index
+
+#### Mistake #3: Not Checking Asset Existence
+- **What happened**: Referenced assets that don't exist or wrong paths
+- **Prevention**: ALWAYS list directory or check file existence before using asset paths
+
+#### Mistake #5: Changing Working Code Without Permission
+- **What happened**: Changed bear size without user asking, modified things that were already working
+- **Root cause**: Making assumptions about what needs to be "improved" without explicit request
+- **Prevention**: 
+  - NEVER change sizes, colors, or positioning unless explicitly requested
+  - If something is working, LEAVE IT ALONE
+  - Only modify what the user specifically asks to change
+  - When in doubt, ask before changing
+
+#### Mistake #7: Poor Icon/Layer Positioning
+- **What happened**: Repeatedly positioned layers/icons incorrectly despite user corrections
+- **Root cause**: 
+  - Not carefully analyzing reference images/descriptions
+  - Using arbitrary percentages without understanding visual relationship
+  - Not testing positioning relative to actual element positions
+  - Making assumptions about "left", "right", "top", "bottom" without verifying
+- **Prevention**:
+  - ALWAYS analyze reference image/description carefully BEFORE coding
+  - Understand WHERE elements should emanate FROM (e.g., "from bear's mouth" = center-left)
+  - Understand WHERE elements should extend TO (e.g., "extending left" = negative left offset)
+  - Use `top: 0%` for top edge, `bottom: 0%` for bottom edge, `left: 0%` for left edge, `right: 0%` for right edge
+  - Use `top: 50%` for vertical center, `left: 50%` for horizontal center
+  - Transform translate values should match the direction element extends
+  - Test positioning step by step, don't guess
+  - When user says "it's wrong", READ the reference again, don't just adjust randomly
+
+#### Mistake #6: Wrong Z-Index Order for Layers
+- **What happened**: Bear was above green layer when green layer should be above bear
+- **Root cause**: Not understanding layer stacking requirements
+- **Correct order**:
+  - Bear: `z-index: 1` (bottom layer)
+  - Layer 58: `z-index: 2` (middle layer)
+  - Layer 59 (green): `z-index: 3` (top layer - above bear)
+
+## STRONGHOLD BASE RULES - FOUNDATIONAL PRINCIPLES
+
+### Rule #1: Reference Analysis First
+- BEFORE writing any positioning code, carefully analyze the reference image/description
+- Identify WHERE elements originate FROM (e.g., "from bear's mouth" = center-left of bear)
+- Identify WHERE elements extend TO (e.g., "extending left" = negative left offset)
+- Map out the visual relationship BEFORE coding
+
+### Rule #2: Positioning Logic
+- `top: 0%` = top edge of container
+- `bottom: 0%` = bottom edge of container  
+- `left: 0%` = left edge of container
+- `right: 0%` = right edge of container
+- `top: 50%` = vertical center
+- `left: 50%` = horizontal center
+- Transform translate should match extension direction:
+  - Extending left: `translate(-X%, Y%)` (negative X)
+  - Extending right: `translate(X%, Y%)` (positive X)
+  - Extending up: `translate(X%, -Y%)` (negative Y)
+  - Extending down: `translate(X%, Y%)` (positive Y)
+
+### Rule #3: Only Change What's Asked
+- NEVER modify sizes, colors, positions, or styles unless explicitly requested
+- If user says "fix positioning", ONLY fix positioning, don't change sizes
+- If something is working, LEAVE IT ALONE
+- When in doubt, ask before changing
+
+### Rule #4: Verify Before Claiming
+- Read actual file state after changes
+- Verify CSS selectors match HTML structure
+- Check that changes logically solve the problem
+- User feedback is the ultimate truth - if they say it's wrong, it's wrong
+
+### Rule #5: Step-by-Step Approach
+- Don't guess positioning values
+- Start with logical positions (0%, 50%, 100%)
+- Test and adjust incrementally
+- Understand WHY each value is used
+
+## CRITICAL: Asset Management Rules
+
+### Asset Location Mapping (MUST FOLLOW STRICTLY)
+**ALL assets are located in `assets/images/` folder. NEVER use paths without this prefix.**
+
+#### Logos (Header)
+- Voices of Hope: `assets/images/VoH logo.png`
+- Kingston University: `assets/images/KoL logo.png`
+
+#### Hero Section
+- Hero image: `assets/images/Hero.png`
+- FULL WIDTH - no padding or container restrictions
+
+#### Empowering Through Breathing Section
+- Icon beside title: `assets/images/VoH icon.png` (NOT image 1.png, NOT Layer 56)
+- Bear image: `assets/images/bb1.png`
+- Layer overlays: `assets/images/Layer 58 1.png` and `assets/images/Layer 59 1.png`
+- Bear should be 80% size with both layers as background overlays
+
+#### Introduction to Active Breathing Course Section
+- Background color: `#345AA6` (NOT dark-blue variable)
+- Boots (top right): `assets/images/boots.png`
+- Lightbulb: `assets/images/bulb.png`
+- Star behind lightbulb: `assets/images/Star 1.png` (NOT Frame.png, NOT heart shapes)
+- NO complex notebook layouts - ONLY video player block
+- Lightbulb wrapper must have fixed dimensions to prevent trimming
+
+#### Benefits for Children and Parents Section
+- NO icon beside title
+- Icons ONLY:
+  - Calmness: `assets/images/calmness.png`
+  - Focus: `assets/images/Focus.png`
+  - Confidence: `assets/images/Confidence.png`
+  - Family Connection: `assets/images/Family connection.png`
+- Pouring icon (top right): `assets/images/pouring icon.png`
+
+#### Sessions Section
+- NO icon beside title
+- Session number images: `assets/images/sessions/Isolation_Mode.png` through `Isolation_Mode-5.png`
+
+#### Footer
+- Every Breath Counts: `assets/images/Every Breath Counts.png`
+- Bear (centered above footer): `assets/images/Layer 58 1.png`
+- Bull with Layer 58 background: `assets/images/Bull rope.png` with `assets/images/Layer 58 1.png`
+
+## Typography Rules
+
+### Fonts
+- **Titles (H1-H6)**: Bebas Neue, 400 weight, 0.05em letter-spacing
+- **Body text**: Geneva (fallback to system fonts)
+- **Contact button**: Lato, 700 weight, uppercase
+- **"What families can expect?"**: Lato ExtraBold (900), Italic, 24px
+
+### Font Import
+```html
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,400;0,700;1,900&display=swap" rel="stylesheet">
+```
+
+## Color Palette
+
+### Exact Colors (NO VARIABLES)
+- Contact button: `#DF375D`
+- Know More button: `#8BBB3E`
+- Introduction section bg: `#345AA6`
+- Footer bg: `#5EC0C1`
+
+## Layout Rules
+
+### Alignment
+- **Empowering section**: 
+  - Title: Centered with icon
+  - Description: LEFT-aligned (NOT centered)
+  - Button: LEFT-aligned (NOT centered)
+  
+- **Introduction section**:
+  - Title: Centered (NO icon)
+  - Description: Centered below title
+  - Video block: Centered
+  - Boots: Absolute top-right
+  - Lightbulb + Star: Absolute bottom-left (FIXED dimensions to prevent trimming)
+
+- **Benefits section**:
+  - Title: Centered (NO icon)
+  - "What families can expect?": Centered, Lato ExtraBold Italic 24px
+
+### Positioning Rules
+
+#### Absolute Positioned Elements
+1. **Boots (Introduction)**: `top: 2rem; right: 2rem;`
+2. **Lightbulb wrapper (Introduction)**: `bottom: 3rem; left: 3rem; width: 180px; height: 180px;`
+3. **Pouring icon (Benefits)**: `top: 2rem; right: 0;`
+
+#### Overlay/Layer Rules - EMPOWERING SECTION BEAR
+- **CRITICAL**: Layer 58 & 59 MUST be visible
+- **Z-INDEX ORDER** (bottom to top):
+  - Layer 59 (green): `z-index: 1` (behind bear, top right)
+  - Bear: `z-index: 2` (middle layer)
+  - Layer 58 (pink): `z-index: 3` (above bear, bottom left)
+- **Container**: `.bear-container` must have `width: 100%` or explicit width
+- **Bear**: `position: relative; z-index: 2; width: 80%; margin: 0 auto;` (starts at 10% from left, ends at 90%)
+- **Layer 58 (pink)**: Sticks to bear's LEFT EDGE at bottom 10%
+  - Position: `bottom: 10%; left: 10%;` (aligns with bear's left edge, 10% from bottom)
+  - Transform: `translate(0, 0)` (no offset, directly aligned)
+  - Z-index: 3 (above bear)
+  - Width: 100% (full container width)
+- **Layer 59 (green)**: Bottom-left corner touches bear's TOP-RIGHT area
+  - Position: `top: 0%; left: 90%;` (bear's top-right corner - bear ends at 90% from left)
+  - Transform: `translate(0, 0)` (no offset, directly aligned - bottom-left corner at this point)
+  - Z-index: 1 (behind bear)
+  - Width: 16.67% (1/6 of original size - 6x smaller)
+- **VERIFY**: Layers must be pinned to bear's actual edges, not floating randomly
+- **POSITIONING**: Use bear's actual position (10% left start, 90% right end) to calculate layer positions
+- **ANALYZE REFERENCE**: Always check reference image to understand exact positioning before coding
+
+## Section-Specific Rules
+
+### Hero Section
+- NO container padding
+- Image should be 100% width
+- Background: light blue with graph paper pattern
+
+### Introduction Section
+- Padding: `6rem 2rem`
+- Background: `#345AA6` (NOT variable)
+- Contains ONLY:
+  1. Boots (top right)
+  2. Title (centered)
+  3. Description (centered)
+  4. Video player block (centered, white bg)
+  5. Lightbulb + Star (bottom left, fixed dimensions)
+
+### DO NOT Include in Introduction Section
+- ❌ Notebook layouts with multiple columns
+- ❌ Item lists (book, paper, pencil emojis)
+- ❌ Checklists
+- ❌ Multiple bear illustrations
+- ❌ Complex grid layouts
+
+## Common Mistakes to AVOID
+
+### CRITICAL - DO NOT REPEAT:
+1. ❌ **Claiming fixes without verification** - ALWAYS read files after changes
+2. ❌ **Layer overlays not visible** - Must use `width: 100%` on layers, NOT `width: auto`
+3. ❌ **Not checking asset existence** - ALWAYS verify files exist before using paths
+4. ❌ **Assuming changes worked** - User feedback is truth, not assumptions
+5. ❌ **Changing working code without permission** - NEVER modify sizes/colors/positions unless explicitly asked
+6. ❌ **Wrong z-index order** - Green layer (59) must be above bear, bear must be bottom layer
+7. ❌ **Poor icon/layer positioning** - ALWAYS analyze reference carefully, understand visual relationships, test positioning step by step
+
+### Asset & Path Mistakes:
+5. ❌ Using `image 1.png` for section title icons (use VoH icon for Empowering only)
+6. ❌ Using `Layer 56 3.png` or `Layer 56` anywhere
+7. ❌ Using `Frame.png` for star (use `Star 1.png`)
+8. ❌ Forgetting asset paths start with `assets/images/`
+9. ❌ Using wrong Layer images (58 vs 59 vs 56)
+
+### Layout Mistakes:
+10. ❌ Centering Empowering section description and button (must be LEFT-aligned)
+11. ❌ Adding icons to Benefits and Sessions section titles
+12. ❌ Creating complex notebook/grid layouts in Introduction section
+13. ❌ Not setting fixed dimensions for lightbulb wrapper (causes trimming)
+14. ❌ Using CSS variables for specific colors (use exact hex codes)
+
+## Asset Verification Checklist
+
+Before implementing any section, verify:
+- [ ] Asset path includes `assets/images/` prefix
+- [ ] Correct asset name from mapping above
+- [ ] No confusion between similar assets (Layer 58 vs 59 vs 56)
+- [ ] Icons only used where specified
+- [ ] Alignment matches section rules
+- [ ] Colors use exact hex codes
+
+## Button Styles
+
+- **Contact Us**: `background: #DF375D; font-family: 'Lato'; font-weight: 700;`
+- **Know More**: `background: #8BBB3E; font-family: 'Bebas Neue'; text-align: left; margin: 2rem 0 0 0;`
+- **View Exercises**: Match session colors with Bebas Neue font
+
+## Responsive Considerations
+
+- Boots and pouring icons: Reduce size on mobile
+- Lightbulb wrapper: Maintain aspect ratio
+- Session grid: 3 cols → 2 cols → 1 col
+- Benefits grid: 4 cols → 2 cols → 1 col
+
+## Testing Requirements
+
+After any changes:
+1. Verify all images load correctly
+2. Check alignment matches reference
+3. Confirm colors match exact hex codes
+4. Ensure no elements are trimmed/cut off
+5. Test responsive behavior
+
+## Version Control
+
+When making changes:
+- Document which assets were changed
+- Note alignment adjustments
+- Record color corrections
+- Update this rules file if new patterns emerge
