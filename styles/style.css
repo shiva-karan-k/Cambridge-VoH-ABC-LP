@@ -148,6 +148,8 @@ h1, h2, h3, h4, h5, h6,
   width: 100%;
   height: auto;
   display: block;
+  object-fit: contain;
+  object-position: top center;
 }
 
 /* Section Styles */
@@ -849,42 +851,73 @@ section {
   }
 
   .header {
-    padding: 1rem;
+    padding: 0.75rem 1rem;
   }
 
   .header-content {
-    flex-direction: column;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
     gap: 0.5rem;
   }
 
   .logos {
+    grid-column: 1;
     margin-left: 0;
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  .header-title {
+    grid-column: 2;
+    text-align: center;
   }
 
   .course-title {
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    line-height: 1.2;
   }
 
   .btn-contact {
+    grid-column: 3;
     margin-right: 0;
-    margin-top: 0.5rem;
+    margin-top: 0;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    justify-self: flex-end;
+  }
+
+  .logo {
+    height: clamp(30px, 6vw, 50px);
+  }
+
+  .voices-logo {
+    height: clamp(25px, 5vw, 40px);
   }
 
   .hero-spacer {
     height: 60px;
   }
 
+  .hero {
+    overflow: visible;
+  }
+
+  .hero-image {
+    object-fit: contain;
+    object-position: top center;
+    max-height: none;
+  }
+
   .section-title {
-    font-size: 20px;
+    font-size: 18px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .butterfly-icon {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
   }
 
   .benefits-grid,
@@ -900,66 +933,79 @@ section {
     margin-left: 0;
   }
 
-  .footer-bear-left,
-  .footer-bull-right {
-    position: relative;
-    top: 0;
-    margin-bottom: 2rem;
-    text-align: center;
+  .footer-bear-left {
+    position: absolute;
+    top: -80px;
+    left: 1rem;
+    z-index: 10;
   }
 
   .footer-bear-left img {
-    width: 200px;
+    width: clamp(80px, 20vw, 120px);
+  }
+
+  .footer-bull-right {
+    position: absolute;
+    top: -80px;
+    right: 1rem;
+    z-index: 10;
   }
 
   .footer-bull-right img {
-    width: 150px;
+    width: clamp(60px, 15vw, 100px);
   }
 
   .bull-rope-attached {
-    position: relative;
-    top: 0;
-    right: auto;
-    margin-top: 1rem;
-    width: 100%;
-    max-width: 200px;
-    margin-left: auto;
-    margin-right: auto;
+    position: absolute;
+    top: -120px;
+    right: 0;
+    width: clamp(80px, 20vw, 120px);
+    z-index: 9;
   }
 
   .boots-top-right {
-    top: 1rem;
+    top: calc(1rem - 25px);
     right: 1rem;
-    width: 80px;
+    width: clamp(60px, 12vw, 80px);
   }
 
   .lightbulb-wrapper-bottom {
     bottom: 1rem;
-    left: 1rem;
-    width: 100px;
-    height: 100px;
+    left: 0;
+    width: 80px;
+    height: 80px;
   }
 
   .yellow-star {
     width: 80px;
+    left: 0;
+    transform: translate(0, -50%);
   }
 
   .lightbulb-icon {
-    width: 50px;
+    width: 40px;
   }
 
   .pouring-icon-top {
-    width: 100px;
+    width: clamp(60px, 12vw, 80px);
+    z-index: 1;
+    top: -20px;
   }
 
-  .video-player-main {
-    padding: 2rem 1rem;
-    min-height: 150px;
+  .benefits .section-content {
+    position: relative;
+    z-index: 2;
   }
 
   .intro-description {
     font-size: 16px;
     padding: 0 1rem;
+    text-align: center;
+  }
+
+  .video-player-main {
+    padding: 2rem 1rem;
+    min-height: 150px;
   }
 
   .course-description {
@@ -971,7 +1017,7 @@ section {
   }
 
   .footer-tagline {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .every-breath-counts {
@@ -984,6 +1030,20 @@ section {
 
   .layer-58,
   .layer-59 {
-    display: none;
+    display: block;
+  }
+
+  .layer-58 {
+    width: 60%;
+    bottom: 5%;
+    left: 5%;
+    transform: translate(0, 0) rotate(40deg);
+  }
+
+  .layer-59 {
+    width: 40%;
+    top: 5%;
+    left: 85%;
+    transform: translate(0, -50%);
   }
 }
