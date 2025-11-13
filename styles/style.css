@@ -164,18 +164,28 @@ section {
 }
 
 .section-title {
-  font-size: clamp(24px, 3vw, 40px);
+  font-size: clamp(32px, 4vw, 52px);
   font-weight: 400;
   text-transform: uppercase;
   color: #374151;
+  margin-top: 2rem;
   margin-bottom: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
 }
 
 .section-title.centered {
   justify-content: center;
+  text-align: center;
+}
+
+.mobile-break {
+  display: none;
 }
 
 .section-title.white {
@@ -530,15 +540,19 @@ section {
 .session-header {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
 .session-label {
-  font-size: 0.875rem;
-  color: #6b7280;
+  font-size: 1.2rem;
+  color: #374151;
   text-transform: uppercase;
   font-weight: 700;
+  letter-spacing: 0.1em;
+  font-family: 'Bebas Neue', cursive;
+  font-style: italic;
 }
 
 .session-number-img {
@@ -556,6 +570,15 @@ section {
   line-height: 1.6;
   color: #6b7280;
   margin-bottom: 1.5rem;
+}
+
+.session-description strong {
+  font-weight: 600;
+  color: #374151;
+}
+
+.mobile-line-break {
+  display: none;
 }
 
 .btn-view-exercises {
@@ -595,8 +618,8 @@ section {
 
 .footer-bear-left {
   position: absolute;
-  top: clamp(-80px, -10vw, -100px);
-  left: clamp(1rem, 2vw, 2rem);
+  top: clamp(-40px, -5vw, -60px);
+  left: clamp(2rem, 3vw, 3rem);
   z-index: 10;
   animation: breathing 4s ease-in-out infinite;
 }
@@ -611,13 +634,13 @@ section {
 }
 
 .footer-bear-left img {
-  width: clamp(200px, 30vw, 400px);
+  width: clamp(312px, 46.8vw, 624px);
   height: auto;
 }
 
 .footer-bull-right {
   position: absolute;
-  top: clamp(-120px, -15vw, -150px);
+  top: clamp(-150px, -18vw, -180px);
   right: clamp(1rem, 2vw, 2rem);
   z-index: 10;
   animation: bullRock 3s ease-in-out infinite;
@@ -633,7 +656,7 @@ section {
 }
 
 .footer-bull-right img {
-  width: clamp(150px, 15vw, 200px);
+  width: clamp(180px, 18vw, 240px);
   height: auto;
 }
 
@@ -689,6 +712,29 @@ section {
   position: relative;
 }
 
+.footer-copyright {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-family: Geneva, sans-serif;
+  font-size: clamp(12px, 1.5vw, 14px);
+  color: var(--color-white);
+  opacity: 0.9;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 2rem;
+  position: relative;
+}
+
+.footer-copyright::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
 
 .every-breath-counts {
   width: 100%;
@@ -724,22 +770,23 @@ section {
 .enrollment-benefits {
   list-style: none;
   margin-bottom: 2rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .enrollment-benefits li {
   font-family: Geneva, sans-serif;
   font-size: clamp(14px, 1.8vw, 18px);
   font-weight: 400;
-  margin-bottom: 0.75rem;
-  padding-left: 1.5rem;
+  margin-bottom: 0.4rem;
+  padding-left: 0;
   position: relative;
+  line-height: 1.5;
 }
 
 .enrollment-benefits li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  display: none;
 }
 
 .enrollment-title {
@@ -794,16 +841,21 @@ section {
     grid-template-columns: 1fr;
   }
 
-  .bear-wrapper {
-    max-width: 300px;
-  }
-
   .benefits-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .sessions-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+  }
+
+  .footer-right {
+    display: none;
   }
 
   .boots-top-right {
@@ -843,6 +895,19 @@ section {
   .every-breath-counts {
     max-width: 300px;
   }
+
+  .enrollment-form {
+    flex-direction: column;
+  }
+
+  .email-input {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .btn-submit {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -850,41 +915,54 @@ section {
     padding-top: 80px;
   }
 
+  .mobile-break {
+    display: block;
+  }
+
+  .mobile-line-break {
+    display: inline;
+  }
+
   .header {
     padding: 0.75rem 1rem;
   }
 
   .header-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
     gap: 0.5rem;
   }
 
   .logos {
-    grid-column: 1;
     margin-left: 0;
     justify-content: flex-start;
     gap: 0.5rem;
+    flex-shrink: 0;
   }
 
   .header-title {
-    grid-column: 2;
+    flex: 1;
     text-align: center;
+    padding: 0 0.25rem;
+    min-width: 0;
   }
 
   .course-title {
-    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
     line-height: 1.2;
+    word-break: break-word;
   }
 
   .btn-contact {
-    grid-column: 3;
     margin-right: 0;
     margin-top: 0;
-    padding: 0.5rem 1rem;
-    font-size: 0.75rem;
-    justify-self: flex-end;
+    padding: 0.5rem 0.75rem;
+    font-size: clamp(0.65rem, 2vw, 0.75rem);
+    min-height: 36px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .logo {
@@ -896,7 +974,7 @@ section {
   }
 
   .hero-spacer {
-    height: 60px;
+    height: 0;
   }
 
   .hero {
@@ -909,50 +987,105 @@ section {
     max-height: none;
   }
 
+  section {
+    padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .section-content {
+    padding: 0 clamp(0.75rem, 2vw, 1rem);
+  }
+
   .section-title {
-    font-size: 18px;
+    font-size: clamp(24px, 5vw, 32px);
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 1.5rem;
+    gap: 0.5rem;
+    letter-spacing: 0.08em;
   }
 
   .butterfly-icon {
-    width: 24px;
-    height: 24px;
+    width: clamp(20px, 4vw, 24px);
+    height: clamp(20px, 4vw, 24px);
+  }
+
+  .empowering-content {
+    gap: 2rem;
+  }
+
+  .empowering-left {
+    padding: 1rem;
   }
 
   .benefits-grid,
   .sessions-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .benefit-card,
+  .session-card {
+    padding: 1.5rem;
+  }
+
+  .benefit-icon {
+    width: clamp(60px, 15vw, 80px);
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  .benefit-card h4 {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .benefit-card p {
+    font-size: clamp(14px, 3vw, 16px);
+    line-height: 1.6;
   }
 
   .footer-content {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .footer-left {
     margin-left: 0;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-center {
+    text-align: center;
+    align-items: center;
+  }
+
+  .every-breath-counts {
+    margin: 0 auto;
   }
 
   .footer-bear-left {
     position: absolute;
-    top: -80px;
-    left: 1rem;
+    top: -40px;
+    left: clamp(1.5rem, 4vw, 3rem);
     z-index: 10;
   }
 
   .footer-bear-left img {
-    width: clamp(80px, 20vw, 120px);
+    width: clamp(125px, 31.2vw, 187px);
   }
 
   .footer-bull-right {
     position: absolute;
-    top: -80px;
+    top: -120px;
     right: 1rem;
     z-index: 10;
   }
 
   .footer-bull-right img {
-    width: clamp(60px, 15vw, 100px);
+    width: clamp(72px, 18vw, 120px);
   }
 
   .bull-rope-attached {
@@ -989,7 +1122,7 @@ section {
   .pouring-icon-top {
     width: clamp(60px, 12vw, 80px);
     z-index: 1;
-    top: -20px;
+    top: 2rem;
   }
 
   .benefits .section-content {
@@ -998,30 +1131,64 @@ section {
   }
 
   .intro-description {
-    font-size: 16px;
+    font-size: clamp(14px, 3vw, 16px);
     padding: 0 1rem;
     text-align: center;
-  }
-
-  .video-player-main {
-    padding: 2rem 1rem;
-    min-height: 150px;
+    line-height: 1.7;
   }
 
   .course-description {
-    font-size: 16px;
+    font-size: clamp(14px, 3vw, 16px);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-know-more {
+    padding: clamp(0.875rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+    font-size: clamp(0.875rem, 3vw, 1rem);
+    min-height: 44px; /* Better touch target */
+    margin: 1.5rem 0 0 0;
+  }
+
+  .video-player-main {
+    padding: clamp(1.5rem, 4vw, 2rem) clamp(1rem, 3vw, 1.5rem);
+    min-height: clamp(150px, 30vw, 200px);
+  }
+
+  .play-button {
+    width: clamp(60px, 12vw, 80px);
+    height: clamp(60px, 12vw, 80px);
+    font-size: clamp(1.5rem, 4vw, 2rem);
   }
 
   .session-description {
-    font-size: 16px;
+    font-size: clamp(14px, 3vw, 16px);
+    line-height: 1.6;
+  }
+
+  .session-label {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    letter-spacing: 0.1em;
+  }
+
+  .btn-view-exercises {
+    padding: clamp(0.75rem, 2vw, 0.875rem);
+    font-size: clamp(0.75rem, 2.5vw, 0.875rem);
+    min-height: 44px; /* Better touch target */
   }
 
   .footer-tagline {
-    font-size: 16px;
+    font-size: clamp(14px, 3vw, 16px);
+    line-height: 1.6;
   }
 
   .every-breath-counts {
-    max-width: 250px;
+    max-width: clamp(200px, 50vw, 250px);
+  }
+
+  .benefits-subtitle {
+    font-size: clamp(18px, 4vw, 24px);
+    margin-bottom: 2rem;
   }
 
   .bear-main {
@@ -1045,5 +1212,226 @@ section {
     top: 5%;
     left: 85%;
     transform: translate(0, -50%);
+  }
+
+  .site-visitors-above-footer {
+    padding: 1rem;
+    gap: 0.5rem;
+    font-size: clamp(0.875rem, 2vw, 0.95rem);
+  }
+
+  .visitor-icon {
+    width: clamp(20px, 4vw, 24px);
+    height: clamp(20px, 4vw, 24px);
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  body {
+    padding-top: 70px;
+  }
+
+  .header {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .header-content {
+    grid-template-columns: auto 1fr auto;
+    gap: 0.25rem;
+  }
+
+  .course-title {
+    font-size: clamp(0.75rem, 3.5vw, 0.9rem);
+    line-height: 1.1;
+  }
+
+  .btn-contact {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.7rem;
+  }
+
+  .logo {
+    height: clamp(25px, 6vw, 35px);
+  }
+
+  .voices-logo {
+    height: clamp(20px, 5vw, 30px);
+  }
+
+  .hero-spacer {
+    height: 0;
+  }
+
+  section {
+    padding: clamp(1rem, 3vw, 2rem) clamp(0.75rem, 2vw, 1rem);
+  }
+
+  .section-content {
+    padding: 0 clamp(0.5rem, 2vw, 0.75rem);
+  }
+
+  .section-title {
+    font-size: clamp(20px, 5.5vw, 26px);
+    margin-bottom: 1rem;
+    letter-spacing: 0.08em;
+  }
+
+  .butterfly-icon {
+    width: clamp(18px, 4vw, 22px);
+    height: clamp(18px, 4vw, 22px);
+  }
+
+  .empowering-content {
+    gap: 1.5rem;
+  }
+
+  .empowering-left {
+    padding: 0.5rem;
+  }
+
+  .benefits-grid,
+  .sessions-grid {
+    gap: 1rem;
+  }
+
+  .benefit-card,
+  .session-card {
+    padding: 1rem;
+  }
+
+  .intro-description,
+  .course-description {
+    font-size: clamp(13px, 3.5vw, 15px);
+    padding: 0 0.75rem;
+  }
+
+  .btn-know-more {
+    padding: 0.75rem 1.25rem;
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
+    width: 100%;
+    text-align: center;
+  }
+
+  .video-player-main {
+    padding: 1.25rem 1rem;
+    min-height: 140px;
+  }
+
+  .boots-top-right {
+    width: clamp(50px, 12vw, 70px);
+    top: calc(0.5rem - 25px);
+    right: 0.75rem;
+  }
+
+  .lightbulb-wrapper-bottom {
+    width: 70px;
+    height: 70px;
+    bottom: 0.75rem;
+    left: 0;
+  }
+
+  .yellow-star {
+    width: 70px;
+  }
+
+  .lightbulb-icon {
+    width: 35px;
+  }
+
+  .pouring-icon-top {
+    width: clamp(50px, 12vw, 70px);
+  }
+
+  .footer-bear-left {
+    top: -30px;
+    left: clamp(0.75rem, 3vw, 1.5rem);
+  }
+
+  .footer-bear-left img {
+    width: clamp(94px, 28.08vw, 156px);
+  }
+
+  .footer-bull-right {
+    top: -90px;
+    right: 0.5rem;
+  }
+
+  .footer-bull-right img {
+    width: clamp(60px, 18vw, 96px);
+  }
+
+  .bull-rope-attached {
+    top: -100px;
+    width: clamp(60px, 18vw, 100px);
+  }
+
+  .every-breath-counts {
+    max-width: clamp(180px, 45vw, 220px);
+  }
+
+  .footer-tagline {
+    font-size: clamp(13px, 3vw, 15px);
+  }
+
+  .benefits-subtitle {
+    font-size: clamp(16px, 4vw, 20px);
+    margin-bottom: 1.5rem;
+  }
+
+  .play-button {
+    width: clamp(50px, 10vw, 60px);
+    height: clamp(50px, 10vw, 60px);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+  }
+
+  .enrollment-form {
+    flex-direction: column;
+  }
+
+  .email-input {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .btn-submit {
+    width: 100%;
+  }
+}
+
+/* Tablet breakpoint */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header-content {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .logos {
+    margin-left: 0;
+  }
+
+  .btn-contact {
+    margin-right: 0;
+  }
+
+  .empowering-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sessions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .footer-right {
+    display: none;
   }
 }
