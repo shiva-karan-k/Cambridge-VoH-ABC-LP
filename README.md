@@ -2,6 +2,27 @@
 
 A beautiful, interactive landing page for the ABC Active Breathing Course - Big Breathing Adventure, designed for children and parents.
 
+## Typography Rules
+
+### Required Fonts
+- **Hero Title "BECOME A BREATHING HERO"**: Bebas Neue ONLY
+- **All Other Titles and Descriptions**: "My Type Of Font" (mytype.ttf) - Located in assets/mytype.ttf
+- **Newsletter "Sign up to our Newsletter"**: Skytree font
+- **Navigation**: Oswald Regular 20px
+- **Buttons**: Lato Bold
+
+### Font Implementation
+```css
+@font-face {
+  font-family: 'My Type Of Font';
+  src: url('assets/mytype.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+```
+
+**CRITICAL**: Never use Courier Prime or generic Courier fonts. Always use the provided mytype.ttf for typewriter-style text.
+
 ## Features
 
 - **Hero Section**: Welcome message with playful design elements

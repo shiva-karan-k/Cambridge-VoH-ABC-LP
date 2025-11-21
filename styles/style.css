@@ -1,3 +1,22 @@
+/* My Type Font Import */
+@font-face {
+  font-family: 'MyType';
+  src: url('../assets/mytype.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Skytree Font Import */
+@font-face {
+  font-family: 'Skytree';
+  src: url('../assets/Skytree one.ttf') format('truetype'),
+    url('../assets/Skytree one.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Reset and Base Styles */
 * {
   box-sizing: border-box;
@@ -5,30 +24,94 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
-  font-family: Geneva, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Lato';
   line-height: 1.6;
   color: #222;
   background: #fff;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
-  padding-top: 100px;
+  padding-top: 0;
+  margin: 0;
 }
 
-/* Typography - Titles use Bebas Neue */
-h1, h2, h3, h4, h5, h6,
+/* Typography - MyType for headings, Lato for descriptions */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .section-title,
-.hero-title,
 .bba-subtitle,
 .enrollment-title,
 .benefits-subtitle,
-.course-title {
-  font-family: 'Bebas Neue', cursive;
+.course-title,
+.hero-title {
+  font-family: 'MyType', 'Bebas Neue', 'Lato';
   font-weight: 400;
   letter-spacing: 0.05em;
+}
+
+/* Ensure Lato for all descriptions */
+p,
+.session-description,
+.benefit-item p,
+.intro-description,
+.course-description,
+.footer-tagline,
+.enrollment-benefits li {
+  font-family: 'Lato';
+}
+
+/* Default body font */
+body {
+  font-family: 'Lato';
+}
+
+/* Section 2 (Introduction) - Bebas Neue for title AND description (MyType is corrupted) */
+.introduction .section-title,
+.introduction h2.section-title,
+section.introduction .section-title {
+  font-family: 'Bebas Neue' !important;
+}
+
+.introduction .intro-description,
+.introduction p.intro-description {
+  font-family: 'Bebas Neue' !important;
+}
+
+/* Section 3 (Benefits) - Bebas Neue for title, Lato for descriptions */
+.benefits .section-title,
+.benefits h2.section-title,
+section.benefits .section-title {
+  font-family: 'Bebas Neue' !important;
+}
+
+.benefits .benefit-item p,
+.benefits p {
+  font-family: 'Lato' !important;
+}
+
+/* Section 4 (Sessions) - Bebas Neue for title, Lato for descriptions */
+.sessions .section-title,
+.sessions h2.section-title,
+section.sessions .section-title {
+  font-family: 'Bebas Neue' !important;
+}
+
+.sessions .session-description,
+.sessions p.session-description {
+  font-family: 'Lato' !important;
+}
+
+.sessions .btn-view-exercises {
+  font-family: 'Lato' !important;
 }
 
 /* Color Variables */
@@ -48,38 +131,44 @@ h1, h2, h3, h4, h5, h6,
 
 /* Header */
 .header {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 1.5rem 2rem;
+  padding: 0.15rem 2rem;
   border-bottom: 1px solid rgba(229, 231, 235, 0.5);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .header-content {
-  max-width: 1400px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 2.5rem 0 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   gap: 1rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8rem;
+  flex: 1;
 }
 
 .logos {
   display: flex;
-  gap: clamp(1rem, 2.5vw, 2.5rem);
+  gap: 6rem;
   align-items: center;
-  margin-left: clamp(-50px, -15vw, -250px);
 }
 
 .voices-logo {
-  height: clamp(40px, 6vw, 61.6px);
+  height: clamp(30px, 5vw, 50px);
   width: auto;
 }
 
@@ -88,14 +177,135 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .logo {
-  height: clamp(50px, 8vw, 90px);
+  height: clamp(35px, 6vw, 65px);
   width: auto;
 }
 
-.course-title {
-  font-size: clamp(1.2rem, 4vw, 2rem);
+.abc-logo {
+  height: clamp(80px, 10vw, 120px);
+  width: auto;
+  object-fit: cover;
+  object-position: center;
+  clip-path: inset(15% 0 15% 0);
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+  margin-right: 2rem;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  font-family: 'Oswald';
+  font-size: 20px;
   font-weight: 400;
   color: #374151;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+  padding: 0.4rem 0;
+}
+
+.nav-link:hover {
+  color: #2563eb;
+}
+
+.nav-link.active {
+  background: #FFA500;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.nav-link.active {
+  background: #fbbf24;
+  color: #374151;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* Responsive Navigation */
+@media (max-width: 1024px) {
+  .nav-list {
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 18px;
+  }
+
+  .header-left {
+    gap: 4rem;
+  }
+
+  .logos {
+    gap: 3rem;
+  }
+
+  .abc-logo {
+    height: clamp(80px, 10vw, 120px);
+    clip-path: inset(15% 0 15% 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .header-left {
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .logos {
+    gap: 1.5rem;
+  }
+
+  .abc-logo {
+    height: clamp(60px, 8vw, 80px);
+    clip-path: inset(15% 0 15% 0);
+  }
+
+  .navbar {
+    order: 2;
+  }
+
+  .btn-donate {
+    order: 3;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-list {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+
+  .header-left {
+    gap: 1rem;
+  }
+
+  .logos {
+    gap: 1rem;
+  }
 }
 
 .course-logo-img {
@@ -103,53 +313,208 @@ h1, h2, h3, h4, h5, h6,
   width: auto;
 }
 
-.btn-contact {
+.btn-donate {
   background: #DF375D;
   color: var(--color-white);
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 8px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato';
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
   font-size: 0.875rem;
-  transition: opacity 0.2s;
+  transition: all 0.3s ease;
   letter-spacing: 0.05em;
-  margin-right: clamp(-50px, -12vw, -200px);
+  box-shadow: 0 4px 15px rgba(223, 55, 93, 0.3);
+  flex-shrink: 0;
 }
 
-.btn-contact:hover {
-  opacity: 0.9;
+.btn-donate:hover {
+  background: #c12d50;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(223, 55, 93, 0.4);
 }
 
 /* Hero Section */
 .hero-spacer {
-  height: 70px;
-  background: var(--color-white);
-  width: 100%;
+  display: none;
 }
 
 .hero {
-  background: var(--color-light-blue);
-  background-image: 
-    linear-gradient(rgba(224, 242, 254, 0.5) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(224, 242, 254, 0.5) 1px, transparent 1px);
-  background-size: 20px 20px;
-  padding: 0;
+  background-image: url('../assets/images/Hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2rem;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
 .hero-content {
   max-width: 100%;
   margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: stretch;
+  height: 100%;
 }
 
-.hero-image {
-  width: 100%;
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+  padding: 10rem 14rem 6rem 10rem;
+  transform: translateY(0);
+}
+
+/* Hero BBA Logo */
+.hero-bba-logo {
+  width: clamp(250px, 45vw, 400px);
   height: auto;
-  display: block;
+  margin-bottom: 0;
+}
+
+.hero-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(4rem, 10vw, 100px);
+  font-weight: 400;
+  color: #374151;
+  line-height: 0.9;
+  margin: 0;
+}
+
+.hero-title .become {
+  color: #2dd4bf;
+  /* Cyan */
+}
+
+.hero-title .breathing {
+  color: #ec4899;
+  /* Pink */
+}
+
+.hero-title .hero-word {
+  color: #10b981;
+  /* Green */
+}
+
+.btn-exercises {
+  background: #DF375D;
+  color: white;
+  border: none;
+  padding: clamp(1rem, 3vw, 1.5rem) clamp(2rem, 5vw, 3rem);
+  border-radius: 8px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 15px rgba(223, 55, 93, 0.3);
+}
+
+.btn-exercises:hover {
+  background: #c12d50;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(223, 55, 93, 0.4);
+}
+
+.hero-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  padding-right: 2rem;
+}
+
+.hero-bear-container {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-bear-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  object-position: top center;
+  z-index: 1;
+}
+
+.hero-bear {
+  position: relative;
+  width: 80%;
+  height: auto;
+  z-index: 2;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Hero Responsive */
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .hero-left {
+    align-items: flex-start;
+    order: 2;
+    transform: translateY(0);
+    padding: 5rem 6rem 3rem 5rem;
+  }
+
+  .hero-right {
+    order: 1;
+    height: 50vh;
+    padding-right: 1rem;
+  }
+
+  .hero {
+    padding: 1rem;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .hero-bear-container {
+    max-width: 300px;
+    height: 40vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .bba-logo {
+    gap: 0.1rem;
+  }
+
+  .hero {
+    padding: 1.5rem 1rem;
+  }
 }
 
 /* Section Styles */
@@ -164,6 +529,7 @@ section {
 }
 
 .section-title {
+  font-family: 'MyType', sans-serif !important;
   font-size: clamp(32px, 4vw, 52px);
   font-weight: 400;
   text-transform: uppercase;
@@ -237,9 +603,12 @@ section {
 }
 
 @keyframes breathingFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-15px);
   }
@@ -258,9 +627,12 @@ section {
 }
 
 @keyframes waveFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(-150px, 0) rotate(40deg);
   }
+
   50% {
     transform: translate(-150px, -15px) rotate(40deg);
   }
@@ -279,9 +651,12 @@ section {
 }
 
 @keyframes waveFloat2 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(-55px, -50%);
   }
+
   50% {
     transform: translate(-55px, calc(-50% - 15px));
   }
@@ -326,27 +701,87 @@ section {
   background: #345AA6;
   color: var(--color-white);
   position: relative;
-  padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 2vw, 2rem);
+  padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 2vw, 2rem);
   overflow: visible;
+  text-align: center;
 }
 
-.boots-top-right {
+/* Introduction Section Styling */
+.bba-section-icon {
+  height: clamp(30px, 5vw, 40px);
+  width: auto;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.introduction .section-title {
+  font-family: 'MyType', 'Lato', sans-serif !important;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1.5rem;
+  color: white;
+  text-align: center;
+}
+
+.video-player-main {
+  position: relative;
+  width: clamp(500px, 75vw, 900px);
+  height: clamp(300px, 50vw, 550px);
+  background: transparent;
+  border-radius: 12px;
+  box-shadow: none;
+  margin: 2rem auto;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.video-player-main:hover {
+  transform: scale(1.02);
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.play-button {
   position: absolute;
-  top: calc(2rem - 220px);
-  right: 2rem;
-  width: clamp(150px, 20vw, 375px);
-  height: auto;
-  animation: breathingFloat 4s ease-in-out infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: rgba(52, 90, 166, 0.9);
+  border: 4px solid white;
+  border-radius: 50%;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-button:hover {
+  background: rgba(52, 90, 166, 1);
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
 }
 
 .intro-description {
-  font-family: Geneva, sans-serif;
-  font-size: 18px;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
   font-weight: 400;
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto 3rem;
-  line-height: 1.8;
+  max-width: 900px;
+  margin: 1.5rem auto;
+  line-height: 1.5;
+  color: white;
+  letter-spacing: 0.02em;
 }
 
 .intro-description strong {
@@ -358,22 +793,12 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 3rem 0;
+  margin: 1.5rem 0;
 }
 
-.video-player-main {
-  background: var(--color-white);
-  border-radius: 10px;
-  padding: clamp(2rem, 4vw, 4rem) clamp(2rem, 6vw, 6rem);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 250px;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-}
+/* REMOVED - conflicting video player styles */
 
+/* REMOVED - Lightbulb and Star Animation 
 .lightbulb-wrapper-bottom {
   position: absolute;
   bottom: 3rem;
@@ -383,6 +808,7 @@ section {
   height: clamp(120px, 15vw, 216px);
   overflow: visible;
 }
+*/
 
 .yellow-star {
   position: absolute;
@@ -397,10 +823,13 @@ section {
 }
 
 @keyframes starGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, -50%) scale(0.9);
     filter: brightness(0.8);
   }
+
   50% {
     transform: translate(0, -50%) scale(1.1);
     filter: brightness(1.3);
@@ -420,10 +849,13 @@ section {
 }
 
 @keyframes bulbGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(-50%, -50%) scale(0.85) translateY(5px);
     filter: brightness(0.7) drop-shadow(0 0 5px rgba(255, 255, 0, 0.3));
   }
+
   50% {
     transform: translate(-50%, -50%) scale(1.15) translateY(-5px);
     filter: brightness(1.5) drop-shadow(0 0 20px rgba(255, 255, 0, 0.8));
@@ -477,8 +909,258 @@ section {
 .benefits-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 3rem;
   margin-bottom: 3rem;
+  padding: 2rem 0;
+}
+
+/* Benefits Section - Simplified */
+.benefit-item {
+  text-align: center;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.benefit-icon {
+  width: 360px;
+  height: 360px;
+  margin-bottom: 1.5rem;
+  object-fit: contain;
+}
+
+.benefit-item p {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #6b7280;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+/* Add space between title and benefit blocks */
+.benefits .section-title {
+  margin-bottom: 3rem;
+}
+
+/* Week number images */
+.week-number-img {
+  height: clamp(60px, 8vw, 80px);
+  width: auto;
+  margin: 0 auto 1rem auto;
+  display: block;
+}
+
+/* Button colors for sessions - matching week icon backgrounds */
+.btn-blue {
+  background: #345AA6;
+}
+
+.btn-teal {
+  background: #5EBFC0;
+}
+
+.btn-pink {
+  background: #ED6C9B;
+}
+
+.btn-yellow {
+  background: #D1D645;
+}
+
+.btn-orange {
+  background: #FAB314;
+}
+
+.btn-beige {
+  background: #EBD3AD;
+  color: #333;
+}
+
+.btn-blue:hover {
+  background: #2a4885;
+}
+
+.btn-teal:hover {
+  background: #4a9fa0;
+}
+
+.btn-pink:hover {
+  background: #d5587b;
+}
+
+.btn-yellow:hover {
+  background: #b8c038;
+}
+
+.btn-orange:hover {
+  background: #e09f0f;
+}
+
+.btn-beige:hover {
+  background: #d4c296;
+}
+
+/* Footer Second Block */
+.footer-second-block {
+  background: #3C3B34;
+  color: white;
+  padding: 3rem 4rem 2rem 4rem;
+  text-align: center;
+}
+
+.footer-newsletter {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.footer-newsletter h3 {
+  font-family: 'Skytree', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.footer-newsletter p {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.newsletter-input {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-family: 'My Type Of Font', 'Courier New', Courier, monospace;
+  font-size: 14px;
+  flex: 1;
+  min-width: 150px;
+}
+
+.newsletter-submit {
+  background: #FAB314;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  font-family: 'My Type Of Font', 'Courier New', Courier, monospace;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.newsletter-submit:hover {
+  background: #e09f0f;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+.footer-info {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footer-contact {
+  margin: 1rem 0;
+}
+
+.footer-charity {
+  margin: 1rem 0;
+}
+
+.footer-privacy {
+  margin: 1rem 0 0.5rem 0;
+}
+
+.footer-bottom-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 100%;
+}
+
+.footer-copyright,
+.footer-visitors {
+  font-family: 'Lato';
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .footer-bottom-line {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding-top: 1rem;
+  }
+
+  .footer-copyright,
+  .footer-visitors {
+    font-size: 12px;
+  }
+
+  .footer-second-block {
+    padding: 2rem 1rem 1.5rem 1rem;
+    overflow-x: hidden;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .newsletter-input {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .newsletter-submit {
+    width: 100%;
+  }
+
+  .footer-newsletter {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
 }
 
 .benefit-card {
@@ -496,9 +1178,12 @@ section {
 }
 
 @keyframes benefitFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) scale(1);
   }
+
   50% {
     transform: translateY(-15px) scale(1.1);
   }
@@ -528,13 +1213,17 @@ section {
 .sessions-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 2.5rem;
+  padding: 1rem 0;
 }
 
 .session-card {
   background: var(--color-light-gray);
-  padding: 2rem;
+  padding: 2.5rem 2rem;
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .session-header {
@@ -563,13 +1252,35 @@ section {
   flex-shrink: 0;
 }
 
+.session-desc.footer-tagline {
+  font-family: 'Lato';
+  font-size: clamp(14px, 2vw, 18px);
+  line-height: 1.6;
+  color: white;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .footer-tagline {
+    max-width: 90%;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0 1rem;
+  }
+}
+
 .session-description {
-  font-family: Geneva, sans-serif;
+  font-family: 'Lato';
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.8;
   color: #6b7280;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+  text-align: center;
 }
 
 .session-description strong {
@@ -583,29 +1294,47 @@ section {
 
 .btn-view-exercises {
   width: 100%;
-  padding: 0.75rem;
+  padding: 1rem;
   border: none;
   border-radius: 8px;
-  font-family: 'Bebas Neue', cursive;
-  font-weight: 400;
+  font-family: 'Lato';
+  font-weight: 700;
   text-transform: uppercase;
   color: var(--color-white);
   cursor: pointer;
-  font-size: 0.875rem;
+  font-size: 1rem;
   transition: opacity 0.2s;
   letter-spacing: 0.05em;
 }
+
 
 .btn-view-exercises:hover {
   opacity: 0.9;
 }
 
-.btn-green { background: var(--color-green); }
-.btn-orange { background: var(--color-orange); }
-.btn-purple { background: var(--color-purple); }
-.btn-pink { background: var(--color-pink); }
-.btn-blue { background: #3b82f6; }
-.btn-teal { background: var(--color-teal); }
+.btn-green {
+  background: var(--color-green);
+}
+
+.btn-orange {
+  background: var(--color-orange);
+}
+
+.btn-purple {
+  background: var(--color-purple);
+}
+
+.btn-pink {
+  background: var(--color-pink);
+}
+
+.btn-blue {
+  background: #3b82f6;
+}
+
+.btn-teal {
+  background: var(--color-teal);
+}
 
 /* Footer */
 .footer {
@@ -625,9 +1354,12 @@ section {
 }
 
 @keyframes breathing {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-20px);
   }
@@ -647,9 +1379,12 @@ section {
 }
 
 @keyframes bullRock {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: rotate(-5deg);
   }
+
   50% {
     transform: rotate(5deg);
   }
@@ -672,10 +1407,13 @@ section {
 }
 
 @keyframes bullRopeRock {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(0.56) rotate(-5deg);
     transform-origin: right top;
   }
+
   50% {
     transform: scale(0.56) rotate(5deg);
     transform-origin: right top;
@@ -691,21 +1429,24 @@ section {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  gap: clamp(2rem, 4vw, 4rem);
+  gap: clamp(3rem, 5vw, 5rem);
   position: relative;
+  align-items: start;
 }
 
 .footer-left {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
   margin-left: clamp(-100px, -15vw, -200px);
+  padding-top: 1rem;
 }
 
 .footer-center {
   display: flex;
   flex-direction: column;
-  gap: clamp(1rem, 2vw, 2rem);
+  gap: clamp(1.5rem, 2.5vw, 2.5rem);
+  padding-top: 1rem;
 }
 
 .footer-right {
@@ -740,6 +1481,15 @@ section {
   width: 100%;
   max-width: clamp(250px, 30vw, 400px);
   height: auto;
+  padding-right: 3rem;
+}
+
+@media (max-width: 768px) {
+  .every-breath-counts {
+    max-width: 280px;
+    padding-right: 0;
+    margin: 0 auto 1.5rem auto;
+  }
 }
 
 .footer-tagline {
@@ -769,20 +1519,22 @@ section {
 
 .enrollment-benefits {
   list-style: none;
-  margin-bottom: 2rem;
-  max-width: 90%;
+  margin-bottom: 2.5rem;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+  padding: 0;
 }
 
 .enrollment-benefits li {
-  font-family: Geneva, sans-serif;
-  font-size: clamp(14px, 1.8vw, 18px);
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(16px, 2vw, 20px);
   font-weight: 400;
-  margin-bottom: 0.4rem;
+  margin-bottom: 1rem;
   padding-left: 0;
   position: relative;
-  line-height: 1.5;
+  line-height: 1.8;
+  text-align: left;
 }
 
 .enrollment-benefits li::before {
@@ -790,9 +1542,11 @@ section {
 }
 
 .enrollment-title {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-family: 'MyType', sans-serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 400;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
 }
 
 .enrollment-form {
@@ -858,18 +1612,13 @@ section {
     display: none;
   }
 
-  .boots-top-right {
-    width: clamp(100px, 15vw, 200px);
-  }
+  /* REMOVED - boots responsive styles */
 
   .pouring-icon-top {
     width: clamp(80px, 12vw, 150px);
   }
 
-  .video-player-main {
-    padding: 2rem;
-    min-height: 200px;
-  }
+  /* REMOVED - video padding */
 
   .lightbulb-wrapper-bottom {
     width: clamp(100px, 12vw, 180px);
@@ -924,7 +1673,7 @@ section {
   }
 
   .header {
-    padding: 0.75rem 1rem;
+    padding: 0.4rem 1rem;
   }
 
   .header-content {
@@ -955,14 +1704,12 @@ section {
     word-break: break-word;
   }
 
-  .btn-contact {
-    margin-right: 0;
-    margin-top: 0;
+  .btn-donate {
     padding: 0.5rem 0.75rem;
     font-size: clamp(0.65rem, 2vw, 0.75rem);
     min-height: 36px;
     white-space: nowrap;
-    flex-shrink: 0;
+    border-radius: 8px;
   }
 
   .logo {
@@ -1146,14 +1893,12 @@ section {
   .btn-know-more {
     padding: clamp(0.875rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
     font-size: clamp(0.875rem, 3vw, 1rem);
-    min-height: 44px; /* Better touch target */
+    min-height: 44px;
+    /* Better touch target */
     margin: 1.5rem 0 0 0;
   }
 
-  .video-player-main {
-    padding: clamp(1.5rem, 4vw, 2rem) clamp(1rem, 3vw, 1.5rem);
-    min-height: clamp(150px, 30vw, 200px);
-  }
+  /* REMOVED - video padding */
 
   .play-button {
     width: clamp(60px, 12vw, 80px);
@@ -1174,7 +1919,8 @@ section {
   .btn-view-exercises {
     padding: clamp(0.75rem, 2vw, 0.875rem);
     font-size: clamp(0.75rem, 2.5vw, 0.875rem);
-    min-height: 44px; /* Better touch target */
+    min-height: 44px;
+    /* Better touch target */
   }
 
   .footer-tagline {
@@ -1246,7 +1992,7 @@ section {
     line-height: 1.1;
   }
 
-  .btn-contact {
+  .btn-donate {
     padding: 0.4rem 0.75rem;
     font-size: 0.7rem;
   }
@@ -1313,10 +2059,7 @@ section {
     text-align: center;
   }
 
-  .video-player-main {
-    padding: 1.25rem 1rem;
-    min-height: 140px;
-  }
+  /* REMOVED - video padding */
 
   .boots-top-right {
     width: clamp(50px, 12vw, 70px);
@@ -1410,8 +2153,8 @@ section {
     margin-left: 0;
   }
 
-  .btn-contact {
-    margin-right: 0;
+  .btn-donate {
+    align-self: center;
   }
 
   .empowering-content {
