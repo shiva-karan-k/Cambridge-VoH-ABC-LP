@@ -334,6 +334,55 @@ After any changes:
 - Copyright in second footer = LEFT aligned
 - Site Visitor Numbers in second footer = RIGHT aligned
 
+## CRITICAL: Web View vs Mobile View - Alignment Rules
+
+**NEVER apply mobile responsive styles to web/desktop view:**
+
+### Web View (Desktop) - Default Styles
+- **Hero Section**: 
+  - `.hero-left`: `align-items: flex-start` (LEFT-aligned)
+  - NO `text-align: center` on hero content
+  - Content should be left-aligned by default
+  
+- **Footer First Block (Teal Footer)**:
+  - `.footer-content`: `justify-items: start` (NOT center)
+  - `.footer-left`: `align-items: flex-start`, `padding-left: 0.75rem` (minimal padding)
+  - `.footer-right`: `align-items: flex-start`, `padding-left: 4rem`
+  - `.enrollment-benefits li`: `text-align: left` (NOT center)
+  - Content should be left/right aligned, NOT centered
+  
+- **Footer Second Block (Dark Footer)**:
+  - `.footer-bottom-line`: `justify-content: space-between`
+  - `.footer-copyright`: `text-align: left`
+  - `.footer-visitors`: `text-align: right`
+  - Copyright LEFT, Site Visitors RIGHT
+
+### Mobile View (max-width: 768px) - Responsive Styles ONLY
+- **Hero Section**: 
+  - `.hero-left`: `align-items: center`, `text-align: center` (ONLY in mobile breakpoint)
+  
+- **Footer First Block**:
+  - `.footer-left`: `align-items: center`, `text-align: center` (ONLY in mobile breakpoint)
+  - `.footer-right`: `align-items: center`, `text-align: center` (ONLY in mobile breakpoint)
+  - `.enrollment-benefits li`: `text-align: center` (ONLY in mobile breakpoint)
+  
+- **Footer Second Block**:
+  - `.footer-bottom-line`: `flex-direction: column` (ONLY in mobile breakpoint)
+  - Keep left/right alignment even in mobile for copyright/visitors
+
+### Rule Enforcement
+- **ALWAYS** check if changes are in a `@media` query before applying
+- **NEVER** change default (web) styles to center unless explicitly requested for web view
+- **ONLY** apply centering in mobile breakpoints (`@media (max-width: 768px)`)
+- **VERIFY** that web view remains left/right aligned after mobile fixes
+- **TEST** both web and mobile views after any alignment changes
+
+### Common Mistakes
+- ❌ Applying `text-align: center` to web view when only mobile should be centered
+- ❌ Changing `align-items: flex-start` to `center` in default styles
+- ❌ Modifying `justify-items: start` to `center` in `.footer-content` default
+- ❌ Forgetting to wrap mobile-only centering in `@media` queries
+
 ## Version Control
 
 When making changes:

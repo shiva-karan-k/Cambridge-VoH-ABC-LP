@@ -2,6 +2,12 @@
   "version": 2,
   "buildCommand": "echo 'No build needed'",
   "outputDirectory": ".",
+  "rewrites": [
+    {
+      "source": "/week-1",
+      "destination": "/week-1/"
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
