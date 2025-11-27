@@ -2648,8 +2648,8 @@ section {
 }
 
 .video-thumbnail-img.locked {
-  opacity: 0.6;
-  filter: grayscale(0.3);
+  opacity: 1;
+  filter: none;
 }
 
 .blue-rectangle-below-thumbnail {
@@ -2664,8 +2664,8 @@ section {
 
 .blue-rectangle-top-right {
   position: absolute;
-  top: -15%;
-  right: -15%;
+  top: -12%;
+  right: -12%;
   z-index: 1;
 }
 
@@ -2857,8 +2857,8 @@ section {
   }
 
   .exercise-main-title {
-    font-size: clamp(2.5rem, 8vw, 4rem);
-    letter-spacing: -0.01em;
+    font-size: clamp(2.8rem, 9vw, 4rem);
+    letter-spacing: -0.015em;
   }
 
   .title-line-1,
