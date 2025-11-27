@@ -836,7 +836,7 @@ section {
   margin: 1.5rem auto;
   line-height: 1.5;
   color: white;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.001em;
 }
 
 .intro-description strong {
@@ -1381,7 +1381,7 @@ section {
   line-height: 1.8;
   color: #6b7280;
   margin-bottom: 2rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   text-align: center;
 }
 
@@ -2347,63 +2347,71 @@ section {
 }
 
 /* Week 1 Page Styles */
-.week-banner {
-  background: #3BA1E1;
-  padding: 2rem;
+.week-hero-banner {
+  background-image: url('../assets/images/w1/Rectangle 27.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 4rem 2rem 6rem 2rem;
   text-align: center;
+  position: relative;
+  overflow: visible;
+  min-height: fit-content;
 }
 
-.week-banner-content {
+.week-hero-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  position: relative;
+  z-index: 2;
 }
 
-.week-badge {
-  width: 60px;
-  height: 60px;
-  background: #3BA1E1;
-  border: 4px solid white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.week-hero-image {
+  width: clamp(200px, 30vw, 400px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  margin-top: 2rem;
 }
 
-.week-number {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: white;
-}
-
-.week-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  color: white;
-  letter-spacing: 0.1em;
-}
-
-.week-content {
-  padding: 3rem 2rem;
+.exercise-section-main {
+  padding: 5rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
 }
 
-.exercise-header {
+.exercise-section-main:first-of-type {
+  padding-top: 3rem;
+}
+
+.exercise-title-section {
   text-align: center;
   margin-bottom: 3rem;
+  background: transparent;
 }
 
 .exercise-main-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: 0.05em;
-  margin: 0;
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 72px !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.01em !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.2em !important;
+  text-transform: none !important;
+  color: inherit !important;
+}
+
+.title-line-1,
+.title-line-2 {
+  display: block;
+  width: 100%;
+  letter-spacing: 0.01em;
 }
 
 .title-letter {
@@ -2415,49 +2423,275 @@ section {
   width: 0.5em;
 }
 
-.title-b { color: #3BA1E1; }
-.title-r { color: #74FD2C; }
-.title-e1 { color: #FA26A2; }
-.title-a { color: #3BA1E1; }
-.title-t { color: #74FD2C; }
-.title-h { color: #FA26A2; }
-.title-i { color: #3BA1E1; }
-.title-n { color: #74FD2C; }
-.title-g { color: #FA26A2; }
-.title-l { color: #3BA1E1; }
-.title-i2 { color: #74FD2C; }
-.title-k { color: #FA26A2; }
-.title-e2 { color: #3BA1E1; }
-.title-a2 { color: #74FD2C; }
-.title-p { color: #FA26A2; }
-.title-r2 { color: #3BA1E1; }
-.title-o { color: #74FD2C; }
-
-.exercise-section {
-  margin-top: 3rem;
+/* BREATHING LIKE A PRO - Exact colors: Blue (#3386BC), Red (#E33764), Green (#8BBE3F) */
+.title-b {
+  color: #3386BC;
 }
 
-.exercise-intro {
+/* Blue */
+.title-r {
+  color: #E33764;
+}
+
+/* Red */
+.title-e1 {
+  color: #8BBE3F;
+}
+
+/* Green */
+.title-a {
+  color: #3386BC;
+}
+
+/* Blue */
+.title-t {
+  color: #E33764;
+}
+
+/* Red */
+.title-h {
+  color: #8BBE3F;
+}
+
+/* Green */
+.title-i {
+  color: #3386BC;
+}
+
+/* Blue */
+.title-n {
+  color: #E33764;
+}
+
+/* Red */
+.title-g {
+  color: #8BBE3F;
+}
+
+/* Green */
+.title-l {
+  color: #3386BC;
+}
+
+/* Blue */
+.title-i2 {
+  color: #E33764;
+}
+
+/* Red */
+.title-k {
+  color: #8BBE3F;
+}
+
+/* Green */
+.title-e2 {
+  color: #3386BC;
+}
+
+/* Blue */
+.title-a2 {
+  color: #E33764;
+}
+
+/* Red */
+.title-p {
+  color: #8BBE3F;
+}
+
+/* Green */
+.title-r2 {
+  color: #3386BC;
+}
+
+/* Blue */
+.title-o {
+  color: #E33764;
+}
+
+/* Red */
+
+/* MIGHTY MOVERS - Colorful pattern: Blue (#3386BC), Pink (#E43764), Green (#8BBE3F) */
+/* Apply to all title letters in Mighty Movers section */
+.title-m {
+  color: #3386BC !important;
+}
+
+/* Blue */
+.title-i3 {
+  color: #E43764 !important;
+}
+
+/* Pink */
+.title-g2 {
+  color: #8BBE3F !important;
+}
+
+/* Green */
+.title-h2 {
+  color: #3386BC !important;
+}
+
+/* Blue */
+.title-t2 {
+  color: #E43764 !important;
+}
+
+/* Pink */
+.title-y {
+  color: #8BBE3F !important;
+}
+
+/* Green */
+.title-m2 {
+  color: #3386BC !important;
+}
+
+/* Blue */
+.title-o2 {
+  color: #E43764 !important;
+}
+
+/* Pink */
+.title-v {
+  color: #8BBE3F !important;
+}
+
+/* Green */
+.title-e3 {
+  color: #3386BC !important;
+}
+
+/* Blue */
+.title-r3 {
+  color: #E43764 !important;
+}
+
+/* Pink */
+.title-s {
+  color: #8BBE3F !important;
+}
+
+/* Green */
+
+.exercise-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.exercise-intro-text {
   text-align: center;
-  margin-bottom: 3rem;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  background: transparent;
 }
 
 .exercise-number {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   color: #374151;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.exercise-number strong {
+  font-weight: 700;
+}
+
+/* Exercise 2 specific styling - smaller font */
+.exercise-section-main:nth-of-type(2) .exercise-number {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.exercise-section-main:nth-of-type(2) .exercise-number strong {
+  font-weight: 400;
 }
 
 .exercise-description {
-  font-family: 'Lato', sans-serif;
-  font-size: clamp(16px, 2vw, 20px);
-  color: #6b7280;
+  font-family: 'Geneva', 'Tahoma', 'Verdana', sans-serif;
+  font-size: 18px;
+  color: #374151;
   line-height: 1.8;
+  margin: 0;
+}
+
+.video-section-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.video-thumbnail-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
   max-width: 800px;
   margin: 0 auto;
 }
 
+.video-thumbnail-img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  position: relative;
+  z-index: 3;
+  display: block;
+}
+
+.video-thumbnail-img.locked {
+  opacity: 0.6;
+  filter: grayscale(0.3);
+}
+
+.blue-rectangle-below-thumbnail {
+  position: absolute;
+  bottom: -15%;
+  left: -5%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blue-rectangle-top-right {
+  position: absolute;
+  top: -20%;
+  right: -8%;
+  z-index: 1;
+}
+
+.rectangle-asset {
+  width: auto;
+  height: auto;
+  max-width: 150px;
+  max-height: 150px;
+  object-fit: contain;
+  display: block;
+}
+
+.bear-on-blue-block {
+  position: absolute;
+  bottom: -60%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.bear-sign-asset {
+  width: clamp(80px, 10vw, 150px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Notebook Container */
 .notebook-container {
   background: #f3f4f6;
   border: 2px solid #e5e7eb;
@@ -2467,11 +2701,12 @@ section {
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   position: relative;
-  background-image: 
-    linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 20px 20px;
   margin-top: 2rem;
+  min-height: 500px;
 }
 
 .notebook-left,
@@ -2479,6 +2714,8 @@ section {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .notebook-section-title {
@@ -2542,47 +2779,11 @@ section {
   font-size: 1.2em;
 }
 
-.video-player-placeholder {
-  margin-top: 2rem;
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #d1d5db;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid #9ca3af;
-}
-
-.play-button-large {
-  width: 80px;
-  height: 80px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.play-button-large:hover {
-  transform: scale(1.1);
-}
-
-.play-icon {
-  font-size: 2rem;
-  color: #374151;
-  margin-left: 5px;
-}
-
 .monster-character {
-  position: absolute;
-  right: -50px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .monster-img {
@@ -2591,32 +2792,69 @@ section {
   object-fit: contain;
 }
 
+/* Play Button Overlay */
+.play-button-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.play-button-large {
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  pointer-events: all;
+}
+
+.play-button-large:hover {
+  transform: scale(1.1);
+}
+
+.play-icon {
+  font-size: 2.5rem;
+  color: #374151;
+  margin-left: 5px;
+}
+
+.lock-icon-large {
+  font-size: 4rem;
+  color: #f97316;
+  text-align: center;
+}
+
+
 @media (max-width: 1024px) {
-  .notebook-container {
+  .video-section-container {
     grid-template-columns: 1fr;
     gap: 2rem;
-  }
-
-  .monster-character {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
-    text-align: center;
-    margin-top: 2rem;
   }
 }
 
 @media (max-width: 768px) {
-  .week-content {
-    padding: 2rem 1rem;
+  .exercise-section-main {
+    padding: 3rem 1.5rem;
   }
 
-  .notebook-container {
-    padding: 2rem 1.5rem;
+  .week-hero-banner {
+    padding: 2rem 1rem;
   }
 
   .exercise-main-title {
     font-size: clamp(2rem, 6vw, 4rem);
+  }
+
+  .video-section-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
