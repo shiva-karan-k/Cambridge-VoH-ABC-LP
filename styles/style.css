@@ -2413,6 +2413,8 @@ section {
   width: 100%;
   letter-spacing: -0.02em;
   line-height: 0.85;
+  white-space: nowrap;
+  /* Prevent wrapping */
 }
 
 .title-letter {
@@ -2665,7 +2667,8 @@ section {
 .blue-rectangle-top-right {
   position: absolute;
   top: -12%;
-  right: -12%;
+  right: calc(-12% + 60px);
+  /* Move left by 60px */
   z-index: 1;
 }
 
@@ -2857,8 +2860,9 @@ section {
   }
 
   .exercise-main-title {
-    font-size: clamp(3rem, 10vw, 4rem);
-    letter-spacing: -0.02em;
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    /* Reduced min and max size */
+    letter-spacing: -0.03em;
   }
 
   .title-line-1,
@@ -2887,7 +2891,7 @@ section {
 
   .blue-rectangle-top-right {
     top: -8%;
-    right: -5%;
+    right: -10%;
     max-width: 120px;
   }
 
