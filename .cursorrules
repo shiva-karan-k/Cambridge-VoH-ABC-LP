@@ -390,3 +390,40 @@ When making changes:
 - Note alignment adjustments
 - Record color corrections
 - Update this rules file if new patterns emerge
+
+## CRITICAL: Week 1 Page Rules
+
+### Blue Rectangle Assets - DO NOT USE INCORRECTLY
+**NEVER position blue rectangles (Rectangle 73.png) in ways that:**
+- Overlap or cover content
+- Are positioned with bad transforms that break layout
+- Are added without clear purpose from reference
+- Ruin the page layout
+
+**If blue rectangles are needed:**
+- Only add them when explicitly shown in reference
+- Position them adjacent to elements, not overlapping
+- Test positioning carefully before finalizing
+- If positioning is unclear, ask user for clarification
+
+### Week 1 Hero Background
+- Use `Rectangle 27.png` from `assets/images/w1/` folder as background image
+- Set as `background-image` with `background-size: cover`
+
+### Week 1 Title Typography
+- Font: Bebas Neue (NOT MyType for this title)
+- Font size: 72px (fixed, not clamp)
+- Line height: 160%
+- Letter spacing: 2%
+- "BREATHING" on first line, "LIKE A PRO" on second line
+- Colors: Exact alternating pattern Blue → Pink → Green → Blue → Pink → Green...
+
+### Week 1 Video Thumbnails
+- Exercise 1: Use `Mask group.png` (left) and `Mask group-1.png` (right) - TWO thumbnails
+- Exercise 2: Use `Mask group.png` (left) and `Mask group-1.png` (right) - TWO thumbnails
+- Blue rectangle (Rectangle 73.png) on left bottom of first thumbnail
+- Blue rectangle (Rectangle 73.png) on right side of second thumbnail
+- Bear (Rectangle 76.png) positioned next to first thumbnail where shown in reference
+- **CRITICAL**: DO NOT remove video thumbnails once they are set correctly
+- **CRITICAL**: DO NOT replace video thumbnails with notebook layout unless explicitly requested
+- **CRITICAL**: DO NOT destroy working implementations - verify before changing
