@@ -7,12 +7,6 @@
       "source": "/week-1",
       "destination": "/week-1/"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
   ]
 }
 
