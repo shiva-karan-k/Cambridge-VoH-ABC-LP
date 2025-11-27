@@ -309,6 +309,31 @@ After any changes:
 4. Ensure no elements are trimmed/cut off
 5. Test responsive behavior
 
+## Site Visits vs Site Visitor Numbers - CRITICAL DISTINCTION
+
+**NEVER confuse these two different elements:**
+
+1. **"Site Visits"** (Above First Footer - Teal Footer):
+   - Location: Section above the teal footer (first footer)
+   - Text: "Site Visits" (NOT "Site Visitors")
+   - HTML class: `.visitor-text` with text "Site Visits"
+   - CSS class: `.site-visits` section
+   - Purpose: Shows visit count above the enrollment footer
+
+2. **"Site Visitor Numbers"** (Second Footer - Dark Footer):
+   - Location: Bottom right of second footer (dark gray footer)
+   - Text: "Site Visitor Numbers: [number]" (full phrase)
+   - HTML class: `.footer-visitors`
+   - CSS: `text-align: right` in `.footer-bottom-line`
+   - Purpose: Shows visitor count in footer copyright area
+
+**Rules:**
+- "Site Visits" = Above first footer, simple text
+- "Site Visitor Numbers" = Second footer bottom right, full phrase
+- NEVER use "Site Visitors" anywhere - it doesn't exist
+- Copyright in second footer = LEFT aligned
+- Site Visitor Numbers in second footer = RIGHT aligned
+
 ## Version Control
 
 When making changes:

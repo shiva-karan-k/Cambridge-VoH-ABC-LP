@@ -1,7 +1,10 @@
 /* My Type Font Import */
 @font-face {
   font-family: 'MyType';
-  src: url('../assets/mytype.ttf') format('truetype');
+  src: local('My Type of Font'),
+    url('../assets/MyTypeOfFont.ttf') format('truetype'),
+    url('../assets/mytype.ttf') format('truetype'),
+    url('../assets/mytyp-0ld.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -74,23 +77,23 @@ body {
   font-family: 'Lato';
 }
 
-/* Section 2 (Introduction) - Bebas Neue for title AND description (MyType is corrupted) */
+/* Section 2 (Introduction) - MyType for title AND description */
 .introduction .section-title,
 .introduction h2.section-title,
 section.introduction .section-title {
-  font-family: 'Bebas Neue' !important;
+  font-family: 'MyType', 'Courier New', 'Bebas Neue', monospace !important;
 }
 
 .introduction .intro-description,
 .introduction p.intro-description {
-  font-family: 'Lato' !important;
+  font-family: 'MyType', 'Courier New', monospace !important;
 }
 
-/* Section 3 (Benefits) - Bebas Neue for title, Lato for descriptions */
+/* Section 3 (Benefits) - MyType for title, Lato for descriptions */
 .benefits .section-title,
 .benefits h2.section-title,
 section.benefits .section-title {
-  font-family: 'Bebas Neue' !important;
+  font-family: 'MyType', 'Courier New', 'Bebas Neue', monospace !important;
 }
 
 .benefits .benefit-item p,
@@ -98,11 +101,11 @@ section.benefits .section-title {
   font-family: 'Lato' !important;
 }
 
-/* Section 4 (Sessions) - Bebas Neue for title, Lato for descriptions */
+/* Section 4 (Sessions) - MyType for title, Lato for descriptions */
 .sessions .section-title,
 .sessions h2.section-title,
 section.sessions .section-title {
-  font-family: 'Bebas Neue' !important;
+  font-family: 'MyType', 'Courier New', 'Bebas Neue', monospace !important;
 }
 
 .sessions .session-description,
@@ -134,7 +137,7 @@ section.sessions .section-title {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 0.15rem 2rem;
+  padding: 0.5rem 2rem;
   border-bottom: 1px solid rgba(229, 231, 235, 0.5);
   position: fixed;
   top: 0;
@@ -182,17 +185,15 @@ section.sessions .section-title {
 }
 
 .abc-logo {
-  height: clamp(80px, 10vw, 120px);
+  height: clamp(35px, 6vw, 65px);
   width: auto;
-  object-fit: cover;
-  object-position: center;
-  clip-path: inset(15% 0 15% 0);
+  object-fit: contain;
 }
 
 /* Navigation */
 .navbar {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   flex: 1;
   margin-right: 2rem;
@@ -222,18 +223,11 @@ section.sessions .section-title {
 }
 
 .nav-link.active {
-  background: #FFA500;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-}
-
-.nav-link.active {
   background: #fbbf24;
-  color: #374151;
+  color: white;
   padding: 0.4rem 0.85rem;
-  border-radius: 8px;
-  font-weight: 500;
+  border-radius: 0;
+  font-weight: 400;
 }
 
 /* Responsive Navigation */
@@ -256,7 +250,6 @@ section.sessions .section-title {
 
   .abc-logo {
     height: clamp(80px, 10vw, 120px);
-    clip-path: inset(15% 0 15% 0);
   }
 }
 
@@ -277,8 +270,7 @@ section.sessions .section-title {
   }
 
   .abc-logo {
-    height: clamp(60px, 8vw, 80px);
-    clip-path: inset(15% 0 15% 0);
+    height: clamp(25px, 4vw, 40px);
   }
 
   .navbar {
@@ -318,7 +310,7 @@ section.sessions .section-title {
   background: #DF375D;
   color: var(--color-white);
   border: none;
-  padding: 0.6rem 1.2rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-family: 'Lato';
   font-weight: 700;
@@ -368,11 +360,12 @@ section.sessions .section-title {
 .hero-left {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   gap: 2rem;
   padding: 10rem 14rem 6rem 10rem;
   transform: translateY(0);
+  text-align: center;
 }
 
 /* Hero BBA Logo */
@@ -391,30 +384,85 @@ section.sessions .section-title {
   margin: 0;
 }
 
-.hero-title .become {
-  color: #2dd4bf;
-  /* Cyan */
+.hero-title .letter-b1 {
+  color: #3BA1E1;
 }
 
-.hero-title .breathing {
-  color: #ec4899;
-  /* Pink */
+.hero-title .letter-e1 {
+  color: #74FD2C;
 }
 
-.hero-title .hero-word {
-  color: #10b981;
-  /* Green */
+.hero-title .letter-c {
+  color: #FA26A2;
 }
+
+.hero-title .letter-o1 {
+  color: #3BA1E1;
+}
+
+.hero-title .letter-m {
+  color: #74FD2C;
+}
+
+.hero-title .letter-e2 {
+  color: #FA26A2;
+}
+
+.hero-title .letter-a1 {
+  color: #3BA1E1;
+}
+
+.hero-title .letter-b2 {
+  color: #FA26A2;
+}
+
+.hero-title .letter-r {
+  color: #74FD2C;
+}
+
+.hero-title .letter-e3 {
+  color: #3BA1E1;
+}
+
+.hero-title .letter-a2 {
+  color: #FA26A2;
+}
+
+.hero-title .letter-t {
+  color: #74FD2C;
+}
+
+.hero-title .letter-h {
+  color: #3BA1E1;
+}
+
+.hero-title .letter-h2 {
+  color: #FA26A2;
+}
+
+.hero-title .letter-e4 {
+  color: #74FD2C;
+}
+
+.hero-title .letter-r2 {
+  color: #3BA1E1;
+}
+
+.hero-title .letter-o2 {
+  color: #FA26A2;
+}
+
+/* Cyan */
 
 .btn-exercises {
   background: #DF375D;
   color: white;
   border: none;
-  padding: clamp(1rem, 3vw, 1.5rem) clamp(2rem, 5vw, 3rem);
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
   border-radius: 8px;
   font-family: 'Lato', sans-serif;
   font-weight: 700;
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-size: clamp(0.875rem, 2vw, 1.1rem);
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
@@ -911,15 +959,15 @@ section {
 .benefits-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
+  gap: 1.5rem;
   margin-bottom: 3rem;
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 
 /* Benefits Section - Simplified */
 .benefit-item {
   text-align: center;
-  padding: 1.5rem;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -927,17 +975,17 @@ section {
 }
 
 .benefit-icon {
-  width: 360px;
-  height: 360px;
-  margin-bottom: 1.5rem;
+  width: clamp(120px, 15vw, 180px);
+  height: clamp(120px, 15vw, 180px);
+  margin-bottom: 1rem;
   object-fit: contain;
 }
 
 .benefit-item p {
   font-family: 'Lato', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   color: #6b7280;
-  line-height: 1.8;
+  line-height: 1.6;
   margin: 0;
   padding: 0 1rem;
 }
@@ -945,17 +993,22 @@ section {
 /* Add space between title and benefit blocks */
 .benefits .section-title {
   margin-bottom: 3rem;
+  color: #E74C7D;
 }
 
 /* Week number images */
 .week-number-img {
-  height: clamp(60px, 8vw, 80px);
+  height: clamp(40px, 5vw, 55px);
   width: auto;
-  margin: 0 auto 1rem auto;
+  margin: 0 auto 0.75rem auto;
   display: block;
 }
 
 /* Button colors for sessions - matching week icon backgrounds */
+.btn-green {
+  background: #8BBB3E;
+}
+
 .btn-blue {
   background: #345AA6;
 }
@@ -986,15 +1039,15 @@ section {
 }
 
 .btn-teal:hover {
-  background: #4a9fa0;
+  background: #4da5a6;
 }
 
 .btn-pink:hover {
-  background: #d5587b;
+  background: #d85a88;
 }
 
 .btn-yellow:hover {
-  background: #b8c038;
+  background: #b8c03a;
 }
 
 .btn-orange:hover {
@@ -1011,6 +1064,7 @@ section {
   color: white;
   padding: 3rem 4rem 2rem 4rem;
   text-align: center;
+  position: relative;
 }
 
 .footer-newsletter {
@@ -1107,37 +1161,74 @@ section {
 
 .footer-privacy {
   margin: 1rem 0 0.5rem 0;
+  text-align: center;
 }
 
 .footer-bottom-line {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 0.5rem;
+  padding-top: 0;
   width: 100%;
   max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.footer-copyright,
+.footer-copyright {
+  font-family: 'Lato';
+  font-size: 14px;
+  white-space: nowrap;
+  text-align: center;
+}
+
 .footer-visitors {
   font-family: 'Lato';
   font-size: 14px;
   white-space: nowrap;
+  text-align: center;
+}
+
+.footer-powered-by {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  color: var(--color-white);
+  opacity: 0.015;
+  width: 100%;
+  padding: 0.5rem 0;
 }
 
 @media (max-width: 768px) {
   .footer-bottom-line {
     flex-direction: column;
     gap: 1rem;
-    text-align: center;
     padding-top: 1rem;
   }
 
-  .footer-copyright,
+  .footer-copyright {
+    font-size: 12px;
+    text-align: left;
+  }
+
   .footer-visitors {
     font-size: 12px;
+    text-align: right;
+  }
+
+  .footer-left {
+    padding-left: 0.75rem;
+  }
+
+  .footer-right {
+    padding-left: 1rem;
   }
 
   .footer-second-block {
@@ -1173,9 +1264,6 @@ section {
 }
 
 .benefit-icon {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 1rem;
   animation: benefitFloat 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
@@ -1210,22 +1298,27 @@ section {
 /* Sessions Section */
 .sessions {
   background: var(--color-white);
+  padding: clamp(2rem, 4vh, 4rem) 2rem;
+  min-height: fit-content;
 }
 
 .sessions-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
+  gap: clamp(1.5rem, 2vw, 2rem);
   padding: 1rem 0;
+  max-width: 75%;
+  margin: 0 auto;
 }
 
 .session-card {
   background: var(--color-light-gray);
-  padding: 2.5rem 2rem;
+  padding: clamp(1.5rem, 2vh, 2rem) clamp(1rem, 1.5vw, 1.5rem);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 
 .session-header {
@@ -1276,7 +1369,7 @@ section {
 
 .session-description {
   font-family: 'Lato';
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.8;
   color: #6b7280;
@@ -1307,6 +1400,7 @@ section {
   font-size: 1rem;
   transition: opacity 0.2s;
   letter-spacing: 0.05em;
+  margin-top: auto;
 }
 
 
@@ -1314,28 +1408,38 @@ section {
   opacity: 0.9;
 }
 
-.btn-green {
-  background: var(--color-green);
+/* Site Visits Section */
+.site-visits {
+  background: var(--color-white);
+  padding: 2rem;
+  text-align: center;
 }
 
-.btn-orange {
-  background: var(--color-orange);
+.site-visits-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-family: 'Lato', sans-serif;
 }
 
-.btn-purple {
-  background: var(--color-purple);
+.visitor-icon-circle {
+  width: 24px;
+  height: 24px;
+  background: #8BBB3E;
+  border-radius: 50%;
 }
 
-.btn-pink {
-  background: var(--color-pink);
+.visitor-count {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FAB314;
 }
 
-.btn-blue {
-  background: #3b82f6;
-}
-
-.btn-teal {
-  background: var(--color-teal);
+.visitor-text {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #374151;
 }
 
 /* Footer */
@@ -1430,18 +1534,24 @@ section {
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: clamp(3rem, 5vw, 5rem);
   position: relative;
-  align-items: start;
+  align-items: center;
+  justify-items: center;
 }
 
 .footer-left {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-left: clamp(-100px, -15vw, -200px);
-  padding-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0;
+  max-width: 100%;
+  transform: scale(1.15);
+  transform-origin: center center;
+  text-align: center;
 }
 
 .footer-center {
@@ -1453,37 +1563,39 @@ section {
 
 .footer-right {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0;
+  text-align: center;
+}
+
+.footer-right .enrollment-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
 }
 
 .footer-copyright {
-  text-align: center;
+  text-align: left;
   padding: 1.5rem 1rem;
   font-family: Geneva, sans-serif;
   font-size: clamp(12px, 1.5vw, 14px);
   color: var(--color-white);
   opacity: 0.9;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   position: relative;
+  width: 100%;
 }
 
-.footer-copyright::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.3);
-}
 
 
 .every-breath-counts {
   width: 100%;
-  max-width: clamp(250px, 30vw, 400px);
+  max-width: clamp(200px, 25vw, 300px);
   height: auto;
-  padding-right: 3rem;
 }
 
 @media (max-width: 768px) {
@@ -1495,10 +1607,11 @@ section {
 }
 
 .footer-tagline {
-  font-family: Geneva, sans-serif;
-  font-size: clamp(14px, 2vw, 20px);
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(12px, 1.5vw, 16px);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.5;
+  max-width: 90%;
 }
 
 .site-visitors-above-footer {
@@ -1521,7 +1634,7 @@ section {
 
 .enrollment-benefits {
   list-style: none;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -1530,17 +1643,40 @@ section {
 
 .enrollment-benefits li {
   font-family: 'Lato', sans-serif;
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: 18px;
   font-weight: 400;
-  margin-bottom: 1rem;
+  margin-bottom: 0.7rem;
   padding-left: 0;
   position: relative;
-  line-height: 1.8;
-  text-align: left;
+  line-height: 1.6;
+  text-align: center;
 }
 
 .enrollment-benefits li::before {
   display: none;
+}
+
+.btn-enroll-now {
+  background: #DF375D;
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 15px rgba(223, 55, 93, 0.3);
+  margin-top: 1rem;
+}
+
+.btn-enroll-now:hover {
+  background: #c12d50;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(223, 55, 93, 0.4);
 }
 
 .enrollment-title {
@@ -1611,7 +1747,7 @@ section {
   }
 
   .footer-right {
-    display: none;
+    display: flex;
   }
 
   /* REMOVED - boots responsive styles */
@@ -1778,8 +1914,8 @@ section {
   }
 
   .benefit-icon {
-    width: clamp(60px, 15vw, 80px);
-    height: auto;
+    width: clamp(150px, 30vw, 220px);
+    height: clamp(150px, 30vw, 220px);
     margin-bottom: 1rem;
   }
 
@@ -2003,6 +2139,10 @@ section {
     height: clamp(25px, 6vw, 35px);
   }
 
+  .abc-logo {
+    height: clamp(20px, 3.5vw, 30px);
+  }
+
   .voices-logo {
     height: clamp(20px, 5vw, 30px);
   }
@@ -2177,6 +2317,6 @@ section {
   }
 
   .footer-right {
-    display: none;
+    display: flex;
   }
 }

@@ -10,7 +10,7 @@ function trackVisit() {
 function updateVisitorCount(count) {
   const visitorElement = document.querySelector('.visitor-count');
   if (visitorElement) {
-    visitorElement.textContent = `${count} Site Visitors`;
+    visitorElement.textContent = `${count} site visits`;
   }
 }
 
