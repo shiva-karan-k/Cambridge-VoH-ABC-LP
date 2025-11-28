@@ -2867,7 +2867,8 @@ section {
 
 .bear-on-blue-block {
   position: absolute;
-  bottom: -60%;
+  bottom: 0;
+  /* Position at bottom of blue rectangle, not extending below thumbnail */
   left: 55%;
   transform: translateX(-50%);
   z-index: 4;
@@ -3180,7 +3181,8 @@ section {
 
   /* Blue blocks mobile positioning */
   .blue-rectangle-below-thumbnail {
-    bottom: -5%;
+    bottom: 0;
+    /* Keep at bottom edge of thumbnail on mobile */
     left: -10%;
     max-width: 120px;
   }
@@ -3197,7 +3199,8 @@ section {
   }
 
   .bear-on-blue-block {
-    bottom: -50%;
+    bottom: 0;
+    /* Keep bear at bottom of blue rectangle, not extending below thumbnail */
     left: 55%;
     /* Move bear slightly towards center (away from left edge) */
   }
