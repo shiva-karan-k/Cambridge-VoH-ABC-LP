@@ -2834,9 +2834,9 @@ section {
 /* Mobile adjustments for blue rectangle */
 @media (max-width: 768px) {
   .blue-rectangle {
-    width: 46px;
-    height: 120px;
-    /* Maintain aspect ratio */
+    width: 127px;
+    height: 404px;
+    /* Keep same dimensions on mobile */
   }
 }
 
