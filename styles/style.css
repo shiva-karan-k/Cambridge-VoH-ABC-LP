@@ -2775,11 +2775,13 @@ section {
 
 .blue-rectangle-below-thumbnail {
   position: absolute;
-  bottom: -8%;
+  bottom: 0;
+  /* Position at bottom edge of thumbnail, not extending below */
   left: -8%;
   z-index: 1;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  /* Align items to bottom */
   justify-content: center;
 }
 
