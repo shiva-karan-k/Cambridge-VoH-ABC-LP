@@ -119,3 +119,29 @@ Server runs on `http://localhost:5173`
 4. Footer layout - Proper grid alignment
 5. ABC logo - Removed clip-path, matched Kingston size
 
+## Week 1 Page Implementation Notes
+
+### Title Typography
+- Font: Bebas Neue
+- Font size: 72px
+- Line height: 160%
+- Letter spacing: 2%
+- Structure: "BREATHING" on line 1, "LIKE A PRO" on line 2
+- Colors: Blue (#3386BC), Red (#E33764), Green (#8BBE3F) alternating pattern
+
+### Hero Background
+- Using `Rectangle 27.png` as background image
+- w1.png centered on top
+
+### Video Thumbnails
+- Exercise 1: `Mask group.png` (left) and `Mask group-1.png` (right)
+- Exercise 2: `Mask group.png` (left, locked) and `Mask group-1.png` (right, locked)
+- Blue rectangle on left bottom of first thumbnail
+- Blue rectangle on right side of second thumbnail
+- Bear positioned next to first thumbnail
+
+### Critical Rules
+- DO NOT destroy working implementations
+- DO NOT remove video thumbnails once set correctly
+- DO NOT replace with notebook layout unless explicitly requested
+
