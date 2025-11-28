@@ -2153,6 +2153,19 @@ section {
     padding: 0.5rem 0.75rem;
   }
 
+  .week-hero-banner {
+    padding: 1rem 0.5rem 10rem 0.5rem;
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 50% 100%, 0 92%);
+    /* More aggressive clip-path for actual small mobile devices */
+  }
+
+  .week-hero-image {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    width: 65%;
+    max-width: 65vw;
+  }
+
   .header-content {
     grid-template-columns: auto 1fr auto;
     gap: 0.25rem;
@@ -3090,15 +3103,14 @@ section {
   }
 
   .week-hero-banner {
-    padding: 1rem 0.5rem 10rem 0.5rem;
+    padding: 2rem 1rem 6rem 1rem;
     overflow: visible;
     min-height: auto;
-    clip-path: polygon(0 0, 100% 0, 100% 92%, 50% 100%, 0 92%);
-    /* Adjusted clip-path to give much more space at bottom for icons */
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+    /* Keep original clip-path for browser mobile view */
     width: 100%;
     max-width: 100vw;
     box-sizing: border-box;
-    position: relative;
   }
 
   .week-hero-content {
@@ -3113,10 +3125,10 @@ section {
   }
 
   .week-hero-image {
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-    width: 65%;
-    max-width: 65vw;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    width: 75%;
+    max-width: 75vw;
     height: auto;
     object-fit: contain;
     display: block;
