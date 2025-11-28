@@ -2791,8 +2791,8 @@ section {
 
 .blue-rectangle-below-thumbnail {
   position: absolute;
-  bottom: calc(-8% - 100px);
-  /* Move down by 100px from original position */
+  bottom: -8%;
+  /* Position below thumbnail */
   left: -5%;
   /* Move right (towards center) */
   z-index: 1;
@@ -2823,9 +2823,8 @@ section {
 }
 
 .blue-rectangle {
-  width: 127px;
-  height: 404px;
-  /* Set to exact dimensions: width 127px, height 404px */
+  width: 97px;
+  height: 251px;
   /* background-color set by week specific class */
   position: relative;
   z-index: 1;
@@ -2834,9 +2833,9 @@ section {
 /* Mobile adjustments for blue rectangle */
 @media (max-width: 768px) {
   .blue-rectangle {
-    width: 127px;
-    height: 404px;
-    /* Keep same dimensions on mobile */
+    width: 46px;
+    height: 120px;
+    /* Maintain aspect ratio */
   }
 }
 
@@ -2889,8 +2888,8 @@ section {
 
 .bear-on-blue-block {
   position: absolute;
-  bottom: calc(-60% - 50px);
-  /* Move down by 50px from original position */
+  bottom: calc(-60% + 35px);
+  /* Moved back up by 35px from the -50px position */
   left: 60%;
   /* Position at 60% of blue rectangle width from left */
   transform: translateX(-50%);
@@ -3207,11 +3206,11 @@ section {
 
   /* Blue blocks mobile positioning */
   .blue-rectangle-below-thumbnail {
-    bottom: calc(-10% - 100px);
-    /* Move down by 100px from original position */
+    bottom: -10%;
+    /* Start at 90% of thumbnail height (coming down) */
     left: -3%;
     /* Move right (towards center, inside) */
-    max-width: 127px;
+    max-width: 120px;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
@@ -3229,8 +3228,8 @@ section {
   }
 
   .bear-on-blue-block {
-    bottom: calc(-50% - 50px);
-    /* Move down by 50px from original position */
+    bottom: calc(-50% + 35px);
+    /* Moved back up by 35px from the -50px position */
     left: 60%;
     /* Position at 60% of blue rectangle width from left */
     transform: translateX(-50%);
