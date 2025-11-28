@@ -2767,6 +2767,8 @@ section {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+  overflow: visible;
+  /* Allow bear and rectangle to extend below */
 }
 
 .video-thumbnail-img {
@@ -2776,7 +2778,8 @@ section {
   object-fit: contain;
   border-radius: 12px;
   position: relative;
-  z-index: 3;
+  z-index: 2;
+  /* Thumbnail in front of blue rectangle */
   display: block;
   margin: 0 auto;
 }
@@ -2792,6 +2795,7 @@ section {
   /* Position below thumbnail */
   left: -8%;
   z-index: 1;
+  /* Behind thumbnail, in front of bear */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2883,9 +2887,11 @@ section {
   position: absolute;
   bottom: -60%;
   /* Position below blue rectangle */
-  left: 55%;
+  left: 50%;
+  /* Center horizontally */
   transform: translateX(-50%);
-  z-index: 4;
+  z-index: 3;
+  /* In front of blue rectangle, behind thumbnail */
   pointer-events: none;
 }
 
