@@ -2817,7 +2817,7 @@ section {
 }
 
 .video-thumbnail-wrapper.locked-state .video-thumbnail-img {
-  filter: grayscale(100%) brightness(0.7);
+  filter: grayscale(100%) brightness(0.7) blur(3px);
 }
 
 .lock-icon {
