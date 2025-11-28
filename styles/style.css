@@ -2377,7 +2377,8 @@ section {
 }
 
 .exercise-section-main {
-  padding: 5rem 2rem;
+  padding: 2rem 2rem;
+  /* Reduced vertical padding to compact layout */
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -2388,8 +2389,8 @@ section {
 
 .exercise-title-section {
   text-align: center;
-  margin-bottom: 5rem;
-  /* Increased gap between Main Title and Subtitle */
+  margin-bottom: 2rem;
+  /* Reduced gap between Main Title and Exercise Title */
   background: transparent;
 }
 
@@ -2426,7 +2427,8 @@ section {
 
 .title-space {
   display: inline-block;
-  width: 0.5em;
+  width: 0.2em;
+  /* Reduced space width for "Like A Pro" */
 }
 
 /* BREATHING LIKE A PRO - Exact colors: Blue (#3386BC), Red (#E33764), Green (#8BBE3F) */
@@ -2605,15 +2607,15 @@ section {
   font-weight: 700;
 }
 
-/* Exercise 2 specific styling - smaller font */
-.exercise-section-main:nth-of-type(2) .exercise-number {
+/* Exercise 2 specific styling removed to match Exercise 1 */
+/* .exercise-section-main:nth-of-type(2) .exercise-number {
   font-size: 18px;
   font-weight: 400;
 }
 
 .exercise-section-main:nth-of-type(2) .exercise-number strong {
   font-weight: 400;
-}
+} */
 
 .exercise-description {
   font-family: 'Geneva', 'Tahoma', 'Verdana', sans-serif;
