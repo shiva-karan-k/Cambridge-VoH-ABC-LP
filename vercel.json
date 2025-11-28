@@ -5,7 +5,27 @@
   "rewrites": [
     {
       "source": "/week-1",
-      "destination": "/week-1/"
+      "destination": "/weeks/week-1/"
+    },
+    {
+      "source": "/week-2",
+      "destination": "/weeks/week-2/"
+    },
+    {
+      "source": "/week-3",
+      "destination": "/weeks/week-3/"
+    },
+    {
+      "source": "/week-4",
+      "destination": "/weeks/week-4/"
+    },
+    {
+      "source": "/week-5",
+      "destination": "/weeks/week-5/"
+    },
+    {
+      "source": "/week-6",
+      "destination": "/weeks/week-6/"
     }
   ]
 }
