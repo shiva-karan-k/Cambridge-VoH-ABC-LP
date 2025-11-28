@@ -3223,8 +3223,9 @@ section {
   .bear-on-blue-block {
     bottom: -50%;
     /* Position below blue rectangle on mobile */
-    left: 55%;
-    /* Move bear slightly towards center (away from left edge) */
+    left: 50%;
+    /* Center horizontally */
+    transform: translateX(-50%);
   }
 
   .bear-sign-asset {
