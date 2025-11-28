@@ -2872,22 +2872,42 @@ section {
 }
 
 @media (max-width: 768px) {
-  .fish-at-title-level {
+  .week-6-page .fish-at-title-level {
     position: absolute;
     top: 100%;
     right: 0;
     transform: translateY(10px);
     z-index: 10;
     pointer-events: none;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .week-6-page .fish-asset {
+    width: clamp(80px, 12vw, 140px) !important;
+    height: auto !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
   
   .week-6-title-section {
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
+    padding: 0 1rem;
+    min-height: 120px;
   }
   
   .exercise-main-title {
     word-break: break-word;
     overflow-wrap: break-word;
+    max-width: 100%;
+  }
+  
+  .week-6-page .exercise-title-section {
+    padding: 0 0.5rem;
+    overflow: visible;
+    position: relative;
   }
 }
 
@@ -3067,8 +3087,17 @@ section {
   }
   
   .week-6-page .exercise-main-title {
-    font-size: clamp(1.2rem, 5vw, 2rem);
-    /* Even smaller for week 6 to prevent overflow */
+    font-size: clamp(2rem, 6vw, 2.5rem);
+    /* Readable size for week 6 */
+    line-height: 0.9 !important;
+    letter-spacing: -0.03em !important;
+  }
+  
+  .week-6-page .title-line-1,
+  .week-6-page .title-line-2 {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
   }
 
   .title-line-1,
