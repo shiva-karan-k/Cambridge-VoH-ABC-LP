@@ -2160,10 +2160,11 @@ section {
   }
 
   .week-hero-image {
-    margin-top: 2rem;
+    margin-top: 3rem;
     margin-bottom: 4rem;
     width: 65%;
     max-width: 65vw;
+    /* Moved down more to center in background height */
   }
 
   .header-content {
@@ -2867,7 +2868,7 @@ section {
 .bear-on-blue-block {
   position: absolute;
   bottom: -60%;
-  left: 50%;
+  left: 55%;
   transform: translateX(-50%);
   z-index: 4;
   pointer-events: none;
@@ -3197,10 +3198,13 @@ section {
 
   .bear-on-blue-block {
     bottom: -50%;
+    left: 55%;
+    /* Move bear slightly towards center (away from left edge) */
   }
 
   .bear-sign-asset {
-    width: clamp(60px, 8vw, 100px);
+    width: clamp(100px, 15vw, 180px);
+    /* Increased size for mobile - was clamp(60px, 8vw, 100px) */
   }
 }
 
