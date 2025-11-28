@@ -2348,15 +2348,87 @@ section {
 
 /* Week 1 Page Styles */
 .week-hero-banner {
-  background-image: url('../assets/images/w1/Rectangle 27.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  /* background-color set by week specific class */
   padding: 4rem 2rem 6rem 2rem;
   text-align: center;
   position: relative;
   overflow: visible;
   min-height: fit-content;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+  /* V-shape bottom */
+}
+
+
+/* Week 1 Specific Colors */
+.week-1-page .week-hero-banner {
+  background-color: rgba(52, 90, 166, 0.15);
+  /* #345AA6 15% */
+}
+
+.week-1-page .blue-rectangle {
+  background-color: #345AA6;
+}
+
+/* Week 2 Specific Colors */
+.week-2-page .week-hero-banner {
+  background-color: rgba(94, 192, 193, 0.15);
+  /* #5EC0C1 15% */
+}
+
+.week-2-page .blue-rectangle {
+  background-color: #5EC0C1;
+}
+
+/* Week 3 Specific Colors */
+.week-3-page .week-hero-banner {
+  background-color: rgba(237, 108, 155, 0.15);
+  /* #ED6C9B 15% */
+}
+
+.week-3-page .blue-rectangle {
+  background-color: #ED6C9B;
+}
+
+/* Week 4 Specific Colors */
+.week-4-page .week-hero-banner {
+  background-color: rgba(209, 214, 69, 0.15);
+  /* #D1D645 15% */
+}
+
+.week-4-page .blue-rectangle {
+  background-color: #D1D645;
+}
+
+/* Week 5 Specific Colors */
+.week-5-page .week-hero-banner {
+  background-color: rgba(250, 179, 20, 0.15);
+  /* #FAB314 15% */
+}
+
+.week-5-page .blue-rectangle {
+  background-color: #FAB314;
+}
+
+/* Week 6 Specific Colors */
+.week-6-page .week-hero-banner {
+  background-color: rgba(235, 211, 173, 0.15);
+  /* #EBD3AD 15% */
+}
+
+.week-6-page .blue-rectangle {
+  background-color: #EBD3AD;
+}
+
+/* Complete Previous Session Message */
+.complete-session-message {
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.complete-session-message img {
+  max-width: 100%;
+  height: auto;
 }
 
 .week-hero-content {
@@ -2412,7 +2484,8 @@ section {
 }
 
 .title-line-1,
-.title-line-2 {
+.title-line-2,
+.title-line-3 {
   display: block;
   width: 100%;
   letter-spacing: -0.05em;
@@ -2688,12 +2761,72 @@ section {
 }
 
 .rectangle-asset {
-  width: auto;
-  height: auto;
-  max-width: 250px;
-  max-height: 250px;
-  object-fit: contain;
-  display: block;
+  display: none;
+  /* Hide image asset */
+}
+
+.blue-rectangle {
+  width: 97px;
+  height: 251px;
+  /* background-color set by week specific class */
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile adjustments for blue rectangle */
+@media (max-width: 768px) {
+  .blue-rectangle {
+    width: 46px;
+    height: 120px;
+    /* Maintain aspect ratio */
+  }
+}
+
+/* Locked Thumbnail State */
+.video-thumbnail-wrapper {
+  position: relative;
+}
+
+.video-thumbnail-img.locked {
+  opacity: 1;
+  /* Reset opacity from previous fix */
+  filter: grayscale(100%);
+  /* Grayscale for locked */
+}
+
+.lock-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: none;
+  /* Hidden by default */
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fff;
+}
+
+.video-thumbnail-wrapper.locked-state .lock-overlay {
+  display: flex;
+  /* Show when parent has locked-state class */
+}
+
+.video-thumbnail-wrapper.locked-state .video-thumbnail-img {
+  filter: grayscale(100%) brightness(0.7);
+}
+
+.lock-icon {
+  width: 40px;
+  height: 40px;
+  background-image: url('../assets/images/w1/lock icon.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .bear-on-blue-block {
