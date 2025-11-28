@@ -2874,10 +2874,10 @@ section {
 @media (max-width: 768px) {
   .week-6-page .fish-at-title-level {
     position: absolute;
-    top: 100%;
-    right: 0;
-    transform: translateY(10px);
-    z-index: 10;
+    top: 50%;
+    right: -5%;
+    transform: translateY(-50%);
+    z-index: 5;
     pointer-events: none;
     display: block !important;
     visibility: visible !important;
@@ -2893,9 +2893,17 @@ section {
   }
   
   .week-6-title-section {
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
     padding: 0 1rem;
     min-height: 120px;
+  }
+  
+  .week-6-page .exercise-content-wrapper {
+    margin-top: 0.5rem;
+  }
+  
+  .week-6-page .exercise-intro-text {
+    margin-top: 0;
   }
   
   .exercise-main-title {
