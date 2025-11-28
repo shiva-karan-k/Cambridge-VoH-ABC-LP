@@ -2585,14 +2585,16 @@ section {
 .exercise-content-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 1.5rem;
+  /* Reduced gap from 2.5rem */
 }
 
 .exercise-intro-text {
   text-align: center;
   max-width: 480px;
   /* Constrain width to force ~4 lines */
-  margin: 0 auto 2rem;
+  margin: 0 auto;
+  /* Removed bottom margin */
   background: transparent;
 }
 
@@ -2634,7 +2636,8 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 0;
+  /* Removed top margin */
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
