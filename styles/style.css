@@ -2154,17 +2154,23 @@ section {
   }
 
   .week-hero-banner {
-    padding: 1rem 0.5rem 10rem 0.5rem;
+    padding: 0 0.5rem 10rem 0.5rem;
+    /* No top padding - starts right after navbar */
     clip-path: polygon(0 0, 100% 0, 100% 92%, 50% 100%, 0 92%);
     /* More aggressive clip-path for actual small mobile devices */
   }
 
+  .week-hero-content {
+    padding-top: 1rem;
+    /* Add top padding to content on small mobile */
+  }
+
   .week-hero-image {
-    margin-top: 3rem;
+    margin-top: 0;
+    /* Remove top margin since padding is on content */
     margin-bottom: 4rem;
     width: 65%;
     max-width: 65vw;
-    /* Moved down more to center in background height */
   }
 
   .header-content {
@@ -2371,7 +2377,8 @@ section {
 /* Week 1 Page Styles */
 .week-hero-banner {
   /* background-color set by week specific class */
-  padding: 4rem 2rem 6rem 2rem;
+  padding: 0 2rem 6rem 2rem;
+  /* No top padding - starts right after navbar */
   text-align: center;
   position: relative;
   overflow: visible;
@@ -2466,6 +2473,8 @@ section {
   max-width: 100%;
   overflow: visible;
   box-sizing: border-box;
+  padding-top: 2rem;
+  /* Add top padding to content, not banner */
 }
 
 .week-hero-image {
@@ -3121,7 +3130,8 @@ section {
     overflow: visible;
     width: 100%;
     max-width: 100%;
-    padding: 0;
+    padding: 1.5rem 0 0 0;
+    /* Add top padding to content on mobile */
     margin: 0;
     box-sizing: border-box;
     position: relative;
@@ -3129,7 +3139,8 @@ section {
   }
 
   .week-hero-image {
-    margin-top: 3rem;
+    margin-top: 0;
+    /* Remove top margin since padding is on content */
     margin-bottom: 2rem;
     width: 75%;
     max-width: 75vw;
