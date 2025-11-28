@@ -2597,14 +2597,18 @@ section {
 
 .exercise-number {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: 24px;
+  /* Reduced size */
   color: #374151;
-  margin-bottom: 0.5rem;
-  /* Reduced gap between Subtitle and Description */
+  margin-bottom: 0.2rem;
+  /* Further reduced gap */
+  white-space: nowrap;
+  /* Force one line */
 }
 
 .exercise-number strong {
-  font-weight: 700;
+  font-weight: 400;
+  /* Reduced weight */
 }
 
 /* Exercise 2 specific styling removed to match Exercise 1 */
