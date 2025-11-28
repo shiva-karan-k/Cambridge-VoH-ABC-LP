@@ -2388,7 +2388,8 @@ section {
 
 .exercise-title-section {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
+  /* Increased gap between Main Title and Subtitle */
   background: transparent;
 }
 
@@ -2397,7 +2398,8 @@ section {
   font-size: 72px !important;
   font-weight: 400 !important;
   line-height: 0.85 !important;
-  letter-spacing: -0.02em !important;
+  letter-spacing: -0.05em !important;
+  /* Further reduced letter spacing */
   margin: 0 !important;
   display: flex !important;
   flex-direction: column !important;
@@ -2411,7 +2413,8 @@ section {
 .title-line-2 {
   display: block;
   width: 100%;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.05em;
+  /* Match main title spacing */
   line-height: 0.85;
   white-space: nowrap;
   /* Prevent wrapping */
@@ -2584,7 +2587,8 @@ section {
 
 .exercise-intro-text {
   text-align: center;
-  max-width: 900px;
+  max-width: 480px;
+  /* Constrain width to force ~4 lines */
   margin: 0 auto 2rem;
   background: transparent;
 }
@@ -2593,7 +2597,8 @@ section {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   color: #374151;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
+  /* Reduced gap between Subtitle and Description */
 }
 
 .exercise-number strong {
