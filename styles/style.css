@@ -2154,6 +2154,8 @@ section {
   }
 
   .week-hero-banner {
+    margin-top: 70px;
+    /* Account for fixed header height on small mobile */
     padding: 0 0.5rem 10rem 0.5rem;
     /* No top padding - starts right after navbar */
     clip-path: polygon(0 0, 100% 0, 100% 92%, 50% 100%, 0 92%);
@@ -2377,6 +2379,8 @@ section {
 /* Week 1 Page Styles */
 .week-hero-banner {
   /* background-color set by week specific class */
+  margin-top: 80px;
+  /* Account for fixed header height */
   padding: 0 2rem 6rem 2rem;
   /* No top padding - starts right after navbar */
   text-align: center;
@@ -2784,13 +2788,12 @@ section {
 
 .blue-rectangle-below-thumbnail {
   position: absolute;
-  bottom: 0;
-  /* Position at bottom edge of thumbnail, not extending below */
+  bottom: -8%;
+  /* Position below thumbnail */
   left: -8%;
   z-index: 1;
   display: flex;
-  align-items: flex-end;
-  /* Align items to bottom */
+  align-items: center;
   justify-content: center;
 }
 
@@ -2878,8 +2881,8 @@ section {
 
 .bear-on-blue-block {
   position: absolute;
-  bottom: 0;
-  /* Position at bottom of blue rectangle, not extending below thumbnail */
+  bottom: -60%;
+  /* Position below blue rectangle */
   left: 55%;
   transform: translateX(-50%);
   z-index: 4;
@@ -3194,8 +3197,8 @@ section {
 
   /* Blue blocks mobile positioning */
   .blue-rectangle-below-thumbnail {
-    bottom: 0;
-    /* Keep at bottom edge of thumbnail on mobile */
+    bottom: -5%;
+    /* Position below thumbnail on mobile */
     left: -10%;
     max-width: 120px;
   }
@@ -3212,8 +3215,8 @@ section {
   }
 
   .bear-on-blue-block {
-    bottom: 0;
-    /* Keep bear at bottom of blue rectangle, not extending below thumbnail */
+    bottom: -50%;
+    /* Position below blue rectangle on mobile */
     left: 55%;
     /* Move bear slightly towards center (away from left edge) */
   }
