@@ -2791,8 +2791,8 @@ section {
 
 .blue-rectangle-below-thumbnail {
   position: absolute;
-  bottom: -8%;
-  /* Position below thumbnail */
+  bottom: calc(-8% - 60px);
+  /* Move down by 60px total (20px + 40px more) */
   left: -5%;
   /* Move right (towards center) */
   z-index: 1;
@@ -2888,8 +2888,8 @@ section {
 
 .bear-on-blue-block {
   position: absolute;
-  bottom: calc(-60% + 35px);
-  /* Moved back up by 35px from the -50px position */
+  bottom: calc(-60% - 25px);
+  /* Move down by 60px total (was +15px, now -25px = -40px more) */
   left: 60%;
   /* Position at 60% of blue rectangle width from left */
   transform: translateX(-50%);
@@ -3206,8 +3206,8 @@ section {
 
   /* Blue blocks mobile positioning */
   .blue-rectangle-below-thumbnail {
-    bottom: -10%;
-    /* Start at 90% of thumbnail height (coming down) */
+    bottom: calc(-10% - 60px);
+    /* Move down by 60px total (20px + 40px more) */
     left: -3%;
     /* Move right (towards center, inside) */
     max-width: 120px;
@@ -3228,8 +3228,8 @@ section {
   }
 
   .bear-on-blue-block {
-    bottom: calc(-50% + 35px);
-    /* Moved back up by 35px from the -50px position */
+    bottom: calc(-50% - 25px);
+    /* Move down by 60px total (was +15px, now -25px = -40px more) */
     left: 60%;
     /* Position at 60% of blue rectangle width from left */
     transform: translateX(-50%);
