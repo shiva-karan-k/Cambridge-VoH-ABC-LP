@@ -3151,3 +3151,134 @@ section {
     width: clamp(60px, 8vw, 100px);
   }
 }
+
+/* Admin Dashboard Styles */
+.admin-dashboard {
+  padding: 6rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.admin-section {
+  margin-bottom: 4rem;
+}
+
+.admin-section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.admin-section-title {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.admin-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.admin-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-top: 6px solid;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.admin-card-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #374151;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.admin-card-value {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+/* Admin Card Colors */
+.admin-card-blue {
+  border-top-color: #345AA6;
+}
+
+.admin-card-teal {
+  border-top-color: #5EBFC0;
+}
+
+.admin-card-pink {
+  border-top-color: #ED6C9B;
+}
+
+.admin-card-yellow {
+  border-top-color: #D1D645;
+}
+
+.admin-card-orange {
+  border-top-color: #FAB314;
+}
+
+.admin-card-beige {
+  border-top-color: #EBD3AD;
+}
+
+.admin-card-dark-blue {
+  border-top-color: #1e40af;
+}
+
+.admin-card-light-blue {
+  border-top-color: #3b82f6;
+}
+
+.admin-card-magenta {
+  border-top-color: #d946ef;
+}
+
+.admin-card-light-green {
+  border-top-color: #22c55e;
+}
+
+.admin-card-yellow-orange {
+  border-top-color: #f59e0b;
+}
+
+@media (max-width: 768px) {
+  .admin-dashboard {
+    padding: 4rem 1.5rem;
+  }
+
+  .admin-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .admin-card {
+    padding: 1.5rem;
+  }
+
+  .admin-card-label {
+    font-size: 18px;
+  }
+
+  .admin-card-value {
+    font-size: 16px;
+  }
+}
