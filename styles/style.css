@@ -2373,7 +2373,8 @@ section {
   object-fit: contain;
   display: block;
   margin: 0 auto;
-  margin-top: 2rem;
+  margin-top: 4rem;
+  /* Increased to move icon down */
 }
 
 .exercise-section-main {
