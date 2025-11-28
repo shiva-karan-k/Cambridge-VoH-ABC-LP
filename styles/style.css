@@ -769,6 +769,14 @@ section {
   vertical-align: middle;
 }
 
+.section-title-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
 .introduction .section-title {
   font-family: 'MyType', 'Lato', sans-serif !important;
   font-size: clamp(1.5rem, 3vw, 2rem);
@@ -2760,6 +2768,11 @@ section {
   z-index: 1;
 }
 
+.week-6-rectangle {
+  top: -25%;
+  right: -10%;
+}
+
 .rectangle-asset {
   display: none;
   /* Hide image asset */
@@ -2840,6 +2853,26 @@ section {
 
 .bear-sign-asset {
   width: clamp(80px, 10vw, 150px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.week-6-title-section {
+  position: relative;
+}
+
+.fish-at-title-level {
+  position: absolute;
+  top: 50%;
+  right: calc(-15% + 200px);
+  transform: translateY(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.fish-asset {
+  width: clamp(100px, 12vw, 180px);
   height: auto;
   object-fit: contain;
   display: block;
