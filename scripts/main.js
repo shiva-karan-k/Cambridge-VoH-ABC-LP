@@ -100,16 +100,8 @@ function initButtons() {
     });
   }
 
-  // View Exercises buttons
-  const viewExerciseBtns = document.querySelectorAll('.btn-view-exercises');
-  viewExerciseBtns.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-      const sessionNumber = index + 1;
-      console.log(`View exercises for Session ${sessionNumber}`);
-      // TODO: Implement navigation to session exercises
-      alert(`Session ${sessionNumber} exercises coming soon!`);
-    });
-  });
+  // View Exercises buttons - removed event listener since they are now anchor tags
+  // Links will navigate directly to week pages
 }
 
 // Video Player Interaction
