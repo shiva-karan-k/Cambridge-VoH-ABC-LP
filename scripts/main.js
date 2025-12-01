@@ -3,7 +3,6 @@ function trackVisit() {
   const key = 'visitCount';
   const n = Number(localStorage.getItem(key) || 0) + 1;
   localStorage.setItem(key, n);
-  console.log(`visits:${n}`);
   updateVisitorCount(n);
 }
 
@@ -71,7 +70,6 @@ async function submitEnrollment(email) {
   // Simulate API delay
   return new Promise((resolve) => {
     setTimeout(() => {
-      console.log('Enrollment submitted for:', email);
       resolve({ success: true });
     }, 1000);
   });
