@@ -30,20 +30,15 @@ function initEnrollmentForm() {
       return;
     }
 
-    // Disable form during submission
     submitButton.disabled = true;
     submitButton.textContent = 'SUBMITTING...';
 
     try {
-      // Simulate API call - replace with actual endpoint
       await submitEnrollment(email);
-      
-      // Success feedback
       submitButton.textContent = 'SUBMITTED! ✓';
       submitButton.style.background = '#10b981';
       emailInput.value = '';
       
-      // Reset button after 3 seconds
       setTimeout(() => {
         submitButton.disabled = false;
         submitButton.textContent = 'SUBMIT';
@@ -64,25 +59,38 @@ function isValidEmail(email) {
 }
 
 async function submitEnrollment(email) {
-  // TODO: Replace with actual API endpoint
-  // Example: return fetch('/api/enroll', { method: 'POST', body: JSON.stringify({ email }) });
-  
-  // Simulate API delay
   return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({ success: true });
-    }, 1000);
+    setTimeout(() => resolve({ success: true }), 1000);
   });
 }
 
-// Button Interactions
+// Navigation & Button Interactions
 function initButtons() {
-  // Contact Us button
-  const contactBtn = document.querySelector('.btn-contact');
-  if (contactBtn) {
-    contactBtn.addEventListener('click', () => {
-      // TODO: Implement contact modal or redirect
-      alert('Contact form coming soon!');
+  // Exercises button - scroll to sessions
+  const exercisesBtn = document.querySelector('.btn-exercises');
+  if (exercisesBtn) {
+    exercisesBtn.addEventListener('click', () => {
+      scrollToSection('#exercises');
+    });
+  }
+
+  // Donate button - open modal
+  const donateBtn = document.querySelector('.btn-donate');
+  if (donateBtn) {
+    donateBtn.addEventListener('click', () => {
+      if (window.modalManager) {
+        modalManager.openModal('donate-modal');
+      }
+    });
+  }
+
+  // Enroll Now button in footer - open modal
+  const enrollNowBtn = document.querySelector('.btn-enroll-now');
+  if (enrollNowBtn) {
+    enrollNowBtn.addEventListener('click', () => {
+      if (window.modalManager) {
+        modalManager.openModal('enroll-modal');
+      }
     });
   }
 
@@ -90,16 +98,44 @@ function initButtons() {
   const knowMoreBtn = document.querySelector('.btn-know-more');
   if (knowMoreBtn) {
     knowMoreBtn.addEventListener('click', () => {
-      // Scroll to introduction section
-      const introSection = document.querySelector('.introduction');
-      if (introSection) {
-        introSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      scrollToSection('#find-out-more');
     });
   }
+}
 
-  // View Exercises buttons - removed event listener since they are now anchor tags
-  // Links will navigate directly to week pages
+// Smooth scrolling function with offset for fixed header
+function scrollToSection(selector) {
+  const target = document.querySelector(selector);
+  if (!target) return;
+
+  const header = document.querySelector('.header');
+  const headerHeight = header ? header.offsetHeight : 80;
+  const elementPosition = target.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.scrollY - headerHeight - 20;
+
+  try {
+    window.scrollTo({
+      top: offsetPosition,
+      left: 0,
+      behavior: 'smooth'
+    });
+  } catch (e) {
+    window.scrollTo(0, offsetPosition);
+  }
+
+  // Fallback scroll
+  setTimeout(() => {
+    if (Math.abs(window.scrollY - offsetPosition) > 100) {
+      document.documentElement.scrollTop = offsetPosition;
+      document.body.scrollTop = offsetPosition;
+    }
+  }, 100);
+
+  // Highlight effect
+  setTimeout(() => {
+    target.classList.add('section-highlight');
+    setTimeout(() => target.classList.remove('section-highlight'), 2000);
+  }, 500);
 }
 
 // Video Player Interaction
@@ -107,7 +143,6 @@ function initVideoPlayer() {
   const playButton = document.querySelector('.play-button');
   if (playButton) {
     playButton.addEventListener('click', () => {
-      // TODO: Implement video playback
       alert('Video player coming soon!');
     });
   }
@@ -118,30 +153,70 @@ function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const targetId = this.getAttribute('href');
+      
+      if (targetId === '#home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
       }
+      
+      if (targetId === '#contact') {
+        if (window.modalManager) modalManager.openModal('contact-modal');
+        return;
+      }
+      
+      if (targetId === '#enroll') {
+        if (window.modalManager) modalManager.openModal('enroll-modal');
+        return;
+      }
+      
+      const target = document.querySelector(targetId);
+      if (target) scrollToSection(targetId);
     });
   });
+}
+
+// Active navigation link highlighting
+function initActiveNavigation() {
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section, .hero');
+  
+  function updateActiveLink() {
+    const scrollPosition = window.scrollY + 100;
+    
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        
+        if (section.classList.contains('hero')) {
+          document.querySelector('.nav-link[href="#home"]')?.classList.add('active');
+        } else if (section.classList.contains('introduction')) {
+          document.querySelector('.nav-link[href="#find-out-more"]')?.classList.add('active');
+        }
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
 }
 
 // Initialize on page load
 function init() {
   trackVisit();
   initEnrollmentForm();
-  initButtons();
   initVideoPlayer();
   initSmoothScroll();
+  initActiveNavigation();
+  setTimeout(() => initButtons(), 100);
   
-  // Load visitor count on page load
   const count = Number(localStorage.getItem('visitCount') || 0);
-  if (count > 0) {
-    updateVisitorCount(count);
-  }
+  if (count > 0) updateVisitorCount(count);
 }
 
-// Run initialization when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {

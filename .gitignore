@@ -1,3 +1,42 @@
 node_modules/
 .DS_Store
 .vercel
+
+# Environment files - NEVER COMMIT THESE
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+nextjs-app/.env*
+
+# Configuration with secrets
+config/keys.js
+config/secrets.json
+
+# API Keys and secrets
+*.pem
+*.key
+config/secrets.json
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+Thumbs.db
+.DS_Store

@@ -3,10 +3,13 @@
   "private": true,
   "description": "ABC Active Breathing Course - Big Breathing Adventure Landing Page",
   "scripts": {
-    "dev": "npx serve -l 5173 . || npx http-server -p 5173 . || python3 -m http.server 5173"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
     "http-server": "^14.1.1",
-    "serve": "^14.2.5"
+    "serve": "^14.2.5",
+    "vite": "^7.3.1"
   }
 }

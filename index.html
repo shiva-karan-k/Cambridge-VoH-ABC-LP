@@ -12,6 +12,10 @@
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Skytree&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/modals.css">
+  <link rel="stylesheet" href="styles/auth.css">
+  <!-- Clerk SDK -->
+  <script async crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"></script>
   <!-- Tracking Stub: paste GA/Pixel script here when provided -->
 </head>
 
@@ -35,12 +39,15 @@
         </ul>
       </nav>
       <button class="btn-donate">DONATE</button>
+      <div id="auth-container">
+        <!-- Auth UI will be populated by auth.js -->
+      </div>
     </div>
   </header>
 
   <!-- Hero Section -->
   <div class="hero-spacer"></div>
-  <section class="hero">
+  <section id="home" class="hero">
     <div class="hero-content">
       <div class="hero-left">
         <img src="assets/images/BBA LOGO - hero.png" alt="BBA - Big Breathing Adventure" class="hero-bba-logo">
@@ -90,7 +97,7 @@
   -->
 
   <!-- Introduction Section -->
-  <section class="introduction">
+  <section id="find-out-more" class="introduction">
     <div class="section-content">
       <h2 class="section-title white centered">
         <img src="assets/images/w1/Introduction to The Big Breathing Adventure.png" alt="Introduction to The Big Breathing Adventure" class="section-title-image">
@@ -137,7 +144,7 @@
   </section>
 
   <!-- Sessions Section -->
-  <section class="sessions">
+  <section id="exercises" class="sessions">
     <div class="section-content">
       <h2 class="section-title centered">
         <img src="assets/images/w1/Sessions.png" alt="Sessions" class="section-title-image">
@@ -213,7 +220,7 @@
     </div>
   </section>
 
-  <footer class="footer">
+  <footer id="enroll" class="footer">
     <div class="footer-content">
       <div class="footer-left">
         <img src="assets/images/Every Breath Counts.png" alt="Every Breath Counts" class="every-breath-counts">
@@ -263,6 +270,8 @@
     </div>
   </div>
 
+  <script src="scripts/modals.js"></script>
+  <script src="scripts/auth.js"></script>
   <script src="scripts/main.js"></script>
 </body>
 
