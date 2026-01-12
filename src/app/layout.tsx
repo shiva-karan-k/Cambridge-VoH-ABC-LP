@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ClerkProvider } from "@clerk/nextjs";
+// import { ClerkProvider } from "@clerk/nextjs";
 import { Lato, Oswald, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import "./original-styles.css";
@@ -32,20 +32,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Check if Clerk keys exist
-  const hasClerkKeys = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY && process.env.CLERK_SECRET_KEY;
-  
-  if (!hasClerkKeys) {
-    console.error('Missing Clerk environment variables');
-  }
+  console.log('Layout loading without Clerk for deployment test');
 
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={`${lato.variable} ${oswald.variable} ${bebasNeue.variable} antialiased`}>
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <body className={`${lato.variable} ${oswald.variable} ${bebasNeue.variable} antialiased`}>
+        {children}
+      </body>
+    </html>
   );
 }
