@@ -91,38 +91,36 @@ export default function Week6Page() {
             </div>
 
             <div className="video-section-container" style={{position: 'relative'}}>
-              <div className="video-thumbnail-wrapper">
+              {/* Rectangle behind video - positioned at right edge */}
+              <div style={{
+                position: 'absolute',
+                top: '-200px',
+                right: '0',
+                width: 'clamp(140px, 18vw, 200px)',
+                height: 'clamp(250px, 30vw, 350px)',
+                backgroundColor: '#F5DEB3',
+                zIndex: 1
+              }}></div>
+              
+              {/* Fish at top-left of rectangle */}
+              <img 
+                src="/assets/images/w1/fish.png" 
+                alt="Fish" 
+                style={{
+                  position: 'absolute',
+                  top: '-200px',
+                  right: 'clamp(140px, 18vw, 200px)',
+                  width: 'clamp(90px, 12vw, 140px)',
+                  height: 'auto',
+                  zIndex: 2
+                }}
+              />
+              
+              <div className="video-thumbnail-wrapper" style={{position: 'relative', zIndex: 5}}>
                 <div className="lock-overlay">
                   <div className="lock-icon"></div>
                 </div>
                 <img src="/assets/images/w1/Mask group.png" alt="Video thumbnail" className="video-thumbnail-img" />
-              </div>
-              
-              {/* Fish and rectangle on top right */}
-              <div style={{
-                position: 'absolute',
-                top: '0',
-                right: '0',
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: '10px',
-                zIndex: 10
-              }}>
-                <div style={{
-                  width: 'clamp(100px, 15vw, 160px)',
-                  height: 'clamp(180px, 25vw, 280px)',
-                  backgroundColor: '#F5DEB3',
-                  flexShrink: 0
-                }}></div>
-                <img 
-                  src="/assets/images/w1/fish.png" 
-                  alt="Fish" 
-                  style={{
-                    width: 'clamp(80px, 12vw, 140px)',
-                    height: 'auto',
-                    marginTop: '20px'
-                  }}
-                />
               </div>
             </div>
           </div>
