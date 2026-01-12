@@ -24,13 +24,17 @@ if (!cached) {
 }
 
 async function connectDB() {
-  if (cached.conn) {
+  if (cached?.conn) {
     return cached.conn
   }
 
-  if (!cached.promise) {
+  if (!cached?.promise) {
     const opts = {
       bufferCommands: false,
+    }
+
+    if (!cached) {
+      cached = global.mongoose = { conn: null, promise: null }
     }
 
     cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
@@ -39,13 +43,17 @@ async function connectDB() {
   }
 
   try {
-    cached.conn = await cached.promise
+    if (cached) {
+      cached.conn = await cached.promise
+    }
   } catch (e) {
-    cached.promise = null
+    if (cached) {
+      cached.promise = null
+    }
     throw e
   }
 
-  return cached.conn
+  return cached?.conn || null
 }
 
 export default connectDB
