@@ -50,39 +50,36 @@ export default function Week6Page() {
 
         <section className="exercise-section-main week-6-special">
           <div className="exercise-title-section week-6-title-section">
-            <div className="week-6-title-wrapper">
-              <h1 className="exercise-main-title week-6-title">
-                <div className="title-line-1">
-                  <span className="week6-letter">T</span>
-                  <span className="week6-letter">H</span>
-                  <span className="week6-letter">E</span>
-                  <span className="title-space"></span>
-                  <span className="week6-letter">G</span>
-                  <span className="week6-letter">R</span>
-                  <span className="week6-letter">E</span>
-                  <span className="week6-letter">A</span>
-                  <span className="week6-letter">T</span>
-                  <span className="title-space"></span>
-                  <span className="week6-letter">R</span>
-                  <span className="week6-letter">E</span>
-                  <span className="week6-letter">C</span>
-                  <span className="week6-letter">A</span>
-                  <span className="week6-letter">P</span>
-                </div>
-                <div className="title-line-2">
-                  <span className="week6-letter-green">A</span>
-                  <span className="week6-letter-pink">D</span>
-                  <span className="week6-letter-blue">V</span>
-                  <span className="week6-letter-green">E</span>
-                  <span className="week6-letter-pink">N</span>
-                  <span className="week6-letter-blue">T</span>
-                  <span className="week6-letter-green">U</span>
-                  <span className="week6-letter-pink">R</span>
-                  <span className="week6-letter-blue">E</span>
-                </div>
-              </h1>
-              <img src="/assets/images/w1/fish.png" alt="Fish" className="week-6-fish" />
-            </div>
+            <h1 className="exercise-main-title week-6-title">
+              <div className="title-line-1">
+                <span style={{color: '#E91E63'}}>T</span>
+                <span style={{color: '#4CAF50'}}>H</span>
+                <span style={{color: '#2196F3'}}>E</span>
+                <span className="title-space"></span>
+                <span style={{color: '#E91E63'}}>G</span>
+                <span style={{color: '#4CAF50'}}>R</span>
+                <span style={{color: '#2196F3'}}>E</span>
+                <span style={{color: '#E91E63'}}>A</span>
+                <span style={{color: '#4CAF50'}}>T</span>
+                <span className="title-space"></span>
+                <span style={{color: '#2196F3'}}>R</span>
+                <span style={{color: '#E91E63'}}>E</span>
+                <span style={{color: '#4CAF50'}}>C</span>
+                <span style={{color: '#2196F3'}}>A</span>
+                <span style={{color: '#E91E63'}}>P</span>
+              </div>
+              <div className="title-line-2">
+                <span style={{color: '#4CAF50'}}>A</span>
+                <span style={{color: '#E91E63'}}>D</span>
+                <span style={{color: '#2196F3'}}>V</span>
+                <span style={{color: '#4CAF50'}}>E</span>
+                <span style={{color: '#E91E63'}}>N</span>
+                <span style={{color: '#2196F3'}}>T</span>
+                <span style={{color: '#4CAF50'}}>U</span>
+                <span style={{color: '#E91E63'}}>R</span>
+                <span style={{color: '#2196F3'}}>E</span>
+              </div>
+            </h1>
             <h3 className="week-6-subtitle"><strong>Goldfish Breathing</strong></h3>
           </div>
 
@@ -93,12 +90,37 @@ export default function Week6Page() {
               </p>
             </div>
 
-            <div className="video-section-container">
+            <div className="video-section-container" style={{position: 'relative'}}>
               <div className="video-thumbnail-wrapper">
                 <div className="lock-overlay">
                   <div className="lock-icon"></div>
                 </div>
                 <img src="/assets/images/w1/Mask group.png" alt="Video thumbnail" className="video-thumbnail-img" />
+              </div>
+              
+              {/* Fish and rectangle on top right */}
+              <div style={{
+                position: 'absolute',
+                top: '-40px',
+                right: '0',
+                display: 'flex',
+                alignItems: 'flex-start',
+                zIndex: 10
+              }}>
+                <div style={{
+                  width: '120px',
+                  height: '180px',
+                  backgroundColor: '#F5DEB3',
+                  marginRight: '10px'
+                }}></div>
+                <img 
+                  src="/assets/images/w1/fish.png" 
+                  alt="Fish" 
+                  style={{
+                    width: 'clamp(80px, 10vw, 120px)',
+                    height: 'auto'
+                  }}
+                />
               </div>
             </div>
           </div>
