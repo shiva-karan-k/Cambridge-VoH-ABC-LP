@@ -32,6 +32,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Check if Clerk keys exist
+  const hasClerkKeys = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY && process.env.CLERK_SECRET_KEY;
+  
+  if (!hasClerkKeys) {
+    console.error('Missing Clerk environment variables');
+  }
+
   return (
     <ClerkProvider>
       <html lang="en">
