@@ -202,7 +202,7 @@ section.sessions .section-title {
 }
 
 .cambridge-logo {
-  height: clamp(22px, 3.5vw, 40px);
+  height: clamp(28px, 4vw, 45px);
   width: auto;
   object-fit: contain;
 }
@@ -305,6 +305,10 @@ section.sessions .section-title {
   .logo {
     height: clamp(20px, 3vw, 35px);
   }
+  
+  .cambridge-logo {
+    height: clamp(26px, 3.8vw, 42px);
+  }
 }
 
 @media (max-width: 768px) {
@@ -329,6 +333,10 @@ section.sessions .section-title {
   
   .logo {
     height: clamp(18px, 2.5vw, 30px);
+  }
+  
+  .cambridge-logo {
+    height: clamp(24px, 3.2vw, 38px);
   }
 
   .navbar {
@@ -374,6 +382,10 @@ section.sessions .section-title {
   
   .abc-logo {
     height: clamp(18px, 3vw, 30px);
+  }
+  
+  .cambridge-logo {
+    height: clamp(22px, 3vw, 32px);
   }
 }
 
