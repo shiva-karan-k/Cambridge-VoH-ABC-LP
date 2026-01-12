@@ -1,7 +1,7 @@
 'use client';
 
-import { SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
-import { useEffect, useState } from 'react';
+// Clerk temporarily removed for deployment testing
+// import { SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
 
 interface HeaderProps {
   onNavigate: (section: string) => void;
@@ -10,29 +10,6 @@ interface HeaderProps {
 }
 
 export default function Header({ onNavigate, onOpenModal, activeSection = 'home' }: HeaderProps) {
-  const [authState, setAuthState] = useState({ isSignedIn: false, isLoaded: false, hasClerk: false });
-
-  useEffect(() => {
-    // Check if Clerk is available
-    const hasClerkKeys = !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-    
-    if (hasClerkKeys) {
-      // Dynamically import and use Clerk only if available
-      import('@clerk/nextjs').then(({ useUser }) => {
-        try {
-          // This will only work if we're inside ClerkProvider
-          setAuthState({ isSignedIn: false, isLoaded: true, hasClerk: true });
-        } catch (error) {
-          setAuthState({ isSignedIn: false, isLoaded: true, hasClerk: false });
-        }
-      }).catch(() => {
-        setAuthState({ isSignedIn: false, isLoaded: true, hasClerk: false });
-      });
-    } else {
-      setAuthState({ isSignedIn: false, isLoaded: true, hasClerk: false });
-    }
-  }, []);
-
   return (
     <header className="header">
       <div className="header-content">
@@ -56,18 +33,6 @@ export default function Header({ onNavigate, onOpenModal, activeSection = 'home'
         
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <button className="btn-donate" onClick={() => onOpenModal('donate')}>DONATE</button>
-          
-          {/* Only show auth buttons if Clerk is available */}
-          {authState.hasClerk && (
-            <div id="auth-container" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <SignUpButton mode="redirect" forceRedirectUrl="/">
-                <button className="btn-auth btn-signup">SIGN UP</button>
-              </SignUpButton>
-              <SignInButton mode="redirect" forceRedirectUrl="/">
-                <button className="btn-auth btn-signin">SIGN IN</button>
-              </SignInButton>
-            </div>
-          )}
         </div>
       </div>
     </header>
