@@ -234,19 +234,24 @@ img {
   color: white;
 }
 
-/* Heade
-r Responsive Styles */
+/* Header Responsive Styles */
 @media (max-width: 1200px) {
   .header-content {
     padding: 0.5rem 1rem;
   }
   
   .logo {
-    max-height: 40px !important;
+    max-width: 80px;
+    width: auto;
+    height: auto !important;
+    object-fit: contain;
   }
   
   .abc-logo {
-    max-height: 45px !important;
+    max-width: 90px;
+    width: auto;
+    height: auto !important;
+    object-fit: contain;
   }
   
   .nav-link {
@@ -268,11 +273,17 @@ r Responsive Styles */
   }
   
   .logo {
-    max-height: 35px !important;
+    max-width: 65px;
+    width: auto;
+    height: auto !important;
+    object-fit: contain;
   }
   
   .abc-logo {
-    max-height: 40px !important;
+    max-width: 75px;
+    width: auto;
+    height: auto !important;
+    object-fit: contain;
   }
   
   .navbar {
@@ -307,11 +318,17 @@ r Responsive Styles */
   }
   
   .logo {
-    max-height: 28px !important;
+    max-width: 50px;
+    width: auto;
+    height: auto !important;
+    object-fit: contain;
   }
   
   .abc-logo {
-    max-height: 35px !important;
+    max-width: 60px;
+    width: auto;
+    height: auto !important;
+    object-fit: contain;
   }
   
   .nav-link {
@@ -344,15 +361,21 @@ r Responsive Styles */
   }
   
   .logos {
-    gap: 0.5rem !important;
+    gap: 0.4rem !important;
   }
   
   .logo {
-    max-height: 25px !important;
+    max-width: 40px;
+    width: auto;
+    height: auto !important;
+    object-fit: contain;
   }
   
   .abc-logo {
-    max-height: 30px !important;
+    max-width: 50px;
+    width: auto;
+    height: auto !important;
+    object-fit: contain;
   }
   
   .navbar {
