@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-// import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import { Lato, Oswald, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import "./original-styles.css";
@@ -27,18 +27,31 @@ export const metadata: Metadata = {
   description: "A free 12-week online breathing course for children aged 7 and above",
 };
 
+// Conditional Clerk Provider Component
+function ConditionalClerkProvider({ children }: { children: React.ReactNode }) {
+  const hasClerkKeys = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY && process.env.CLERK_SECRET_KEY;
+  
+  if (!hasClerkKeys) {
+    console.warn('Clerk environment variables missing - running without authentication');
+    return <>{children}</>;
+  }
+  
+  console.log('Clerk initialized successfully');
+  return <ClerkProvider>{children}</ClerkProvider>;
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log('Layout loading without Clerk for deployment test');
-
   return (
-    <html lang="en">
-      <body className={`${lato.variable} ${oswald.variable} ${bebasNeue.variable} antialiased`}>
-        {children}
-      </body>
-    </html>
+    <ConditionalClerkProvider>
+      <html lang="en">
+        <body className={`${lato.variable} ${oswald.variable} ${bebasNeue.variable} antialiased`}>
+          {children}
+        </body>
+      </html>
+    </ConditionalClerkProvider>
   );
 }

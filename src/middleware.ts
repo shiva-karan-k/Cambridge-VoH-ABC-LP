@@ -1,17 +1,13 @@
-// Temporarily disabled for deployment testing
-// import { clerkMiddleware } from '@clerk/nextjs/server'
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 
-// export default clerkMiddleware()
+const isProtectedRoute = createRouteMatcher([
+  '/admin(.*)',
+]);
 
-// export const config = {
-//   matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
-// }
-
-// Placeholder middleware for deployment test
-export function middleware() {
-  console.log('Middleware disabled for Clerk deployment test');
-}
+export default clerkMiddleware((auth, req) => {
+  if (isProtectedRoute(req)) auth().protect();
+});
 
 export const config = {
-  matcher: [],
-}
+  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
+};
