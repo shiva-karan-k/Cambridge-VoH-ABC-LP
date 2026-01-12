@@ -5,18 +5,17 @@ const isProtectedRoute = createRouteMatcher([
   '/admin(.*)',
 ]);
 
-export default clerkMiddleware(async (auth, req) => {
+export default clerkMiddleware((auth, req) => {
   // Only protect admin routes
   if (isProtectedRoute(req)) {
-    await auth.protect();
+    auth().protect();
   }
-  // All other routes are public and accessible
+  // All other routes are public and accessible - no auth required
 });
 
 export const config = {
-  // Match all routes EXCEPT static files and Next.js internals
+  // Only run middleware on admin routes to avoid interfering with public pages
   matcher: [
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    '/(api|trpc)(.*)',
+    '/admin/:path*',
   ],
 };
