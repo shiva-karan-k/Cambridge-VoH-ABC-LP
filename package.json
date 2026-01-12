@@ -1,15 +1,33 @@
 {
-  "name": "abc-active-breathing-course",
+  "name": "nextjs-app",
+  "version": "0.1.0",
   "private": true,
-  "description": "ABC Active Breathing Course - Big Breathing Adventure Landing Page",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^3.0.7",
+    "@clerk/nextjs": "^6.36.7",
+    "ai": "^6.0.23",
+    "mongodb": "^7.0.0",
+    "mongoose": "^9.1.2",
+    "next": "16.1.1",
+    "openai": "^6.15.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
   },
   "devDependencies": {
-    "http-server": "^14.1.1",
-    "serve": "^14.2.5",
-    "vite": "^7.3.1"
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }

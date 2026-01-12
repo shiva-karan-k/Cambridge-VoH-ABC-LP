@@ -13,7 +13,6 @@ A Next.js web application for the ABC Active Breathing Course with admin authent
 ### Installation
 ```bash
 # Install dependencies
-cd nextjs-app
 npm install
 
 # Set up environment variables
@@ -47,22 +46,23 @@ MONGODB_URI=mongodb://localhost:27017/abc-breathing-course
 ## Project Structure
 
 ```
-├── nextjs-app/                    # Next.js application
-│   ├── src/app/
-│   │   ├── admin/page.tsx         # Protected admin dashboard
-│   │   ├── admin/setup/page.tsx   # Admin account creation
-│   │   ├── api/admin/             # Admin management APIs
-│   │   ├── sign-in/               # Clerk authentication pages
-│   │   └── page.tsx               # Main landing page
-│   ├── src/components/
-│   │   ├── Header.tsx             # Navigation with auth
-│   │   └── Modal.tsx              # Contact/donate/enroll forms
-│   └── src/lib/
-│       ├── mongodb.ts             # Database connection
-│       └── adminAuth.ts           # Admin utilities
-├── scripts/                       # Static site JavaScript
-├── styles/                        # CSS files
-└── config/                        # Configuration files
+├── src/app/
+│   ├── admin/page.tsx             # Protected admin dashboard
+│   ├── admin/setup/page.tsx       # Admin account creation
+│   ├── api/admin/                 # Admin management APIs
+│   ├── weeks/                     # Week-by-week course content
+│   │   ├── week-1/page.tsx        # Week 1 exercises
+│   │   ├── week-2/page.tsx        # Week 2 exercises
+│   │   └── ...                    # Weeks 3-6
+│   ├── sign-in/                   # Clerk authentication pages
+│   └── page.tsx                   # Main landing page
+├── src/components/
+│   ├── Header.tsx                 # Navigation with auth
+│   └── Modal.tsx                  # Contact/donate/enroll forms
+├── src/lib/
+│   ├── mongodb.ts                 # Database connection
+│   └── adminAuth.ts               # Admin utilities
+└── public/assets/                 # Images and static files
 ```
 
 ## Key Features

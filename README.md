@@ -1,136 +1,36 @@
-# ABC Active Breathing Course - Landing Page
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A beautiful, interactive landing page for the ABC Active Breathing Course - Big Breathing Adventure, designed for children and parents.
+## Getting Started
 
-## Typography Rules
+First, run the development server:
 
-### Required Fonts
-- **Hero Title "BECOME A BREATHING HERO"**: Bebas Neue ONLY
-- **All Other Titles and Descriptions**: "My Type Of Font" (mytype.ttf) - Located in assets/mytype.ttf
-- **Newsletter "Sign up to our Newsletter"**: Skytree font
-- **Navigation**: Oswald Regular 20px
-- **Buttons**: Lato Bold
-
-### Font Implementation
-```css
-@font-face {
-  font-family: 'My Type Of Font';
-  src: url('assets/mytype.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-**CRITICAL**: Never use Courier Prime or generic Courier fonts. Always use the provided mytype.ttf for typewriter-style text.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Features
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- **Hero Section**: Welcome message with playful design elements
-- **Course Introduction**: Overview of the 12-week free online program
-- **Benefits Section**: Highlights benefits for children and parents
-- **Sessions Overview**: Six session cards with interactive buttons
-- **Enrollment Form**: Email signup for course enrollment
-- **Visit Tracking**: Tracks and displays site visitor count
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Run Locally
+## Learn More
 
-1. Install dependencies (optional - dev server will auto-install):
-   ```bash
-   npm install
-   ```
+To learn more about Next.js, take a look at the following resources:
 
-2. Start the development server:
-   ```bash
-   npm run dev
-   ```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-3. Open `http://localhost:5173` in your browser.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Project Structure
+## Deploy on Vercel
 
-```
-website/
-├── assets/
-│   ├── images/
-│   │   ├── logos/          # Logos (Voices of Hope, Kingston University, ABC Course)
-│   │   ├── icons/           # Icons (heart, lightbulb, star, flower, etc.)
-│   │   ├── illustrations/  # Bear illustrations, boots, cow, etc.
-│   │   ├── benefits/       # Benefit icons
-│   │   ├── sessions/       # Session number icons
-│   │   └── graphics/       # Text graphics and backgrounds
-│   └── videos/             # Video assets
-├── styles/
-│   └── style.css           # Main stylesheet
-├── scripts/
-│   └── main.js             # JavaScript for interactions and form handling
-├── index.html              # Main landing page
-└── README.md               # This file
-```
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## Adding Assets
-
-Place your image assets in the appropriate folders under `assets/images/`:
-- Logos go in `assets/images/logos/`
-- Icons go in `assets/images/icons/`
-- Illustrations go in `assets/images/illustrations/`
-- Benefit icons go in `assets/images/benefits/`
-- Session icons go in `assets/images/sessions/`
-- Graphics go in `assets/images/graphics/`
-
-See `assets/ASSETS_LIST.md` for a complete list of required assets.
-
-## Features in Detail
-
-### Visit Tracking
-- Tracks page visits using localStorage
-- Displays visitor count in the footer
-- Console logs visit count for debugging
-
-### Enrollment Form
-- Email validation
-- Form submission handling
-- Success feedback
-- Ready for API integration (see `scripts/main.js`)
-
-### Interactive Elements
-- Smooth scrolling navigation
-- Button interactions
-- Video player placeholder
-- Session exercise buttons
-
-## Customization
-
-### Colors
-Edit CSS variables in `styles/style.css`:
-```css
-:root {
-  --color-dark-blue: #1a365d;
-  --color-teal: #2dd4bf;
-  --color-yellow: #fbbf24;
-  --color-pink: #ec4899;
-  --color-green: #10b981;
-  --color-orange: #f97316;
-  /* ... */
-}
-```
-
-### Form Submission
-Update the `submitEnrollment()` function in `scripts/main.js` to connect to your API endpoint.
-
-## Where to Paste Tracking Scripts
-
-Add your GA/Pixel snippet into the `<head>` of `index.html` inside this comment block:
-```html
-<!-- Tracking Stub: paste GA/Pixel script here when provided -->
-```
-
-## Browser Support
-
-- Modern browsers (Chrome, Firefox, Safari, Edge)
-- Responsive design for mobile devices
-- Graceful degradation for older browsers
-
-## License
-
-Private project - All rights reserved.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
