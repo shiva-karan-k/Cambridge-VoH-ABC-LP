@@ -177,12 +177,6 @@ export default function Home() {
         <div className="footer-newsletter">
           <h3>Sign up to our Newsletter</h3>
           <p>Sign up to our newsletter to keep up to date with everything happening with Voice of Hope</p>
-          <div className="newsletter-form">
-            <input type="text" placeholder="First Name" className="newsletter-input" />
-            <input type="text" placeholder="Last Name" className="newsletter-input" />
-            <input type="email" placeholder="Email" className="newsletter-input" />
-            <button className="newsletter-submit">SUBMIT</button>
-          </div>
           <div className="social-links">
             <img src="/assets/images/Listitem → Link.png" alt="Facebook" className="social-icon" />
             <img src="/assets/images/Listitem → Link-1.png" alt="Twitter" className="social-icon" />
@@ -193,9 +187,23 @@ export default function Home() {
             <p className="footer-contact">📧 info@voh.org.uk &nbsp;&nbsp;&nbsp; 📍 161A Clarence Street, Kingston-Upon-Thames, Surrey KT1 1QT</p>
             <p className="footer-charity">UK Charity Commission Registration 1187454</p>
             <p className="footer-privacy">Privacy Policy</p>
+            
+            {/* Footer Logos */}
+            <div className="footer-logos">
+              <img src="/assets/images/VoH logo.png" alt="Voices of Hope" className="footer-logo" />
+              <img src="/assets/images/cambridge-logo.png" alt="Cambridge University" className="footer-logo" />
+            </div>
+            
             <div className="footer-bottom-line">
-              <span className="footer-copyright">Copyright © 2025 Voices of Hope</span>
-              <span className="footer-visitors">Site Visitor Numbers: 24</span>
+              <div className="footer-copyright-center">
+                <span className="footer-copyright">Copyright © 2025 Voices of Hope</span>
+              </div>
+              <div className="footer-visitors">
+                <svg className="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                </svg>
+                <span>24</span>
+              </div>
             </div>
           </div>
         </div>

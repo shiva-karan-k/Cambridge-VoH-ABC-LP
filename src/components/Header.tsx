@@ -54,10 +54,10 @@ export default function Header({ onNavigate, onOpenModal }: HeaderProps) {
               />
             ) : (
               <>
-                <SignUpButton mode="redirect" redirectUrl="/" signUpUrl="/sign-up">
+                <SignUpButton mode="redirect" forceRedirectUrl="/">
                   <button className="btn-auth btn-signup">SIGN UP</button>
                 </SignUpButton>
-                <SignInButton mode="redirect" redirectUrl="/" signInUrl="/sign-in">
+                <SignInButton mode="redirect" forceRedirectUrl="/">
                   <button className="btn-auth btn-signin">SIGN IN</button>
                 </SignInButton>
               </>

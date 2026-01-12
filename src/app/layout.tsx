@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Lato, Oswald, Bebas_Neue } from "next/font/google";
 import "./globals.css";
+import "./original-styles.css";
 
 const lato = Lato({
   subsets: ["latin"],
