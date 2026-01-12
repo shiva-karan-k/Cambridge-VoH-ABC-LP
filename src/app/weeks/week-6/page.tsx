@@ -94,9 +94,9 @@ export default function Week6Page() {
               {/* Rectangle behind video - positioned at right edge */}
               <div style={{
                 position: 'absolute',
-                top: '-200px',
+                top: '-250px',
                 right: '0',
-                width: 'clamp(140px, 18vw, 200px)',
+                width: 'clamp(50px, 12vw, 70px)',
                 height: 'clamp(250px, 30vw, 350px)',
                 backgroundColor: '#F5DEB3',
                 zIndex: 1
@@ -108,8 +108,8 @@ export default function Week6Page() {
                 alt="Fish" 
                 style={{
                   position: 'absolute',
-                  top: '-200px',
-                  right: 'clamp(140px, 18vw, 200px)',
+                  top: '-250px',
+                  right: 'clamp(50px, 12vw, 70px)',
                   width: 'clamp(90px, 12vw, 140px)',
                   height: 'auto',
                   zIndex: 2
