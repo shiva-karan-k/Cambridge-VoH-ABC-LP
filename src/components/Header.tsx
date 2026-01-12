@@ -1,7 +1,5 @@
 'use client';
 
-import { SignInButton, SignUpButton, UserButton, useUser } from '@clerk/nextjs';
-
 interface HeaderProps {
   onNavigate: (section: string) => void;
   onOpenModal: (modal: 'contact' | 'donate' | 'enroll') => void;
@@ -9,8 +7,6 @@ interface HeaderProps {
 }
 
 export default function Header({ onNavigate, onOpenModal, activeSection = 'home' }: HeaderProps) {
-  const { isSignedIn, isLoaded } = useUser();
-
   return (
     <header className="header">
       <div className="header-content">
@@ -35,32 +31,9 @@ export default function Header({ onNavigate, onOpenModal, activeSection = 'home'
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <button className="btn-donate" onClick={() => onOpenModal('donate')}>DONATE</button>
           
+          {/* Auth buttons only shown on admin pages with ClerkProvider */}
           <div id="auth-container" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            {!isLoaded ? (
-              <span style={{ color: '#9ca3af', fontSize: '0.8rem' }}>Loading...</span>
-            ) : isSignedIn ? (
-              <UserButton 
-                afterSignOutUrl="/"
-                appearance={{
-                  elements: {
-                    avatarBox: {
-                      width: '36px',
-                      height: '36px',
-                      border: '2px solid #2dd4bf'
-                    }
-                  }
-                }}
-              />
-            ) : (
-              <>
-                <SignUpButton mode="redirect" forceRedirectUrl="/">
-                  <button className="btn-auth btn-signup">SIGN UP</button>
-                </SignUpButton>
-                <SignInButton mode="redirect" forceRedirectUrl="/">
-                  <button className="btn-auth btn-signin">SIGN IN</button>
-                </SignInButton>
-              </>
-            )}
+            {/* Auth UI will be added here when on admin pages */}
           </div>
         </div>
       </div>
