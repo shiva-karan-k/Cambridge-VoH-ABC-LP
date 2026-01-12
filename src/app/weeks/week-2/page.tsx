@@ -3,6 +3,7 @@
 import Header from '@/components/Header';
 import Modal from '@/components/Modal';
 import { useState } from 'react';
+import '../../../app/original-styles.css';
 
 export default function Week2Page() {
   const [activeModal, setActiveModal] = useState<'contact' | 'donate' | 'enroll' | null>(null);
@@ -14,45 +15,175 @@ export default function Week2Page() {
   };
 
   return (
-    <>
+    <div className="week-2-page">
+      <style jsx global>{`
+        /* Bear size fix - scaled down 2.5x */
+        .bear-sign-asset {
+          width: clamp(80px, 10vw, 140px) !important;
+          height: auto !important;
+          min-width: 80px !important;
+          max-width: 140px !important;
+        }
+        @media (max-width: 768px) {
+          .bear-sign-asset {
+            width: clamp(60px, 12vw, 100px) !important;
+            min-width: 60px !important;
+            max-width: 100px !important;
+          }
+        }
+      `}</style>
       <Header 
         onNavigate={scrollToSection} 
         onOpenModal={(modal) => setActiveModal(modal)} 
       />
 
-      <main style={{ paddingTop: '120px', minHeight: '100vh' }}>
+      <main>
         <section className="week-hero-banner">
           <div className="week-hero-content">
             <img src="/assets/images/w2.png" alt="Week 2" className="week-hero-image" />
           </div>
         </section>
 
-        <div className="week-content" style={{ padding: '40px 20px', maxWidth: '1200px', margin: '0 auto' }}>
-          <h1 style={{ textAlign: 'center', marginBottom: '30px', color: '#333' }}>Week 2: Building Strength</h1>
-          <p style={{ textAlign: 'center', fontSize: '18px', marginBottom: '40px', color: '#666' }}>
-            This week we focus on building your breathing strength and control.
-          </p>
-          
-          <div className="exercises">
-            <h2 style={{ marginBottom: '20px', color: '#333' }}>Exercises for Week 2</h2>
-            <div className="exercise-list" style={{ display: 'grid', gap: '20px' }}>
-              <div className="exercise-item" style={{ 
-                padding: '20px', 
-                backgroundColor: '#f8f9fa', 
-                borderRadius: '8px',
-                border: '1px solid #e9ecef'
-              }}>
-                <h3 style={{ color: '#17a2b8', marginBottom: '10px' }}>Exercise 3: Strength Building</h3>
-                <p>Develop stronger breathing muscles with targeted exercises.</p>
+        <section className="exercise-section-main">
+          <div className="exercise-title-section">
+            <h1 className="exercise-main-title">
+              <div className="title-line-1">
+                <span className="title-letter title-b">B</span>
+                <span className="title-letter title-r">R</span>
+                <span className="title-letter title-e1">E</span>
+                <span className="title-letter title-a">A</span>
+                <span className="title-letter title-t">T</span>
+                <span className="title-letter title-h">H</span>
+                <span className="title-letter title-i">I</span>
+                <span className="title-letter title-n">N</span>
+                <span className="title-letter title-g">G</span>
               </div>
-              <div className="exercise-item" style={{ 
-                padding: '20px', 
-                backgroundColor: '#f8f9fa', 
-                borderRadius: '8px',
-                border: '1px solid #e9ecef'
-              }}>
-                <h3 style={{ color: '#17a2b8', marginBottom: '10px' }}>Exercise 4: Control Techniques</h3>
-                <p>Learn to control your breath for better focus and energy.</p>
+              <div className="title-line-2">
+                <span className="title-letter title-l">L</span>
+                <span className="title-letter title-i2">I</span>
+                <span className="title-letter title-k">K</span>
+                <span className="title-letter title-e2">E</span>
+                <span className="title-space"></span>
+                <span className="title-letter title-a2">A</span>
+                <span className="title-space"></span>
+                <span className="title-letter title-p">P</span>
+                <span className="title-letter title-r2">R</span>
+                <span className="title-letter title-o">O</span>
+              </div>
+            </h1>
+          </div>
+
+          <div className="exercise-content-wrapper">
+            <div className="exercise-intro-text">
+              <h3 className="exercise-number"><strong>Exercise 4: Belly Breathing, Counting & Control</strong></h3>
+              <p className="exercise-description">
+                In this exercise, you'll learn how to take deep, controlled breaths. You will count as you breathe in and out of your body.
+              </p>
+            </div>
+
+            <div className="video-section-container">
+              <div className="video-thumbnail-wrapper">
+                <div className="blue-rectangle-below-thumbnail">
+                  <div className="blue-rectangle"></div>
+                  <div className="bear-on-blue-block">
+                    <img src="/assets/images/w1/sing 1.png" alt="Bear sign" className="bear-sign-asset" />
+                  </div>
+                </div>
+                <div className="lock-overlay">
+                  <div className="lock-icon"></div>
+                </div>
+                <img src="/assets/images/w1/Mask group.png" alt="Video thumbnail" className="video-thumbnail-img" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="exercise-section-main">
+          <div className="exercise-title-section">
+            <h1 className="exercise-main-title">
+              <div className="title-line-1">
+                <span className="title-letter title-m">S</span>
+                <span className="title-letter title-i3">T</span>
+                <span className="title-letter title-g2">R</span>
+                <span className="title-letter title-m">E</span>
+                <span className="title-letter title-i3">N</span>
+                <span className="title-letter title-g2">G</span>
+                <span className="title-letter title-m">T</span>
+                <span className="title-letter title-i3">H</span>
+              </div>
+              <div className="title-line-2">
+                <span className="title-letter title-g2">B</span>
+                <span className="title-letter title-m">U</span>
+                <span className="title-letter title-i3">I</span>
+                <span className="title-letter title-g2">L</span>
+                <span className="title-letter title-m">D</span>
+                <span className="title-letter title-i3">I</span>
+                <span className="title-letter title-g2">N</span>
+                <span className="title-letter title-m">G</span>
+              </div>
+              <div className="title-line-3">
+                <span className="title-letter title-i3">&</span>
+                <span className="title-space"></span>
+                <span className="title-letter title-g2">R</span>
+                <span className="title-letter title-m">E</span>
+                <span className="title-letter title-i3">S</span>
+                <span className="title-letter title-g2">I</span>
+                <span className="title-letter title-m">S</span>
+                <span className="title-letter title-i3">T</span>
+                <span className="title-letter title-g2">A</span>
+                <span className="title-letter title-m">N</span>
+                <span className="title-letter title-i3">C</span>
+                <span className="title-letter title-g2">E</span>
+              </div>
+            </h1>
+          </div>
+
+          <div className="exercise-content-wrapper">
+            <div className="exercise-intro-text">
+              <h3 className="exercise-number"><strong>Exercise 5: Straw Phonation - Stage 1</strong></h3>
+              <p className="exercise-description">
+                In this exercise, we'll be humming and blowing bubbles to help strengthen your breathing muscles. If
+                you start feeling a bit out of breath, take a quick break and practice some deep belly breathing.
+              </p>
+            </div>
+
+            <div className="video-section-container">
+              <div className="video-thumbnail-wrapper locked-state">
+                <div className="blue-rectangle-top-right">
+                  <div className="blue-rectangle"></div>
+                </div>
+                <div className="lock-overlay">
+                  <div className="lock-icon"></div>
+                </div>
+                <img src="/assets/images/w1/Mask group-1.png" alt="Video thumbnail" className="video-thumbnail-img locked" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="footer-second-block">
+          <div className="footer-newsletter">
+            <h3>Sign up to our Newsletter</h3>
+            <p>Sign up to our newsletter to keep up to date with everything happening with Voice of Hope</p>
+            <div className="newsletter-form">
+              <input type="text" placeholder="First Name" className="newsletter-input" />
+              <input type="text" placeholder="Last Name" className="newsletter-input" />
+              <input type="email" placeholder="Email" className="newsletter-input" />
+              <button className="newsletter-submit">SUBMIT</button>
+            </div>
+            <div className="social-links">
+              <img src="/assets/images/Listitem → Link.png" alt="Facebook" className="social-icon" />
+              <img src="/assets/images/Listitem → Link-1.png" alt="Twitter" className="social-icon" />
+              <img src="/assets/images/Listitem → Link-2.png" alt="Instagram" className="social-icon" />
+              <img src="/assets/images/Listitem → Link-3.png" alt="YouTube" className="social-icon" />
+            </div>
+            <div className="footer-info">
+              <p className="footer-contact">📧 info@voh.org.uk &nbsp;&nbsp;&nbsp; 📍 161A Clarence Street, Kingston-Upon-Thames, Surrey KT1 1QT</p>
+              <p className="footer-charity">UK Charity Commission Registration 1187454</p>
+              <p className="footer-privacy">Privacy Policy</p>
+              <div className="footer-bottom-line">
+                <span className="footer-copyright">Copyright © 2025 Voices of Hope</span>
+                <span className="footer-visitors">Site Visitor Numbers: 24</span>
               </div>
             </div>
           </div>
@@ -64,6 +195,6 @@ export default function Week2Page() {
         onClose={() => setActiveModal(null)} 
         type={activeModal || 'contact'} 
       />
-    </>
+    </div>
   );
 }

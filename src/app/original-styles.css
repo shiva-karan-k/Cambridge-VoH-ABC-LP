@@ -175,32 +175,40 @@ section.sessions .section-title {
 .header-left {
   display: flex;
   align-items: center;
-  gap: 8rem;
+  gap: 3rem;
   flex: 1;
 }
 
 .logos {
   display: flex;
-  gap: 6rem;
+  gap: 2rem;
   align-items: center;
 }
 
 .voices-logo {
-  height: clamp(30px, 5vw, 50px);
+  height: clamp(25px, 4vw, 40px);
   width: auto;
 }
 
 .kingston-logo {
   margin-left: 0;
+  height: clamp(30px, 4.5vw, 45px);
+  width: auto;
+}
+
+.cambridge-logo {
+  height: clamp(30px, 4.5vw, 45px);
+  width: auto;
+  object-fit: contain;
 }
 
 .logo {
-  height: clamp(35px, 6vw, 65px);
+  height: clamp(30px, 4.5vw, 45px);
   width: auto;
 }
 
 .abc-logo {
-  height: clamp(35px, 6vw, 65px);
+  height: clamp(30px, 4.5vw, 45px);
   width: auto;
   object-fit: contain;
 }
@@ -231,6 +239,9 @@ section.sessions .section-title {
   letter-spacing: 0.05em;
   transition: color 0.3s ease;
   padding: 0.4rem 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .nav-link:hover {
@@ -1194,7 +1205,7 @@ section {
 
 .footer-bottom-line {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 0.5rem;
   padding-top: 0;
@@ -1204,11 +1215,16 @@ section {
   margin-right: auto;
 }
 
+.footer-copyright-center {
+  text-align: center;
+  width: 100%;
+}
+
 .footer-copyright {
   font-family: 'Lato';
   font-size: 14px;
   white-space: nowrap;
-  text-align: left;
+  text-align: center;
 }
 
 .footer-visitors {
@@ -1445,6 +1461,16 @@ section {
 }
 
 /* Site Visits Section */
+.site-visits-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Lato', sans-serif;
+  padding: 2rem 0 1rem 0;
+  margin-top: 2rem;
+}
+
 .site-visits {
   background: var(--color-white);
   padding: 2rem;
@@ -1455,27 +1481,57 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
   font-family: 'Lato', sans-serif;
 }
 
 .visitor-icon-circle {
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   background: #8BBB3E;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.visitor-icon-circle::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.visitor-icon-circle::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #8BBB3E;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .visitor-count {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #FAB314;
+  line-height: 1;
 }
 
 .visitor-text {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 400;
-  color: #374151;
+  color: #E74C7D;
+  line-height: 1;
 }
 
 /* Footer */
@@ -2820,6 +2876,8 @@ section {
   /* Align to bottom of rectangle */
   justify-content: flex-start;
   /* Align bear to left side of rectangle */
+  overflow: visible !important;
+  max-width: none !important;
 }
 
 .blue-rectangle-top-right {
@@ -2914,13 +2972,9 @@ section {
   z-index: 3;
   /* In front of blue rectangle, behind thumbnail */
   pointer-events: none;
-}
-
-.bear-sign-asset {
-  width: clamp(80px, 10vw, 150px);
-  height: auto;
-  object-fit: contain;
-  display: block;
+  overflow: visible !important;
+  max-width: none !important;
+  width: auto !important;
 }
 
 .week-6-title-section {
@@ -3253,11 +3307,6 @@ section {
     transform: translateX(-50%);
     /* Move inside (towards center) */
   }
-
-  .bear-sign-asset {
-    width: clamp(100px, 15vw, 180px);
-    /* Increased size for mobile - was clamp(60px, 8vw, 100px) */
-  }
 }
 
 /* Admin Dashboard Styles */
@@ -3400,5 +3449,37 @@ section {
 
   .admin-card-value {
     font-size: 16px;
+  }
+}
+
+/* ========================================
+   BEAR SIZING FIX - SCALED DOWN 2.5X
+   ======================================== */
+.week-1-page .bear-on-blue-block .bear-sign-asset,
+.week-2-page .bear-on-blue-block .bear-sign-asset,
+.week-3-page .bear-on-blue-block .bear-sign-asset,
+.week-4-page .bear-on-blue-block .bear-sign-asset,
+.week-5-page .bear-on-blue-block .bear-sign-asset,
+.week-6-page .bear-on-blue-block .bear-sign-asset,
+.bear-sign-asset {
+  width: clamp(80px, 10vw, 140px) !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  max-width: 140px !important;
+  min-width: 80px !important;
+}
+
+@media (max-width: 768px) {
+  .week-1-page .bear-on-blue-block .bear-sign-asset,
+  .week-2-page .bear-on-blue-block .bear-sign-asset,
+  .week-3-page .bear-on-blue-block .bear-sign-asset,
+  .week-4-page .bear-on-blue-block .bear-sign-asset,
+  .week-5-page .bear-on-blue-block .bear-sign-asset,
+  .week-6-page .bear-on-blue-block .bear-sign-asset,
+  .bear-sign-asset {
+    width: clamp(60px, 12vw, 100px) !important;
+    min-width: 60px !important;
+    max-width: 100px !important;
   }
 }

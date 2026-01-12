@@ -1,15 +1,42 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Header from '@/components/Header';
 import Modal from '@/components/Modal';
 
 export default function Home() {
   const [activeModal, setActiveModal] = useState<'contact' | 'donate' | 'enroll' | null>(null);
+  const [activeSection, setActiveSection] = useState<string>('home');
+  const [newsletterData, setNewsletterData] = useState({ firstName: '', lastName: '', email: '' });
+  const [isNewsletterSubmitting, setIsNewsletterSubmitting] = useState(false);
+  const [newsletterMessage, setNewsletterMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
   
   const homeRef = useRef<HTMLElement>(null);
   const introRef = useRef<HTMLElement>(null);
   const sessionsRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 100;
+      
+      const footerElement = document.getElementById('enroll');
+      
+      if (footerElement && scrollPosition >= footerElement.offsetTop) {
+        setActiveSection('enroll');
+      } else if (sessionsRef.current && scrollPosition >= sessionsRef.current.offsetTop) {
+        setActiveSection('exercises');
+      } else if (introRef.current && scrollPosition >= introRef.current.offsetTop) {
+        setActiveSection('find-out-more');
+      } else {
+        setActiveSection('home');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (section: string) => {
     let target: HTMLElement | null = null;
@@ -30,11 +57,44 @@ export default function Home() {
     }
   };
 
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsNewsletterSubmitting(true);
+    setNewsletterMessage(null);
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newsletterData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Subscription failed');
+      }
+
+      setNewsletterMessage({ type: 'success', text: data.message });
+      setNewsletterData({ firstName: '', lastName: '', email: '' });
+    } catch (error) {
+      setNewsletterMessage({ 
+        type: 'error', 
+        text: error instanceof Error ? error.message : 'Failed to subscribe. Please try again.' 
+      });
+    } finally {
+      setIsNewsletterSubmitting(false);
+    }
+  };
+
   return (
     <>
       <Header 
         onNavigate={scrollToSection} 
-        onOpenModal={(modal) => setActiveModal(modal)} 
+        onOpenModal={(modal) => setActiveModal(modal)}
+        activeSection={activeSection}
       />
 
       {/* Hero Section */}
@@ -78,8 +138,15 @@ export default function Home() {
           </p>
           <div className="introduction-content">
             <div className="video-player-main">
-              <img src="/assets/images/Mask group.png" alt="Video Thumbnail" className="video-thumbnail" />
-              <button className="play-button">▶</button>
+              <video 
+                controls 
+                poster="/assets/images/Mask group.png"
+                className="intro-video"
+                style={{ width: '100%', maxWidth: '800px', height: 'auto' }}
+              >
+                <source src="/assets/videos/Intro Video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
@@ -143,14 +210,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Site Visits Section */}
-      <section className="site-visits">
-        <div className="site-visits-content">
-          <div className="visitor-icon-circle"></div>
-          <span className="visitor-count">54 site visits</span>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer id="enroll" className="footer">
         <div className="footer-content">
@@ -170,6 +229,13 @@ export default function Home() {
             </div>
           </div>
         </div>
+        
+        {/* Site Visits - centered below enroll button */}
+        <div className="site-visits-section">
+          <div className="visitor-icon-circle"></div>
+          <span className="visitor-count">24</span>
+          <span className="visitor-text">Site Visits</span>
+        </div>
       </footer>
 
       {/* Footer Second Block */}
@@ -177,6 +243,51 @@ export default function Home() {
         <div className="footer-newsletter">
           <h3>Sign up to our Newsletter</h3>
           <p>Sign up to our newsletter to keep up to date with everything happening with Voice of Hope</p>
+          <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
+            <input 
+              type="text" 
+              placeholder="First Name" 
+              className="newsletter-input"
+              value={newsletterData.firstName}
+              onChange={(e) => setNewsletterData({ ...newsletterData, firstName: e.target.value })}
+              required
+            />
+            <input 
+              type="text" 
+              placeholder="Last Name" 
+              className="newsletter-input"
+              value={newsletterData.lastName}
+              onChange={(e) => setNewsletterData({ ...newsletterData, lastName: e.target.value })}
+              required
+            />
+            <input 
+              type="email" 
+              placeholder="Email" 
+              className="newsletter-input"
+              value={newsletterData.email}
+              onChange={(e) => setNewsletterData({ ...newsletterData, email: e.target.value })}
+              required
+            />
+            <button 
+              type="submit" 
+              className="newsletter-submit"
+              disabled={isNewsletterSubmitting}
+            >
+              {isNewsletterSubmitting ? 'SUBMITTING...' : 'SUBMIT'}
+            </button>
+          </form>
+          {newsletterMessage && (
+            <div style={{ 
+              marginTop: '1rem', 
+              padding: '0.75rem', 
+              borderRadius: '4px',
+              backgroundColor: newsletterMessage.type === 'success' ? '#d1fae5' : '#fee2e2',
+              color: newsletterMessage.type === 'success' ? '#065f46' : '#991b1b',
+              textAlign: 'center'
+            }}>
+              {newsletterMessage.text}
+            </div>
+          )}
           <div className="social-links">
             <img src="/assets/images/Listitem → Link.png" alt="Facebook" className="social-icon" />
             <img src="/assets/images/Listitem → Link-1.png" alt="Twitter" className="social-icon" />
@@ -188,21 +299,9 @@ export default function Home() {
             <p className="footer-charity">UK Charity Commission Registration 1187454</p>
             <p className="footer-privacy">Privacy Policy</p>
             
-            {/* Footer Logos */}
-            <div className="footer-logos">
-              <img src="/assets/images/VoH logo.png" alt="Voices of Hope" className="footer-logo" />
-              <img src="/assets/images/cambridge-logo.png" alt="Cambridge University" className="footer-logo" />
-            </div>
-            
             <div className="footer-bottom-line">
               <div className="footer-copyright-center">
-                <span className="footer-copyright">Copyright © 2025 Voices of Hope</span>
-              </div>
-              <div className="footer-visitors">
-                <svg className="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-                </svg>
-                <span>24</span>
+                <span className="footer-copyright">Copyright © 2026 Voices of Hope</span>
               </div>
             </div>
           </div>
