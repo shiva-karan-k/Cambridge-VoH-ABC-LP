@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ClerkProvider } from "@clerk/nextjs";
 import { Lato, Oswald, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import "./original-styles.css";
@@ -33,12 +32,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider dynamic>
-      <html lang="en">
-        <body className={`${lato.variable} ${oswald.variable} ${bebasNeue.variable} antialiased`}>
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <body className={`${lato.variable} ${oswald.variable} ${bebasNeue.variable} antialiased`}>
+        {children}
+      </body>
+    </html>
   );
 }
