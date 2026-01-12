@@ -233,3 +233,146 @@ img {
   background: #2dd4bf;
   color: white;
 }
+
+/* Heade
+r Responsive Styles */
+@media (max-width: 1200px) {
+  .header-content {
+    padding: 0.5rem 1rem;
+  }
+  
+  .logo {
+    max-height: 40px !important;
+  }
+  
+  .abc-logo {
+    max-height: 45px !important;
+  }
+  
+  .nav-link {
+    font-size: 0.75rem !important;
+    padding: 0.4rem 0.6rem !important;
+  }
+  
+  .btn-donate,
+  .btn-auth {
+    font-size: 0.7rem !important;
+    padding: 0.4rem 0.8rem !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .header-content {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .logo {
+    max-height: 35px !important;
+  }
+  
+  .abc-logo {
+    max-height: 40px !important;
+  }
+  
+  .navbar {
+    order: 3;
+    width: 100%;
+  }
+  
+  .nav-list {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .nav-link {
+    font-size: 0.7rem !important;
+    padding: 0.3rem 0.5rem !important;
+  }
+  
+  .btn-donate,
+  .btn-auth {
+    font-size: 0.65rem !important;
+    padding: 0.35rem 0.7rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0.5rem;
+  }
+  
+  .logos {
+    gap: 0.3rem !important;
+  }
+  
+  .logo {
+    max-height: 28px !important;
+  }
+  
+  .abc-logo {
+    max-height: 35px !important;
+  }
+  
+  .nav-link {
+    font-size: 0.65rem !important;
+    padding: 0.25rem 0.4rem !important;
+  }
+  
+  .btn-donate,
+  .btn-auth {
+    font-size: 0.6rem !important;
+    padding: 0.3rem 0.6rem !important;
+  }
+  
+  #auth-container {
+    gap: 0.3rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+  }
+  
+  .header-left {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .logos {
+    gap: 0.5rem !important;
+  }
+  
+  .logo {
+    max-height: 25px !important;
+  }
+  
+  .abc-logo {
+    max-height: 30px !important;
+  }
+  
+  .navbar {
+    width: 100%;
+  }
+  
+  .nav-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3rem;
+  }
+  
+  .nav-link {
+    font-size: 0.6rem !important;
+    padding: 0.25rem 0.35rem !important;
+  }
+  
+  .btn-donate,
+  .btn-auth {
+    font-size: 0.55rem !important;
+    padding: 0.25rem 0.5rem !important;
+  }
+}
