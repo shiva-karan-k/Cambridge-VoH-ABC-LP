@@ -86,7 +86,7 @@ export default function Week2Page() {
                 <div className="blue-rectangle-below-thumbnail">
                   <div className="blue-rectangle"></div>
                   <div className="bear-on-blue-block">
-                    <img src="/assets/images/w1/sing 1.png" alt="Bear sign" className="bear-sign-asset" />
+                    <img src="/assets/images/w1/bear-stand 1.png" alt="Bear standing" className="bear-sign-asset" />
                   </div>
                 </div>
                 <div className="lock-overlay">

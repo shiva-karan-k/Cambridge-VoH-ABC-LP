@@ -95,6 +95,12 @@ export default function Week6Page() {
 
             <div className="video-section-container">
               <div className="video-thumbnail-wrapper">
+                <div className="blue-rectangle-below-thumbnail">
+                  <div className="blue-rectangle"></div>
+                  <div className="bear-on-blue-block">
+                    <img src="/assets/images/w1/bear-stand 1.png" alt="Bear standing" className="bear-sign-asset" />
+                  </div>
+                </div>
                 <div className="lock-overlay">
                   <div className="lock-icon"></div>
                 </div>
