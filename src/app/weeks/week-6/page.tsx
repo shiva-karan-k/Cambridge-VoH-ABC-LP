@@ -101,24 +101,26 @@ export default function Week6Page() {
               {/* Fish and rectangle on top right */}
               <div style={{
                 position: 'absolute',
-                top: '-40px',
+                top: '0',
                 right: '0',
                 display: 'flex',
                 alignItems: 'flex-start',
+                gap: '10px',
                 zIndex: 10
               }}>
                 <div style={{
-                  width: '120px',
-                  height: '180px',
+                  width: 'clamp(100px, 15vw, 160px)',
+                  height: 'clamp(180px, 25vw, 280px)',
                   backgroundColor: '#F5DEB3',
-                  marginRight: '10px'
+                  flexShrink: 0
                 }}></div>
                 <img 
                   src="/assets/images/w1/fish.png" 
                   alt="Fish" 
                   style={{
-                    width: 'clamp(80px, 10vw, 120px)',
-                    height: 'auto'
+                    width: 'clamp(80px, 12vw, 140px)',
+                    height: 'auto',
+                    marginTop: '20px'
                   }}
                 />
               </div>
