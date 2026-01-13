@@ -2,11 +2,18 @@
 
 import Header from '@/components/Header';
 import Modal from '@/components/Modal';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import '../../../app/original-styles.css';
 
 export default function Week6Page() {
   const [activeModal, setActiveModal] = useState<'contact' | 'donate' | 'enroll' | null>(null);
+  const [week6Unlocked, setWeek6Unlocked] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const week5Video2Completed = localStorage.getItem('week5-video2-completed') === 'true';
+    setWeek6Unlocked(week5Video2Completed);
+  }, []);
 
   const scrollToSection = (section: string) => {
     if (section === 'home') {
@@ -30,6 +37,19 @@ export default function Week6Page() {
             min-width: 60px !important;
             max-width: 100px !important;
           }
+        }
+      `}</style>
+      <style jsx>{`
+        .lock-message {
+          color: #fff;
+          font-size: 16px;
+          text-align: center;
+          margin-top: 16px;
+          position: absolute;
+          bottom: -50px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100%;
         }
       `}</style>
       <Header 
@@ -117,10 +137,24 @@ export default function Week6Page() {
               />
               
               <div className="video-thumbnail-wrapper" style={{position: 'relative', zIndex: 5}}>
-                <div className="lock-overlay">
-                  <div className="lock-icon"></div>
-                </div>
-                <img src="/assets/images/w1/Mask group.png" alt="Video thumbnail" className="video-thumbnail-img" />
+                {!week6Unlocked && (
+                  <>
+                    <div className="lock-overlay">
+                      <div className="lock-icon"></div>
+                    </div>
+                    <p className="lock-message">Complete Week 5 to unlock</p>
+                  </>
+                )}
+                <video 
+                  ref={videoRef}
+                  controls={week6Unlocked}
+                  className="video-thumbnail-img"
+                  poster="/assets/images/w1/Mask group.png"
+                  style={{ filter: week6Unlocked ? 'none' : 'blur(4px) brightness(0.5)' }}
+                >
+                  <source src="/assets/videos/Sesssion 6 - excercise 19 final.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </div>

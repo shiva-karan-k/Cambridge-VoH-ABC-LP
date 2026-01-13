@@ -2,11 +2,33 @@
 
 import Header from '@/components/Header';
 import Modal from '@/components/Modal';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import '../../../app/original-styles.css';
 
 export default function Week2Page() {
   const [activeModal, setActiveModal] = useState<'contact' | 'donate' | 'enroll' | null>(null);
+  const [week2Unlocked, setWeek2Unlocked] = useState(false);
+  const [week2Completed, setWeek2Completed] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Check if week 1 videos are completed
+    const week1Video2Completed = localStorage.getItem('week1-video2-completed') === 'true';
+    const week2VideoCompleted = localStorage.getItem('week2-video-completed') === 'true';
+    setWeek2Unlocked(week1Video2Completed);
+    setWeek2Completed(week2VideoCompleted);
+  }, []);
+
+  const handleVideoTimeUpdate = () => {
+    const video = videoRef.current;
+    if (video && video.duration) {
+      const progress = (video.currentTime / video.duration) * 100;
+      if (progress >= 90 && !week2Completed) {
+        setWeek2Completed(true);
+        localStorage.setItem('week2-video-completed', 'true');
+      }
+    }
+  };
 
   const scrollToSection = (section: string) => {
     if (section === 'home') {
@@ -30,6 +52,19 @@ export default function Week2Page() {
             min-width: 60px !important;
             max-width: 100px !important;
           }
+        }
+      `}</style>
+      <style jsx>{`
+        .lock-message {
+          color: #fff;
+          font-size: 16px;
+          text-align: center;
+          margin-top: 16px;
+          position: absolute;
+          bottom: -50px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100%;
         }
       `}</style>
       <Header 
@@ -83,16 +118,31 @@ export default function Week2Page() {
 
             <div className="video-section-container">
               <div className="video-thumbnail-wrapper">
+                {!week2Unlocked && (
+                  <>
+                    <div className="lock-overlay">
+                      <div className="lock-icon"></div>
+                    </div>
+                    <p className="lock-message">Complete Week 1 to unlock</p>
+                  </>
+                )}
+                <video 
+                  ref={videoRef}
+                  controls={week2Unlocked}
+                  className="video-thumbnail-img"
+                  poster="/assets/images/w1/Mask group.png"
+                  style={{ filter: week2Unlocked ? 'none' : 'blur(4px) brightness(0.5)' }}
+                  onTimeUpdate={handleVideoTimeUpdate}
+                >
+                  <source src="/assets/videos/session 2 - excercise 4 final.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
                 <div className="blue-rectangle-below-thumbnail">
                   <div className="blue-rectangle"></div>
                   <div className="bear-on-blue-block">
                     <img src="/assets/images/w1/bear-stand 1.png" alt="Bear standing" className="bear-sign-asset" />
                   </div>
                 </div>
-                <div className="lock-overlay">
-                  <div className="lock-icon"></div>
-                </div>
-                <img src="/assets/images/w1/Mask group.png" alt="Video thumbnail" className="video-thumbnail-img" />
               </div>
             </div>
           </div>

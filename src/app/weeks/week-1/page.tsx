@@ -2,15 +2,66 @@
 
 import Header from '@/components/Header';
 import Modal from '@/components/Modal';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import '../../../app/original-styles.css';
 
 export default function Week1Page() {
   const [activeModal, setActiveModal] = useState<'contact' | 'donate' | 'enroll' | null>(null);
+  const [video1Completed, setVideo1Completed] = useState(false);
+  const [video2Unlocked, setVideo2Unlocked] = useState(false);
+  const [video2Completed, setVideo2Completed] = useState(false);
+  const video1Ref = useRef<HTMLVideoElement>(null);
+  const video2Ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Check if videos were previously completed
+    const v1Completed = localStorage.getItem('week1-video1-completed') === 'true';
+    const v2Completed = localStorage.getItem('week1-video2-completed') === 'true';
+    setVideo1Completed(v1Completed);
+    setVideo2Completed(v2Completed);
+    setVideo2Unlocked(v1Completed);
+  }, []);
+
+  const handleVideo1TimeUpdate = () => {
+    const video = video1Ref.current;
+    if (video && video.duration) {
+      const progress = (video.currentTime / video.duration) * 100;
+      if (progress >= 90 && !video1Completed) {
+        setVideo1Completed(true);
+        setVideo2Unlocked(true);
+        localStorage.setItem('week1-video1-completed', 'true');
+      }
+    }
+  };
+
+  const handleVideo2TimeUpdate = () => {
+    const video = video2Ref.current;
+    if (video && video.duration) {
+      const progress = (video.currentTime / video.duration) * 100;
+      if (progress >= 90 && !video2Completed) {
+        setVideo2Completed(true);
+        localStorage.setItem('week1-video2-completed', 'true');
+      }
+    }
+  };
 
   const scrollToSection = (section: string) => {
     if (section === 'home') {
       window.location.href = '/';
+    }
+  };
+
+  const resetProgress = () => {
+    localStorage.removeItem('week1-video1-completed');
+    localStorage.removeItem('week1-video2-completed');
+    setVideo1Completed(false);
+    setVideo2Completed(false);
+    setVideo2Unlocked(false);
+    if (video1Ref.current) {
+      video1Ref.current.currentTime = 0;
+    }
+    if (video2Ref.current) {
+      video2Ref.current.currentTime = 0;
     }
   };
 
@@ -30,6 +81,19 @@ export default function Week1Page() {
             min-width: 60px !important;
             max-width: 100px !important;
           }
+        }
+      `}</style>
+      <style jsx>{`
+        .lock-message {
+          color: #fff;
+          font-size: 16px;
+          text-align: center;
+          margin-top: 16px;
+          position: absolute;
+          bottom: -50px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100%;
         }
       `}</style>
       <Header 
@@ -84,19 +148,25 @@ export default function Week1Page() {
               </p>
             </div>
 
-            {/* Video Thumbnail Section */}
+            {/* Video Section */}
             <div className="video-section-container">
               <div className="video-thumbnail-wrapper">
+                <video 
+                  ref={video1Ref}
+                  controls 
+                  className="video-thumbnail-img"
+                  poster="/assets/images/w1/Mask group.png"
+                  onTimeUpdate={handleVideo1TimeUpdate}
+                >
+                  <source src="/assets/videos/Session 1 - excercise 1, part 2 final.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
                 <div className="blue-rectangle-below-thumbnail">
                   <div className="blue-rectangle"></div>
                   <div className="bear-on-blue-block">
                     <img src="/assets/images/w1/sing 1.png" alt="Bear singing" className="bear-sign-asset" />
                   </div>
                 </div>
-                <div className="lock-overlay">
-                  <div className="lock-icon"></div>
-                </div>
-                <img src="/assets/images/w1/Mask group.png" alt="Video thumbnail" className="video-thumbnail-img" />
               </div>
             </div>
           </div>
@@ -134,16 +204,31 @@ export default function Week1Page() {
               </p>
             </div>
 
-            {/* Video Thumbnail Section */}
+            {/* Video Section */}
             <div className="video-section-container">
               <div className="video-thumbnail-wrapper locked-state">
+                {!video2Unlocked && (
+                  <>
+                    <div className="lock-overlay">
+                      <div className="lock-icon"></div>
+                    </div>
+                    <p className="lock-message">Complete Exercise 1 to unlock</p>
+                  </>
+                )}
+                <video 
+                  ref={video2Ref}
+                  controls={video2Unlocked}
+                  className="video-thumbnail-img locked"
+                  poster="/assets/images/w1/Mask group-1.png"
+                  style={{ filter: video2Unlocked ? 'none' : 'blur(4px) brightness(0.5)' }}
+                  onTimeUpdate={handleVideo2TimeUpdate}
+                >
+                  <source src="/assets/videos/Session 1 - excercise 2 final.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
                 <div className="blue-rectangle-top-right">
                   <div className="blue-rectangle"></div>
                 </div>
-                <div className="lock-overlay">
-                  <div className="lock-icon"></div>
-                </div>
-                <img src="/assets/images/w1/Mask group-1.png" alt="Video thumbnail" className="video-thumbnail-img locked" />
               </div>
             </div>
           </div>
