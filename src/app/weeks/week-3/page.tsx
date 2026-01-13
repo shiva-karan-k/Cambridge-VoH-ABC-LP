@@ -10,10 +10,12 @@ export default function Week3Page() {
   const [video1Completed, setVideo1Completed] = useState(false);
   const [video2Unlocked, setVideo2Unlocked] = useState(false);
   const [week3Unlocked, setWeek3Unlocked] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const video1Ref = useRef<HTMLVideoElement>(null);
   const video2Ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    setIsClient(true);
     // Check if week 2 is completed
     const week2Completed = localStorage.getItem('week2-video-completed') === 'true';
     const v1Completed = localStorage.getItem('week3-video1-completed') === 'true';
@@ -52,7 +54,7 @@ export default function Week3Page() {
 
   return (
     <div className="week-3-page">
-      <style jsx global>{`
+      <style dangerouslySetInnerHTML={{__html: `
         /* Bear size fix - scaled down 2.5x */
         .bear-sign-asset {
           width: clamp(80px, 10vw, 140px) !important;
@@ -67,8 +69,6 @@ export default function Week3Page() {
             max-width: 100px !important;
           }
         }
-      `}</style>
-      <style jsx>{`
         .lock-message {
           color: #fff;
           font-size: 16px;
@@ -80,7 +80,7 @@ export default function Week3Page() {
           transform: translateX(-50%);
           width: 100%;
         }
-      `}</style>
+      `}} />
       <Header 
         onNavigate={scrollToSection} 
         onOpenModal={(modal) => setActiveModal(modal)} 

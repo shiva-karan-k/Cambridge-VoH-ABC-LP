@@ -37,7 +37,7 @@ export default function ProgressIndicator({ totalVideos, className = '' }: Progr
     return (
       <div className={`progress-indicator loading ${className}`}>
         <div className="progress-skeleton"></div>
-        <style jsx>{`
+        <style dangerouslySetInnerHTML={{__html: `
           .progress-indicator.loading {
             padding: 16px;
           }
@@ -52,7 +52,7 @@ export default function ProgressIndicator({ totalVideos, className = '' }: Progr
             0% { background-position: 200% 0; }
             100% { background-position: -200% 0; }
           }
-        `}</style>
+        `}} />
       </div>
     )
   }
@@ -68,7 +68,7 @@ export default function ProgressIndicator({ totalVideos, className = '' }: Progr
       <div className="progress-bar-container">
         <div className="progress-bar" style={{ width: `${progressPercentage}%` }}></div>
       </div>
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .progress-indicator {
           background: #f8f9fa;
           border-radius: 12px;
@@ -105,7 +105,7 @@ export default function ProgressIndicator({ totalVideos, className = '' }: Progr
           border-radius: 6px;
           transition: width 0.3s ease;
         }
-      `}</style>
+      `}} />
     </div>
   )
 }

@@ -10,10 +10,14 @@ export default function Week1Page() {
   const [video1Completed, setVideo1Completed] = useState(false);
   const [video2Unlocked, setVideo2Unlocked] = useState(false);
   const [video2Completed, setVideo2Completed] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const video1Ref = useRef<HTMLVideoElement>(null);
   const video2Ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    // Mark that we're on the client
+    setIsClient(true);
+    
     // Check if videos were previously completed
     const v1Completed = localStorage.getItem('week1-video1-completed') === 'true';
     const v2Completed = localStorage.getItem('week1-video2-completed') === 'true';
@@ -67,7 +71,7 @@ export default function Week1Page() {
 
   return (
     <div className="week-1-page">
-      <style jsx global>{`
+      <style dangerouslySetInnerHTML={{__html: `
         /* Bear size fix v2 - scaled down 2.5x */
         .bear-sign-asset {
           width: clamp(80px, 10vw, 140px) !important;
@@ -82,8 +86,6 @@ export default function Week1Page() {
             max-width: 100px !important;
           }
         }
-      `}</style>
-      <style jsx>{`
         .lock-message {
           color: #fff;
           font-size: 16px;
@@ -95,7 +97,7 @@ export default function Week1Page() {
           transform: translateX(-50%);
           width: 100%;
         }
-      `}</style>
+      `}} />
       <Header 
         onNavigate={scrollToSection} 
         onOpenModal={(modal) => setActiveModal(modal)} 
@@ -156,6 +158,8 @@ export default function Week1Page() {
                   controls 
                   className="video-thumbnail-img"
                   poster="/assets/images/w1/Mask group.png"
+                  preload="metadata"
+                  playsInline
                   onTimeUpdate={handleVideo1TimeUpdate}
                 >
                   <source src="/assets/videos/Session 1 - excercise 1, part 2 final.mp4" type="video/mp4" />
@@ -220,6 +224,8 @@ export default function Week1Page() {
                   controls={video2Unlocked}
                   className="video-thumbnail-img locked"
                   poster="/assets/images/w1/Mask group-1.png"
+                  preload="metadata"
+                  playsInline
                   style={{ filter: video2Unlocked ? 'none' : 'blur(4px) brightness(0.5)' }}
                   onTimeUpdate={handleVideo2TimeUpdate}
                 >

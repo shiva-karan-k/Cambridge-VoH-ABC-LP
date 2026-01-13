@@ -1,0 +1,2 @@
+# Don't ignore video files
+!public/assets/videos/**

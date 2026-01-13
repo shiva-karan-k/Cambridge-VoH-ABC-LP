@@ -8,9 +8,11 @@ import '../../../app/original-styles.css';
 export default function Week6Page() {
   const [activeModal, setActiveModal] = useState<'contact' | 'donate' | 'enroll' | null>(null);
   const [week6Unlocked, setWeek6Unlocked] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    setIsClient(true);
     const week5Video2Completed = localStorage.getItem('week5-video2-completed') === 'true';
     setWeek6Unlocked(week5Video2Completed);
   }, []);
@@ -23,7 +25,7 @@ export default function Week6Page() {
 
   return (
     <div className="week-6-page">
-      <style jsx global>{`
+      <style dangerouslySetInnerHTML={{__html: `
         /* Bear size fix - scaled down 2.5x */
         .bear-sign-asset {
           width: clamp(80px, 10vw, 140px) !important;
@@ -38,8 +40,6 @@ export default function Week6Page() {
             max-width: 100px !important;
           }
         }
-      `}</style>
-      <style jsx>{`
         .lock-message {
           color: #fff;
           font-size: 16px;
@@ -51,7 +51,7 @@ export default function Week6Page() {
           transform: translateX(-50%);
           width: 100%;
         }
-      `}</style>
+      `}} />
       <Header 
         onNavigate={scrollToSection} 
         onOpenModal={(modal) => setActiveModal(modal)} 

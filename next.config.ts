@@ -9,6 +9,20 @@ const nextConfig: NextConfig = {
     NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: '/',
     NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL: '/',
   },
+  // Ensure static files are properly served
+  async headers() {
+    return [
+      {
+        source: '/assets/videos/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

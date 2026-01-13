@@ -113,7 +113,7 @@ export default function VideoPlayer({
             <p className="lock-message">Complete the previous video to unlock</p>
           </div>
         </div>
-        <style jsx>{`
+        <style dangerouslySetInnerHTML={{__html: `
           .video-player-container.locked {
             position: relative;
             width: 100%;
@@ -160,7 +160,7 @@ export default function VideoPlayer({
             text-align: center;
             margin: 0;
           }
-        `}</style>
+        `}} />
       </div>
     )
   }
@@ -173,6 +173,7 @@ export default function VideoPlayer({
         controls={showControls}
         className="video-player"
         preload="metadata"
+        playsInline
       >
         Your browser does not support the video tag.
       </video>
@@ -196,7 +197,7 @@ export default function VideoPlayer({
           <p>Error loading video progress. Please try again.</p>
         </div>
       )}
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         .video-player-container {
           position: relative;
           width: 100%;
@@ -230,7 +231,7 @@ export default function VideoPlayer({
           border-radius: 4px;
           font-size: 14px;
         }
-      `}</style>
+      `}} />
     </div>
   )
 }
