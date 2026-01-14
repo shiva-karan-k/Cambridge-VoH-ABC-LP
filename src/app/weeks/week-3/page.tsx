@@ -104,29 +104,6 @@ export default function Week3Page() {
           width: 100%;
         }
       `}} />
-          height: auto !important;
-          min-width: 80px !important;
-          max-width: 140px !important;
-        }
-        @media (max-width: 768px) {
-          .bear-sign-asset {
-            width: clamp(60px, 12vw, 100px) !important;
-            min-width: 60px !important;
-            max-width: 100px !important;
-          }
-        }
-        .lock-message {
-          color: #fff;
-          font-size: 16px;
-          text-align: center;
-          margin-top: 16px;
-          position: absolute;
-          bottom: -50px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 100%;
-        }
-      `}} />
       <Header 
         onNavigate={scrollToSection} 
         onOpenModal={(modal) => setActiveModal(modal)} 

@@ -690,7 +690,8 @@ section.sessions .section-title {
     height: 40vh;
     min-height: 300px;
   }
-}
+
+  .bba-logo {
     gap: 0.1rem;
   }
 
