@@ -700,7 +700,7 @@ section.sessions .section-title {
   }
 }
 
-/* Section Styles */
+/* Section Styles - Updated */
 section {
   padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 2vw, 2rem);
 }

@@ -60,7 +60,7 @@ export default function Week3Page() {
   return (
     <div className="week-3-page">
       <style dangerouslySetInnerHTML={{__html: `
-        /* Bear size fix - scaled down 2.5x */
+        /* Bear size fix - scaled down 2.5x - Updated */
         .bear-sign-asset {
           width: clamp(80px, 10vw, 140px) !important;
           height: auto !important;
