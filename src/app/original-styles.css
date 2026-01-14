@@ -623,8 +623,26 @@ section.sessions .section-title {
     align-items: center;
     order: 2;
     transform: translateY(0);
-    padding: 5rem 2rem 3rem 2rem;
+    padding: 2rem 1rem;
     text-align: center;
+  }
+
+  .hero-bba-logo {
+    width: clamp(200px, 60vw, 300px);
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    line-height: 1;
+    margin: 1rem 0;
+  }
+
+  .btn-exercises {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    width: auto;
+    margin-top: 1.5rem;
   }
 
   .hero-right {
@@ -647,7 +665,32 @@ section.sessions .section-title {
 }
 
 @media (max-width: 480px) {
-  .bba-logo {
+  .hero-bba-logo {
+    width: clamp(180px, 70vw, 250px);
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 0.95;
+  }
+
+  .btn-exercises {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .hero-left {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .hero-bear-container {
+    max-width: 250px;
+    height: 40vh;
+    min-height: 300px;
+  }
+}
     gap: 0.1rem;
   }
 

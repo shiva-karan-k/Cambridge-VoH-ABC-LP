@@ -38,6 +38,11 @@ export default function Week2Page() {
     }
   };
 
+  const resetProgress = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
+
   return (
     <div className="week-2-page">
       <style dangerouslySetInnerHTML={{__html: `
@@ -54,6 +59,24 @@ export default function Week2Page() {
             min-width: 60px !important;
             max-width: 100px !important;
           }
+        }
+        .lock-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background: rgba(0, 0, 0, 0.4);
+          z-index: 10;
+          pointer-events: none;
+        }
+        .lock-icon {
+          color: #fff;
+          margin-bottom: 16px;
         }
         .lock-message {
           color: #fff;
@@ -73,6 +96,23 @@ export default function Week2Page() {
       />
 
       <main>
+        {/* Demo Reset Button */}
+        <div style={{ 
+          position: 'fixed', 
+          bottom: '20px', 
+          right: '20px', 
+          zIndex: 9999,
+          background: '#ff4444',
+          color: 'white',
+          padding: '12px 24px',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          fontWeight: 'bold',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+        }} onClick={resetProgress}>
+          🔄 RESET DEMO
+        </div>
+
         <section className="week-hero-banner">
           <div className="week-hero-content">
             <img src="/assets/images/w2.png" alt="Week 2" className="week-hero-image" />
@@ -117,11 +157,16 @@ export default function Week2Page() {
             </div>
 
             <div className="video-section-container">
-              <div className="video-thumbnail-wrapper">
+              <div className={`video-thumbnail-wrapper ${!week2Unlocked ? 'locked-state' : ''}`}>
                 {!week2Unlocked && (
                   <>
                     <div className="lock-overlay">
-                      <div className="lock-icon"></div>
+                      <div className="lock-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                      </div>
                     </div>
                     <p className="lock-message">Complete Week 1 to unlock</p>
                   </>
@@ -130,7 +175,8 @@ export default function Week2Page() {
                   ref={videoRef}
                   controls={week2Unlocked}
                   className="video-thumbnail-img"
-                  poster="/assets/images/w1/Mask group.png"
+                  preload="metadata"
+                  playsInline
                   style={{ filter: week2Unlocked ? 'none' : 'blur(4px) brightness(0.5)' }}
                   onTimeUpdate={handleVideoTimeUpdate}
                 >

@@ -33,6 +33,11 @@ export default function Week4Page() {
     }
   };
 
+  const resetProgress = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
+
   return (
     <div className="week-4-page">
       <style dangerouslySetInnerHTML={{__html: `
@@ -68,6 +73,23 @@ export default function Week4Page() {
       />
 
       <main>
+        {/* Demo Reset Button */}
+        <div style={{ 
+          position: 'fixed', 
+          bottom: '20px', 
+          right: '20px', 
+          zIndex: 9999,
+          background: '#ff4444',
+          color: 'white',
+          padding: '12px 24px',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          fontWeight: 'bold',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+        }} onClick={resetProgress}>
+          🔄 RESET DEMO
+        </div>
+
         <section className="week-hero-banner">
           <div className="week-hero-content">
             <img src="/assets/images/w4.png" alt="Week 4" className="week-hero-image" />

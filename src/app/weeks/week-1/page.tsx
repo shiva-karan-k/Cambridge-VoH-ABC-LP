@@ -86,6 +86,24 @@ export default function Week1Page() {
             max-width: 100px !important;
           }
         }
+        .lock-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background: rgba(0, 0, 0, 0.4);
+          z-index: 10;
+          pointer-events: none;
+        }
+        .lock-icon {
+          color: #fff;
+          margin-bottom: 16px;
+        }
         .lock-message {
           color: #fff;
           font-size: 16px;
@@ -104,6 +122,23 @@ export default function Week1Page() {
       />
 
       <main>
+        {/* Demo Reset Button */}
+        <div style={{ 
+          position: 'fixed', 
+          bottom: '20px', 
+          right: '20px', 
+          zIndex: 9999,
+          background: '#ff4444',
+          color: 'white',
+          padding: '12px 24px',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          fontWeight: 'bold',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+        }} onClick={resetProgress}>
+          🔄 RESET DEMO
+        </div>
+
         {/* Week 1 Hero Banner */}
         <section className="week-hero-banner">
           <div className="week-hero-content">
@@ -157,7 +192,6 @@ export default function Week1Page() {
                   ref={video1Ref}
                   controls 
                   className="video-thumbnail-img"
-                  poster="/assets/images/w1/Mask group.png"
                   preload="metadata"
                   playsInline
                   onTimeUpdate={handleVideo1TimeUpdate}
@@ -210,11 +244,16 @@ export default function Week1Page() {
 
             {/* Video Section */}
             <div className="video-section-container">
-              <div className="video-thumbnail-wrapper locked-state">
+              <div className={`video-thumbnail-wrapper ${!video2Unlocked ? 'locked-state' : ''}`}>
                 {!video2Unlocked && (
                   <>
                     <div className="lock-overlay">
-                      <div className="lock-icon"></div>
+                      <div className="lock-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                      </div>
                     </div>
                     <p className="lock-message">Complete Exercise 1 to unlock</p>
                   </>
@@ -223,7 +262,6 @@ export default function Week1Page() {
                   ref={video2Ref}
                   controls={video2Unlocked}
                   className="video-thumbnail-img locked"
-                  poster="/assets/images/w1/Mask group-1.png"
                   preload="metadata"
                   playsInline
                   style={{ filter: video2Unlocked ? 'none' : 'blur(4px) brightness(0.5)' }}
