@@ -74,24 +74,6 @@ export default function Week3Page() {
             max-width: 100px !important;
           }
         }
-        .lock-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          background: rgba(0, 0, 0, 0.4);
-          z-index: 10;
-          pointer-events: none;
-        }
-        .lock-icon {
-          color: #fff;
-          margin-bottom: 16px;
-        }
         .lock-message {
           color: #fff;
           font-size: 16px;
@@ -180,12 +162,7 @@ export default function Week3Page() {
                 {!week3Unlocked && (
                   <>
                     <div className="lock-overlay">
-                      <div className="lock-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                        </svg>
-                      </div>
+                      <div className="lock-icon"></div>
                     </div>
                     <p className="lock-message">Complete Week 2 to unlock</p>
                   </>
@@ -267,14 +244,9 @@ export default function Week3Page() {
                 {!video2Unlocked && (
                   <>
                     <div className="lock-overlay">
-                      <div className="lock-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                        </svg>
-                      </div>
+                      <div className="lock-icon"></div>
                     </div>
-                    <p className="lock-message">Complete Exercise 8 to unlock</p>
+                    <p className="lock-message">Complete Exercise 6 to unlock</p>
                   </>
                 )}
                 <video 

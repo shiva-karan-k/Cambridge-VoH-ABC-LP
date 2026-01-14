@@ -158,7 +158,7 @@ export default function Week6Page() {
                 }}
               />
               
-              <div className="video-thumbnail-wrapper" style={{position: 'relative', zIndex: 5}}>
+              <div className={`video-thumbnail-wrapper ${!week6Unlocked ? 'locked-state' : ''}`} style={{position: 'relative', zIndex: 5}}>
                 {!week6Unlocked && (
                   <>
                     <div className="lock-overlay">
@@ -171,7 +171,8 @@ export default function Week6Page() {
                   ref={videoRef}
                   controls={week6Unlocked}
                   className="video-thumbnail-img"
-                  poster="/assets/images/w1/Mask group.png"
+                  preload="metadata"
+                  playsInline
                   style={{ filter: week6Unlocked ? 'none' : 'blur(4px) brightness(0.5)' }}
                 >
                   <source src="/assets/videos/Sesssion 6 - excercise 19 final.mp4" type="video/mp4" />

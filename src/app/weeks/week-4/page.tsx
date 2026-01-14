@@ -139,7 +139,7 @@ export default function Week4Page() {
             </div>
 
             <div className="video-section-container">
-              <div className="video-thumbnail-wrapper">
+              <div className={`video-thumbnail-wrapper ${!week4Unlocked ? 'locked-state' : ''}`}>
                 {!week4Unlocked && (
                   <>
                     <div className="lock-overlay">
@@ -152,7 +152,8 @@ export default function Week4Page() {
                   ref={videoRef}
                   controls={week4Unlocked}
                   className="video-thumbnail-img"
-                  poster="/assets/images/w1/Mask group.png"
+                  preload="metadata"
+                  playsInline
                   style={{ filter: week4Unlocked ? 'none' : 'blur(4px) brightness(0.5)' }}
                   onTimeUpdate={handleVideoTimeUpdate}
                 >
@@ -221,13 +222,14 @@ export default function Week4Page() {
 
             <div className="video-section-container">
               <div className="video-thumbnail-wrapper locked-state">
-                <div className="blue-rectangle-top-right">
-                  <div className="blue-rectangle"></div>
-                </div>
                 <div className="lock-overlay">
                   <div className="lock-icon"></div>
                 </div>
+                <p className="lock-message">Complete Exercise 12 to unlock</p>
                 <img src="/assets/images/w1/Mask group-1.png" alt="Video thumbnail" className="video-thumbnail-img locked" />
+                <div className="blue-rectangle-top-right">
+                  <div className="blue-rectangle"></div>
+                </div>
               </div>
             </div>
           </div>

@@ -10,12 +10,18 @@ export default function Home() {
   const [newsletterData, setNewsletterData] = useState({ firstName: '', lastName: '', email: '' });
   const [isNewsletterSubmitting, setIsNewsletterSubmitting] = useState(false);
   const [newsletterMessage, setNewsletterMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+  const [courseUnlocked, setCourseUnlocked] = useState(false);
+  const introVideoRef = useRef<HTMLVideoElement>(null);
   
   const homeRef = useRef<HTMLElement>(null);
   const introRef = useRef<HTMLElement>(null);
   const sessionsRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // Check if course is already unlocked
+    const unlocked = localStorage.getItem('course-unlocked') === 'true';
+    setCourseUnlocked(unlocked);
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;
       
@@ -89,6 +95,23 @@ export default function Home() {
     }
   };
 
+  const handleStartCourse = () => {
+    localStorage.setItem('course-unlocked', 'true');
+    setCourseUnlocked(true);
+    window.location.href = '/weeks/week-1';
+  };
+
+  const handleIntroVideoTimeUpdate = () => {
+    const video = introVideoRef.current;
+    if (video && video.duration) {
+      const progress = (video.currentTime / video.duration) * 100;
+      if (progress >= 90 && !courseUnlocked) {
+        localStorage.setItem('course-unlocked', 'true');
+        setCourseUnlocked(true);
+      }
+    }
+  };
+
   return (
     <>
       <Header 
@@ -112,7 +135,36 @@ export default function Home() {
               <span className="letter-h2">H</span><span className="letter-e4">E</span><span className="letter-r2">R</span>
               <span className="letter-o2">O</span>
             </h1>
-            <button className="btn-exercises" onClick={() => scrollToSection('exercises')}>EXERCISES</button>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              {!courseUnlocked ? (
+                <button 
+                  className="btn-exercises" 
+                  onClick={handleStartCourse}
+                  style={{ background: '#10b981' }}
+                >
+                  🚀 START COURSE
+                </button>
+              ) : (
+                <button 
+                  className="btn-exercises" 
+                  onClick={() => window.location.href = '/weeks/week-1'}
+                  style={{ background: '#10b981' }}
+                >
+                  ✅ GO TO WEEK 1
+                </button>
+              )}
+              <button className="btn-exercises" onClick={() => scrollToSection('exercises')}>EXERCISES</button>
+            </div>
+            {courseUnlocked && (
+              <p style={{ 
+                marginTop: '1rem', 
+                color: '#10b981', 
+                fontWeight: 'bold',
+                fontSize: '1.1rem'
+              }}>
+                🎉 Course Unlocked! Start your breathing adventure!
+              </p>
+            )}
           </div>
           <div className="hero-right">
             <div className="hero-bear-container">
@@ -139,10 +191,12 @@ export default function Home() {
           <div className="introduction-content">
             <div className="video-player-main">
               <video 
+                ref={introVideoRef}
                 controls 
                 poster="/assets/images/Mask group.png"
                 className="intro-video"
                 style={{ width: '100%', maxWidth: '800px', height: 'auto' }}
+                onTimeUpdate={handleIntroVideoTimeUpdate}
               >
                 <source src="/assets/videos/Intro Video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.

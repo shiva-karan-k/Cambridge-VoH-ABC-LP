@@ -60,24 +60,6 @@ export default function Week2Page() {
             max-width: 100px !important;
           }
         }
-        .lock-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          background: rgba(0, 0, 0, 0.4);
-          z-index: 10;
-          pointer-events: none;
-        }
-        .lock-icon {
-          color: #fff;
-          margin-bottom: 16px;
-        }
         .lock-message {
           color: #fff;
           font-size: 16px;
@@ -161,12 +143,7 @@ export default function Week2Page() {
                 {!week2Unlocked && (
                   <>
                     <div className="lock-overlay">
-                      <div className="lock-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                        </svg>
-                      </div>
+                      <div className="lock-icon"></div>
                     </div>
                     <p className="lock-message">Complete Week 1 to unlock</p>
                   </>
@@ -245,13 +222,14 @@ export default function Week2Page() {
 
             <div className="video-section-container">
               <div className="video-thumbnail-wrapper locked-state">
-                <div className="blue-rectangle-top-right">
-                  <div className="blue-rectangle"></div>
-                </div>
                 <div className="lock-overlay">
                   <div className="lock-icon"></div>
                 </div>
+                <p className="lock-message">Complete Exercise 4 to unlock</p>
                 <img src="/assets/images/w1/Mask group-1.png" alt="Video thumbnail" className="video-thumbnail-img locked" />
+                <div className="blue-rectangle-top-right">
+                  <div className="blue-rectangle"></div>
+                </div>
               </div>
             </div>
           </div>

@@ -797,54 +797,6 @@ section {
   }
 }
 
-.layer-58 {
-  position: absolute;
-  bottom: 10%;
-  left: 10%;
-  transform: translate(-150px, 0) rotate(40deg);
-  z-index: 3;
-  width: 49.86%;
-  height: auto;
-  pointer-events: none;
-  animation: waveFloat 4s ease-in-out infinite;
-}
-
-@keyframes waveFloat {
-
-  0%,
-  100% {
-    transform: translate(-150px, 0) rotate(40deg);
-  }
-
-  50% {
-    transform: translate(-150px, -15px) rotate(40deg);
-  }
-}
-
-.layer-59 {
-  position: absolute;
-  top: 0%;
-  left: 90%;
-  transform: translate(-55px, -50%);
-  z-index: 1;
-  width: 33.34%;
-  height: auto;
-  pointer-events: none;
-  animation: waveFloat2 4s ease-in-out infinite;
-}
-
-@keyframes waveFloat2 {
-
-  0%,
-  100% {
-    transform: translate(-55px, -50%);
-  }
-
-  50% {
-    transform: translate(-55px, calc(-50% - 15px));
-  }
-}
-
 .course-description {
   font-family: Geneva, sans-serif;
   font-size: 18px;
@@ -2288,25 +2240,6 @@ section {
     width: 90%;
   }
 
-  .layer-58,
-  .layer-59 {
-    display: block;
-  }
-
-  .layer-58 {
-    width: 60%;
-    bottom: 5%;
-    left: 5%;
-    transform: translate(0, 0) rotate(40deg);
-  }
-
-  .layer-59 {
-    width: 40%;
-    top: 5%;
-    left: 85%;
-    transform: translate(0, -50%);
-  }
-
   .site-visitors-above-footer {
     padding: 1rem;
     gap: 0.5rem;
@@ -3036,19 +2969,13 @@ section {
   transform: translate(-50%, -50%);
   z-index: 10;
   display: none;
-  /* Hidden by default */
-  width: 80px;
-  height: 80px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid #fff;
+  pointer-events: none;
 }
 
 .video-thumbnail-wrapper.locked-state .lock-overlay {
   display: flex;
-  /* Show when parent has locked-state class */
+  align-items: center;
+  justify-content: center;
 }
 
 .video-thumbnail-wrapper.locked-state .video-thumbnail-img {
@@ -3056,9 +2983,9 @@ section {
 }
 
 .lock-icon {
-  width: 40px;
-  height: 40px;
-  background-image: url('/assets/images/w1/lock icon.png');
+  width: 60px;
+  height: 60px;
+  background-image: url('/assets/images/lock icon.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;

@@ -7,6 +7,7 @@ import '../../../app/original-styles.css';
 
 export default function Week1Page() {
   const [activeModal, setActiveModal] = useState<'contact' | 'donate' | 'enroll' | null>(null);
+  const [week1Unlocked, setWeek1Unlocked] = useState(false);
   const [video1Completed, setVideo1Completed] = useState(false);
   const [video2Unlocked, setVideo2Unlocked] = useState(false);
   const [video2Completed, setVideo2Completed] = useState(false);
@@ -15,8 +16,11 @@ export default function Week1Page() {
   const video2Ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Mark that we're on the client
     setIsClient(true);
+    
+    // Check if course has been unlocked
+    const courseUnlocked = localStorage.getItem('course-unlocked') === 'true';
+    setWeek1Unlocked(courseUnlocked);
     
     // Check if videos were previously completed
     const v1Completed = localStorage.getItem('week1-video1-completed') === 'true';
@@ -56,11 +60,11 @@ export default function Week1Page() {
   };
 
   const resetProgress = () => {
-    localStorage.removeItem('week1-video1-completed');
-    localStorage.removeItem('week1-video2-completed');
+    localStorage.clear();
     setVideo1Completed(false);
     setVideo2Completed(false);
     setVideo2Unlocked(false);
+    setWeek1Unlocked(false); // Lock everything on reset
     if (video1Ref.current) {
       video1Ref.current.currentTime = 0;
     }
@@ -85,24 +89,6 @@ export default function Week1Page() {
             min-width: 60px !important;
             max-width: 100px !important;
           }
-        }
-        .lock-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          background: rgba(0, 0, 0, 0.4);
-          z-index: 10;
-          pointer-events: none;
-        }
-        .lock-icon {
-          color: #fff;
-          margin-bottom: 16px;
         }
         .lock-message {
           color: #fff;
@@ -187,13 +173,22 @@ export default function Week1Page() {
 
             {/* Video Section */}
             <div className="video-section-container">
-              <div className="video-thumbnail-wrapper">
+              <div className={`video-thumbnail-wrapper ${!week1Unlocked ? 'locked-state' : ''}`}>
+                {!week1Unlocked && (
+                  <>
+                    <div className="lock-overlay">
+                      <div className="lock-icon"></div>
+                    </div>
+                    <p className="lock-message">Go to Home page to unlock!</p>
+                  </>
+                )}
                 <video 
                   ref={video1Ref}
-                  controls 
+                  controls={week1Unlocked}
                   className="video-thumbnail-img"
                   preload="metadata"
                   playsInline
+                  style={{ filter: week1Unlocked ? 'none' : 'blur(4px) brightness(0.5)' }}
                   onTimeUpdate={handleVideo1TimeUpdate}
                 >
                   <source src="/assets/videos/Session 1 - excercise 1, part 2 final.mp4" type="video/mp4" />
@@ -248,12 +243,7 @@ export default function Week1Page() {
                 {!video2Unlocked && (
                   <>
                     <div className="lock-overlay">
-                      <div className="lock-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                        </svg>
-                      </div>
+                      <div className="lock-icon"></div>
                     </div>
                     <p className="lock-message">Complete Exercise 1 to unlock</p>
                   </>

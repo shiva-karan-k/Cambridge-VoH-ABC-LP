@@ -157,7 +157,7 @@ export default function Week5Page() {
             </div>
 
             <div className="video-section-container">
-              <div className="video-thumbnail-wrapper">
+              <div className={`video-thumbnail-wrapper ${!week5Unlocked ? 'locked-state' : ''}`}>
                 {!week5Unlocked && (
                   <>
                     <div className="lock-overlay">
@@ -170,7 +170,8 @@ export default function Week5Page() {
                   ref={video1Ref}
                   controls={week5Unlocked}
                   className="video-thumbnail-img"
-                  poster="/assets/images/w1/Mask group.png"
+                  preload="metadata"
+                  playsInline
                   style={{ filter: week5Unlocked ? 'none' : 'blur(4px) brightness(0.5)' }}
                   onTimeUpdate={handleVideo1TimeUpdate}
                 >
@@ -238,20 +239,21 @@ export default function Week5Page() {
             </div>
 
             <div className="video-section-container">
-              <div className="video-thumbnail-wrapper locked-state">
+              <div className={`video-thumbnail-wrapper ${!video2Unlocked ? 'locked-state' : ''}`}>
                 {!video2Unlocked && (
                   <>
                     <div className="lock-overlay">
                       <div className="lock-icon"></div>
                     </div>
-                    <p className="lock-message">Complete Exercise 15 to unlock</p>
+                    <p className="lock-message">Complete Exercise 10 to unlock</p>
                   </>
                 )}
                 <video 
                   ref={video2Ref}
                   controls={video2Unlocked}
-                  className="video-thumbnail-img locked"
-                  poster="/assets/images/w1/Mask group-1.png"
+                  className="video-thumbnail-img"
+                  preload="metadata"
+                  playsInline
                   style={{ filter: video2Unlocked ? 'none' : 'blur(4px) brightness(0.5)' }}
                   onTimeUpdate={handleVideo2TimeUpdate}
                 >
