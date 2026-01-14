@@ -234,7 +234,7 @@ export default function Week3Page() {
                   style={{ filter: video2Unlocked ? 'none' : 'blur(4px) brightness(0.5)' }}
                   onTimeUpdate={handleVideo2TimeUpdate}
                 >
-                  <source src="/assets/videos/session 3 - excercise 9 final.mp4" type="video/mp4" />
+                  <source src="/assets/videos/session-3-excercise-9-final.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
                 <div className="blue-rectangle-top-right">
